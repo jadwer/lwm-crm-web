@@ -3,7 +3,7 @@ import "../styles/main.css";
 import BootStrapClient from '@/components/BootStrapClient';
 
 export const metadata: Metadata = {
-  title: "Me deben y les debo: La app de las cuentas claras.",
+  title: "Labor Wasser México.",
   description: "By AtomoSoluciones.com",
 };
 
