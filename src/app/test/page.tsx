@@ -1,9 +1,9 @@
-import Template from './pagina1.html'
+import TestTemplate from './test.html';
 
 function testPage () {
     const text = "some text";
   return (
-    <Template text={text}/>
+    <TestTemplate text={text}/>
   )
 }
 

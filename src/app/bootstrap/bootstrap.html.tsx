@@ -1,4 +1,4 @@
-const HomePage = () => (
+const BootstrapTemplate = () => (
 <main>
 <div className="accordion" id="accordionExample">
   <div className="accordion-item">
@@ -41,4 +41,4 @@ const HomePage = () => (
 </main>
   
 
-); export default HomePage;
+); export default BootstrapTemplate;

@@ -1,5 +1,6 @@
-const Template = (props: any) => (
-  <main>
+const TestTemplate = (props: any) => (
+
+<main>
     <div className="container py-4 px-3 mx-auto">
       <header className="d-flex justify-content-between align-items-md-center pb-3 mb-5 border-bottom">
         <h1 className="h4">
@@ -138,5 +139,7 @@ const Template = (props: any) => (
       </p>
     </div>
   </main>
-);
-export default Template;
+
+
+
+);export default TestTemplate;
