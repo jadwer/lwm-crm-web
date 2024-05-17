@@ -4,8 +4,33 @@ const TopNav = () => {
   return (
     <ul className="nav">
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="#">
-          Active
+        <a className="nav-link active" aria-current="page" href="/">
+          Home
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          Reactivos
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          Medios de cultivo
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          Cristalería
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          Análisis de agua
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">
+          Proceso
         </a>
       </li>
       <li className="nav-item dropdown">
@@ -15,22 +40,32 @@ const TopNav = () => {
           href="#"
           role="button"
           aria-expanded="false">
-          Dropdown
+          Recursos +
         </a>
         <ul className="dropdown-menu">
           <li>
-            <a className="dropdown-item" href="#">
-              Action
+            <a className="dropdown-item" href="laboratorios">
+              Laboratorios
             </a>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
-              Another action
+            <a className="dropdown-item" href="productos">
+              Productos
             </a>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
-              Something else here
+            <a className="dropdown-item" href="reactivos">
+              Reactivos
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="producto">
+              Detalle del producto
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="certificados">
+              Certificados
             </a>
           </li>
           <li>
@@ -38,19 +73,14 @@ const TopNav = () => {
           </li>
           <li>
             <a className="dropdown-item" href="#">
-              Separated link
+              Salir
             </a>
           </li>
         </ul>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">
-          Link
-        </a>
-      </li>
-      <li className="nav-item">
         <a className="nav-link disabled" aria-disabled="true">
-          Disabled
+          Nosotros
         </a>
       </li>
     </ul>

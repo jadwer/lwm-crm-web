@@ -6,7 +6,7 @@ const Footer = () => {
       <div> El footer</div>
     <hr className="mt-5 mb-4" />
     <p className="text-muted">
-      Designed and developed by <a href="atomosoluciones.com" target='_blank'>AtomoSoluciones.com</a>
+      Designed and developed by <a href="http://atomosoluciones.com" target='_blank'>AtomoSoluciones.com</a>
     </p>
     </footer>
 )

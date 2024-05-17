@@ -19,14 +19,6 @@ const HomePage = () => (
         </p>
       </div>
       
-      <button
-        type="button"
-        className="btn btn-primary me-3"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#estimate">
-        <span>Cotizar</span>
-      </button>
-
     </div>
   </main>
 
