@@ -1,6 +1,8 @@
+import ProductsTemplate from "../products/products.html"
+
 const DashboardPage = () => {
   return (
-    <div>DashboardPage</div>
+    <ProductsTemplate />
   )
 }
 
