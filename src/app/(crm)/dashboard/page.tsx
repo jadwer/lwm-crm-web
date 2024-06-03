@@ -1,4 +1,4 @@
-import ProductsTemplate from "../products/products.html"
+import ProductsTemplate from "./products/products.html"
 
 const DashboardPage = () => {
   return (
