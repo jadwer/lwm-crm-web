@@ -1,9 +1,9 @@
-import React from 'react'
+import LoginTemplate from "./login.html";
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <LoginTemplate />
   )
 }
 
-export default LoginPage
+export default LoginPage;
