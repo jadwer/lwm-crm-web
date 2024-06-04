@@ -9,8 +9,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
         <div className="d-flex align-items-stretch">
           <SideNav />
           <div className="container">
@@ -18,8 +16,5 @@ export default function RootLayout({
           {children}
           </div>
         </div>
-        <BootStrapClient />
-      </body>
-    </html>
   );
 }
