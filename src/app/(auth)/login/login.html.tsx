@@ -1,8 +1,9 @@
 
 import Link from "next/link";
 import { Button } from "react-bootstrap";
-
 const LoginTemplate = (props: any) => (
+
+
   <main>
     <form onSubmit={(e)=>{props.functions.submitForm(e)}}>
       {/* Email Address */}
@@ -62,5 +63,7 @@ const LoginTemplate = (props: any) => (
       </div>
     </form>{" "}
   </main>
-);
-export default LoginTemplate;
+
+
+
+); export default LoginTemplate;
