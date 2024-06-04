@@ -1,5 +1,4 @@
-import { Image } from "react-bootstrap";
-
+import LoginLinks from '@/app/(auth)/components/LoginLinks'
 const HeaderTemplate = () => { return (
 
 <header>
@@ -12,7 +11,7 @@ const HeaderTemplate = () => { return (
           <span>Labor Wasser Mexico </span>
         </a>
       </h1>
-      <div>contacto</div>
+      <LoginLinks />
 
       <button
         type="button"

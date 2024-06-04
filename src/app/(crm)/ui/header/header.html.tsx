@@ -1,6 +1,6 @@
-import { Image } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-const HeaderTemplate = () => { return (
+const HeaderTemplate = (props: any) => { return (
 
 <header>
     <div className="d-flex justify-content-around align-items-md-center pb-3 border-bottom w-100">
@@ -12,7 +12,7 @@ const HeaderTemplate = () => { return (
           <span>Labor Wasser Mexico </span>
         </a>
       </h1>
-      <div>Session</div>
+      <Button onClick={() => { props.functions.logout()} }>Salir</Button>
 
     </div>
   </header>
