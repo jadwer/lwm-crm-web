@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Button } from "react-bootstrap";
 const LoginTemplate = (props: any) => (

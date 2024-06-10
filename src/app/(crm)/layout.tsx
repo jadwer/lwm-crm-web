@@ -1,5 +1,3 @@
-import "@/styles/main.css";
-import BootStrapClient from "@/components/BootStrapClient";
 import Header from "./ui/header/header";
 import SideNav from "./ui/sideNav/nav.html";
 

@@ -1,6 +1,3 @@
-import type { Metadata } from "next";
-import "@/styles/main.css";
-import BootStrapClient from '@/components/BootStrapClient';
 import Header from "./ui/header/header";
 import Footer from "./ui/footer/footer.html";
 import Contact from "./ui/contact/contact.html";

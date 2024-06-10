@@ -22,10 +22,10 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [shouldRemember, setShouldRemember] = useState(false);
   const [errors, setErrors] = useState([]);
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState<string | null>(null);
 
   useEffect(() => {
-    if (reset?.length > 0 && errors.length === 0) {
+    if (reset && reset?.length > 0 && errors.length === 0) {
       setStatus(atob(reset));
     } else {
       setStatus(null);
