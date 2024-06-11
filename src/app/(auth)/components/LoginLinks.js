@@ -9,11 +9,11 @@ const LoginLinks = () => {
     return (
         <div id="LoginLinks">
             {user ? (
-                <Link
-                    href="/dashboard"
-                >
+                <>
+                <p>{user.name}</p>
+                <Link href="/dashboard">
                     Dashboard
-                </Link>
+                </Link></>
             ) : (
                 <>
                     <Link
