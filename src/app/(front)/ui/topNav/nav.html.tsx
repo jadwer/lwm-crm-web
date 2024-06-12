@@ -2,88 +2,45 @@ import React from "react";
 
 const TopNav = () => {
   return (
-    <ul className="nav">
-      <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="/">
-          Inicio
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">
-          Reactivos
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">
-          Medios de cultivo
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">
-          Cristalería
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">
-          Análisis de agua
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">
-          Proceso
-        </a>
-      </li>
-      <li className="nav-item dropdown">
-        <a
-          className="nav-link dropdown-toggle"
-          data-bs-toggle="dropdown"
-          href="#"
-          role="button"
-          aria-expanded="false">
-          Recursos +
-        </a>
-        <ul className="dropdown-menu">
-          <li>
-            <a className="dropdown-item" href="laboratorios">
-              Laboratorios
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="productos">
-              Productos
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="reactivos">
-              Reactivos
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="producto">
-              Detalle del producto
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="certificados">
-              Certificados
-            </a>
-          </li>
-          <li>
-            <hr className="dropdown-divider" />
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Salir
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link disabled" aria-disabled="true">
-          Nosotros
-        </a>
-      </li>
-    </ul>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="reactivos">Reactivos</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="reactivos">Medios de cultivo</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="reactivos">Cristalería</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="reactivos">Analisis de agua</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="reactivos">Proceso</a>
+            </li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recursos
+              </a>
+              <ul className="dropdown-menu">
+                <li><a className="dropdown-item" href="catalogos">Catálogos</a></li>
+                <li><a className="dropdown-item" href="certificados">Certificados</a></li>
+                <li><a className="dropdown-item" href="precios">Lista de precios</a></li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">Nosotros</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 

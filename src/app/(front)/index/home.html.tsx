@@ -46,29 +46,29 @@ const HomePage = () => (
         <div className="col-12">
           <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
           <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="#">VER DETALLE</a>
+          <a href="producto">VER DETALLE</a>
         </div>
         <hr></hr>
         <div className="col-12">
           <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
           <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="#">VER DETALLE</a>
+          <a href="producto">VER DETALLE</a>
         </div>
         <hr></hr>
         <div className="col-12">
           <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
           <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="#">VER DETALLE</a>
+          <a href="producto">VER DETALLE</a>
         </div>
         <hr></hr>
         <div className="col-12">
           <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
           <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="#">VER DETALLE</a>
+          <a href="producto">VER DETALLE</a>
         </div>
         <hr></hr>
         <div className="col-12 text-center btn-space">
-          <button type="button" className="btn btn-primary">Ver todos los productos</button>
+          <a className="btn btn-primary" href="productos" role="button">Ver todos los productos</a>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@ const HomePage = () => (
         <div className="col-12 col-md-7 text-center right">
           <h1>¿NECESITAS UNA COTIZACIÓN?</h1>
           <h6>Ponte en contacto con nosotros y uno de nuestros representantes se pondrán en contacto contigo.</h6>
-          <button type="button" className="btn btn-primary">Ver todos los productos</button>
+          <button type="button" className="btn btn-primary">Cotiza ahora</button>
         </div>
       </div>
     </div>

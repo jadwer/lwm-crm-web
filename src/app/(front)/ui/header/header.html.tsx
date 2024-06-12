@@ -1,27 +1,22 @@
 import LoginLinks from '@/app/(auth)/components/LoginLinks'
-const HeaderTemplate = () => { return (
+const HeaderTemplate = () => {
+  return (
 
-<header>
-    <div className="d-flex justify-content-around align-items-md-center pb-3 border-bottom">
-      <h1 className="h4">
-        <a
-          href="/"
-          className="d-flex align-items-center text-dark text-decoration-none">
-          <img alt="" src="#" />
-          <span>Labor Wasser Mexico </span>
-        </a>
-      </h1>
-      <LoginLinks />
+    <header>
+      <div className="container-fluid d-flex justify-content-between align-items-md-center py-3 border-bottom">
+        <img className="img-fluid logo" alt="" src="/../images/labor-wasser-mexico-logo2.webp" />
+        <LoginLinks />
 
-      <button
-        type="button"
-        className="btn btn-primary me-3"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#navMenu">
-        <i className="bi bi-list"></i>
-      </button>
-    </div>
-  </header>
+        <button
+          type="button"
+          className="btn btn-primary me-3"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#navMenu">
+          <i className="bi bi-list"></i>
+        </button>
+      </div>
+    </header>
 
 
-)}; export default HeaderTemplate
+  )
+}; export default HeaderTemplate

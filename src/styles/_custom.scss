@@ -77,9 +77,9 @@ h1, .h1 {
         padding: 10px 0 0 0;
         background-color: #012A94;
         color: white !important;
-    }
-    a {
-        color: white !important;
+        a {
+            color: white !important;
+        }
     }
     &.hero-sections {
         height: 40vh;
@@ -93,6 +93,50 @@ h1, .h1 {
             color: white;
         }
     }
+    &.products-page {
+        margin-top: 3em;
+        .form-check {
+            margin-bottom: 1em;
+        }
+        h5 {
+            text-transform: uppercase;
+            color: #012A94;
+            font-weight: 600;
+            margin-bottom: 1em;
+        }
+        .products-list {
+            margin-right: 3em;
+            h1 {
+                color: #012A94;
+                font-size: 3em;
+                margin-top: 1em;
+            }
+            h6 {
+                font-weight: 600;
+                color: #012A94;
+            }
+            p {
+                margin-bottom: .35rem;
+                span {
+                    &.labels {
+                        font-size: .9em;
+                    }
+                }
+            }
+            a {
+                color: #8AC905 !important;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            a:hover {
+                color: #0094FF;
+            }
+            .btn-space {
+                margin: 3em 0 5em 0;
+            }
+        }
+    }
+
 }
 .container {
     &.numbers {
@@ -133,6 +177,11 @@ h1, .h1 {
             }
             .btn-space {
                 margin: 3em 0 5em 0;
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
             }
         }
     }
@@ -171,6 +220,32 @@ h1, .h1 {
                 }
             }
         }
+    }
+    &.product-detail {
+        .text-detail {
+            padding: 2em;
+            h5 {
+                color: #012A94 !important;
+                font-weight: 600;
+            }
+        }
+    }
+    &.product-more-info {
+        margin: 3em auto;
+        h4 {
+            text-transform: uppercase;
+            color: #012A94;
+            font-weight: 600;
+        }
+        p {
+            text-align: justify;
+        }
+    }
+}
+
+img {
+    &.logo {
+        width: 25%;
     }
 }
 

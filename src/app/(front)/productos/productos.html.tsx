@@ -17,7 +17,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-reactivos.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Reactivos</h3>
-            <a href="#">VER PRODUCTOS</a>
+            <a href="reactivos">VER PRODUCTOS</a>
           </div>
         </div>
         <div className="col text-center">
@@ -25,7 +25,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-cultivo.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Medios de cultivo</h3>
-            <a href="#">VER PRODUCTOS</a>
+            <a href="reactivos">VER PRODUCTOS</a>
           </div>
         </div>
         <div className="col text-center">
@@ -33,7 +33,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-cristalería.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Cristalería</h3>
-            <a href="#">Cristalería</a>
+            <a href="reactivos">Cristalería</a>
           </div>
         </div>
         <div className="col text-center">
@@ -41,7 +41,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-agua.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Analisis de agua</h3>
-            <a href="#">VER PRODUCTOS</a>
+            <a href="reactivos">VER PRODUCTOS</a>
           </div>
         </div>
         <div className="col text-center">
@@ -49,7 +49,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-procesos.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Procesos</h3>
-            <a href="#">VER PRODUCTOS</a>
+            <a href="reactivos">VER PRODUCTOS</a>
           </div>
         </div>
       </div>
