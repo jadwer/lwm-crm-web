@@ -1,15 +1,14 @@
 const ProductosTemplate = () => (
 
-<main>
-    <div className="container py-4 px-3 mx-auto">
-      <h1>Productos</h1>
-      <div className="col-lg-8 px-0">
-        <p className="fs-4">
-          Mosaico de categorías
-        </p>
+  <main>
+    <div className="container-fluid hero-sections mx-auto">
+      <div className="container">
+      <div className="row">
+        <div className="col">
+          <h1>PRODUCTOS</h1>
+        </div>
       </div>
-      
-
+      </div>
     </div>
   </main>
 
