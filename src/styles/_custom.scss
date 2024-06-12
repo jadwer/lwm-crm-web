@@ -82,11 +82,16 @@ h1, .h1 {
         color: white !important;
     }
     &.hero-sections {
-        height: 35vh;
-        background-image: url("/../images/labor-wasser-mexico-hero-1.webp");
+        height: 40vh;
+        background-image: url("/../images/labor-wasser-mexico-hero-5.webp");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        background-attachment: fixed;
+        h1  {
+            margin-top: 2.25em;
+            color: white;
+        }
     }
 }
 .container {
@@ -136,6 +141,35 @@ h1, .h1 {
             color: #012A94;
             font-size: 3em;
             margin-top: 1em;
+        }
+    }
+    &.products-cards {
+        margin-top: 4em;
+        margin-bottom: 4em;
+        h2 {
+            font-weight: 600;
+            color: #012A94;
+            text-transform: uppercase;
+            margin-bottom: 2em;
+        }
+        .card {
+            padding: 3em !important;
+            h3 {
+                font-weight: 600;
+                color: #012A94;
+                margin: .85em auto;
+                text-transform: uppercase;
+            }
+            a {
+                color: #8AC905;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            img {
+                .card-img-top {
+                    width: 60%;
+                }
+            }
         }
     }
 }

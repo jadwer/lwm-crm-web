@@ -3,11 +3,55 @@ const ProductosTemplate = () => (
   <main>
     <div className="container-fluid hero-sections mx-auto">
       <div className="container">
-      <div className="row">
-        <div className="col">
-          <h1>PRODUCTOS</h1>
+        <div className="row">
+          <div className="col">
+            <h1>PRODUCTOS</h1>
+          </div>
         </div>
       </div>
+    </div>
+    <div className="container products-cards">
+      <div className="row row-cols-2 row-cols-md-3 g-4">
+        <div className="col text-center">
+          <div className="card mx-auto d-block">
+            <img src="/../images/iconos/labor-wasser-mexico-reactivos.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+            <h3>Reactivos</h3>
+            <a href="#">VER PRODUCTOS</a>
+          </div>
+        </div>
+        <div className="col text-center">
+          <div className="card mx-auto d-block">
+            <img src="/../images/iconos/labor-wasser-mexico-cultivo.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+            <h3>Medios de cultivo</h3>
+            <a href="#">VER PRODUCTOS</a>
+          </div>
+        </div>
+        <div className="col text-center">
+          <div className="card mx-auto d-block">
+            <img src="/../images/iconos/labor-wasser-mexico-cristalería.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+            <h3>Cristalería</h3>
+            <a href="#">Cristalería</a>
+          </div>
+        </div>
+        <div className="col text-center">
+          <div className="card mx-auto d-block">
+            <img src="/../images/iconos/labor-wasser-mexico-agua.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+            <h3>Analisis de agua</h3>
+            <a href="#">VER PRODUCTOS</a>
+          </div>
+        </div>
+        <div className="col text-center">
+          <div className="card mx-auto d-block">
+            <img src="/../images/iconos/labor-wasser-mexico-procesos.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+            <h3>Procesos</h3>
+            <a href="#">VER PRODUCTOS</a>
+          </div>
+        </div>
       </div>
     </div>
   </main>
