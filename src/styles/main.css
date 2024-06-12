@@ -4,6 +4,7 @@
  * Copyright 2011-2024 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -20067,6 +20068,186 @@ textarea.form-control-lg {
 
 .bi-vignette::before {
   content: "賈";
+}
+
+body {
+  font-family: "Anek Bangla", sans-serif;
+}
+
+h1, .h1 {
+  font-weight: 800;
+}
+
+.container-fluid.hero-1, .hero-1.container-sm, .hero-1.container-md, .hero-1.container-lg, .hero-1.container-xl, .hero-1.container-xxl {
+  height: 100vh;
+  background-image: url("/../images/labor-wasser-mexico-hero-1.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-fluid.hero-1 .hero-left, .hero-1.container-sm .hero-left, .hero-1.container-md .hero-left, .hero-1.container-lg .hero-left, .hero-1.container-xl .hero-left, .hero-1.container-xxl .hero-left {
+  background-color: rgba(0, 148, 255, 0.8);
+  height: 100vh;
+  padding: 5%;
+}
+.container-fluid.hero-1 .hero-left h1, .hero-1.container-sm .hero-left h1, .hero-1.container-md .hero-left h1, .hero-1.container-lg .hero-left h1, .hero-1.container-xl .hero-left h1, .hero-1.container-xxl .hero-left h1, .container-fluid.hero-1 .hero-left .h1, .hero-1.container-sm .hero-left .h1, .hero-1.container-md .hero-left .h1, .hero-1.container-lg .hero-left .h1, .hero-1.container-xl .hero-left .h1, .hero-1.container-xxl .hero-left .h1 {
+  font-size: 3.8em;
+  line-height: 1em;
+  color: white;
+}
+.container-fluid.hero-1 .hero-left .highlight-hero, .hero-1.container-sm .hero-left .highlight-hero, .hero-1.container-md .hero-left .highlight-hero, .hero-1.container-lg .hero-left .highlight-hero, .hero-1.container-xl .hero-left .highlight-hero, .hero-1.container-xxl .hero-left .highlight-hero {
+  background-color: #012A94;
+  padding: 1em;
+  color: white;
+}
+.container-fluid.about, .about.container-sm, .about.container-md, .about.container-lg, .about.container-xl, .about.container-xxl {
+  background-color: #F4F4F4;
+  height: 100vh;
+  margin-top: -8%;
+}
+.container-fluid.about .left-info, .about.container-sm .left-info, .about.container-md .left-info, .about.container-lg .left-info, .about.container-xl .left-info, .about.container-xxl .left-info {
+  padding: 3%;
+}
+.container-fluid.about .hero-2, .about.container-sm .hero-2, .about.container-md .hero-2, .about.container-lg .hero-2, .about.container-xl .hero-2, .about.container-xxl .hero-2 {
+  height: 100vh;
+  background-image: url("/../images/labor-wasser-mexico-hero-2.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-fluid.cta, .cta.container-sm, .cta.container-md, .cta.container-lg, .cta.container-xl, .cta.container-xxl {
+  height: 70vh;
+}
+.container-fluid.cta .left, .cta.container-sm .left, .cta.container-md .left, .cta.container-lg .left, .cta.container-xl .left, .cta.container-xxl .left {
+  height: 70vh;
+  background-image: url("/../images/labor-wasser-mexico-hero-4.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-right: #8AC905 solid 10px;
+}
+.container-fluid.cta .right, .cta.container-sm .right, .cta.container-md .right, .cta.container-lg .right, .cta.container-xl .right, .cta.container-xxl .right {
+  height: 70vh;
+  background-image: url("/../images/labor-wasser-mexico-hero-3.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding-top: 10%;
+}
+.container-fluid .footer, .container-sm .footer, .container-md .footer, .container-lg .footer, .container-xl .footer, .container-xxl .footer {
+  margin-top: 3.5em;
+  height: 55vh;
+  background-color: #eeeeee;
+}
+.container-fluid .text-muted, .container-sm .text-muted, .container-md .text-muted, .container-lg .text-muted, .container-xl .text-muted, .container-xxl .text-muted {
+  padding: 10px 0 0 0;
+  background-color: #012A94;
+  color: white !important;
+}
+.container-fluid a, .container-sm a, .container-md a, .container-lg a, .container-xl a, .container-xxl a {
+  color: white !important;
+}
+.container-fluid.hero-sections, .hero-sections.container-sm, .hero-sections.container-md, .hero-sections.container-lg, .hero-sections.container-xl, .hero-sections.container-xxl {
+  height: 35vh;
+  background-image: url("/../images/labor-wasser-mexico-hero-1.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container.numbers {
+  background-color: #012A94;
+  border-radius: 20px;
+  margin-top: -8%;
+  position: relative;
+  z-index: 1;
+  padding: 5em 1em;
+  color: white;
+}
+.container.products h1, .container.products .h1 {
+  color: #012A94;
+  font-size: 3em;
+  margin-top: 1em;
+}
+.container.products h6, .container.products .h6 {
+  font-weight: 600;
+  color: #012A94;
+}
+.container.products .products-list p {
+  margin-bottom: 0.35rem;
+}
+.container.products .products-list p span.labels {
+  font-size: 0.9em;
+}
+.container.products .products-list a {
+  color: #8AC905;
+  text-decoration: none;
+  font-weight: 600;
+}
+.container.products .products-list a:hover {
+  color: #0094FF;
+}
+.container.products .products-list .btn-space {
+  margin: 3em 0 5em 0;
+}
+.container.clients h1, .container.clients .h1 {
+  color: #012A94;
+  font-size: 3em;
+  margin-top: 1em;
+}
+
+.card {
+  border-radius: 10px;
+  padding: 8px;
+  border: none;
+  box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.36);
+  -webkit-box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.36);
+}
+
+.g-4, .gy-4 {
+  --bs-gutter-y: 2.25rem;
+}
+
+.g-4, .gx-4 {
+  --bs-gutter-x: 2.25rem;
+}
+
+.separator {
+  border-top: 8px solid #4EC8FC;
+  opacity: 1;
+  width: 15%;
+  display: block;
+  margin: 0 auto 4em auto !important;
+}
+
+hr {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.btn-primary, .btn-secondary {
+  border-radius: 0 !important;
+  font-size: 1.1em;
+  padding: 0.45em 2em;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background-color: #8AC905;
+  border: 2px solid #8AC905;
+}
+
+.btn-secondary {
+  background-color: white;
+  border: 2px solid #8AC905;
+  color: #8AC905;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  background-color: #0094FF;
+  border: 2px solid white;
 }
 
 .mi-color {
