@@ -5,7 +5,7 @@ const CertificadosTemplate = () => (
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>CERTIFICADOS</h1>
+            <h1>CERTIFICADOS DE ANALISIS</h1>
           </div>
         </div>
       </div>
