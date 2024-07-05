@@ -4,7 +4,7 @@ const HomePage = () => (
     <div className="container-fluid hero-1 mx-auto">
       <div className="row">
         <div className="col-12 col-md-6 hero-left">
-          <h1>MEJORAMOS EL MUNDO DE TU LABORATORIO</h1>
+          <h1>MEJORAMOS EL MUNDO DE TU LABORATORIO GABO</h1>
           <h5 className="highlight-hero">Encuentra los mejores productos, marcas reconocidas y la mejor atención para tu laboratorio</h5>
           <div className="col d-flex mt-4">
             <button type="button" className="btn btn-primary">¡Cotiza ahora!</button>
