@@ -5,7 +5,7 @@ const LaboratoriosTemplate = () => (
       <h1>Laboratorios</h1>
       <div className="col-lg-8 px-0">
         <p className="fs-4">
-          Mosaigo de laboratorios
+          Mosaico de laboratorios
         </p>
       </div>
       

@@ -1,9 +1,9 @@
 import ReactivosTemplate from "./reactivos.html"
 
-const BootstrapPage = () => {
+const ReactivosPage = () => {
   return (
     <ReactivosTemplate   />
   )
 }
 
-export default BootstrapPage
+export default ReactivosPage

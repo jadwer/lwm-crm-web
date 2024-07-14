@@ -1,9 +1,9 @@
 import ProductosTemplate from "./productos.html"
 
-const BootstrapPage = () => {
+const ProductosPage = () => {
   return (
     <ProductosTemplate />
   )
 }
 
-export default BootstrapPage
+export default ProductosPage

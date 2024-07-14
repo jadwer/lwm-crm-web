@@ -1,9 +1,9 @@
 import LaboratoriosTemplate from "./laboratorios.html"
 
-const BootstrapPage = () => {
+const LaboratoriosPage = () => {
   return (
     <LaboratoriosTemplate />
   )
 }
 
-export default BootstrapPage
+export default LaboratoriosPage
