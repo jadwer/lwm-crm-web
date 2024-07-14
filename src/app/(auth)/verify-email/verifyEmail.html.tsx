@@ -2,7 +2,12 @@ import { Button } from "react-bootstrap";
 
 const VerifyEmailTemplate = (props: any) => (
   <main>
-    <div className="mb-4 text-sm text-gray-600">
+    <div className="container-fluid login">
+      <div className="row align-items-center height-100">
+        <div className="col-12 col-md-8 bg-login"></div>
+        <div className="col-12 col-md-4 login-form">
+        <img className="img-fluid logo" alt="" src="/../images/labor-wasser-mexico-logo2.webp" />
+        <div className="mb-4 text-sm text-gray-600">
       !Gracias por registrarte! Antes de comenzar, ¿podría verificar su
       dirección de correo electrónico haciendo clic en el enlace que le acabamos
       de enviar por correo electrónico? Si no recibió el correo electrónico, con
@@ -22,7 +27,7 @@ const VerifyEmailTemplate = (props: any) => (
         }>
         Reenviar correo electrónico de verificación
       </Button>
-
+        <br></br>
       <button
         type="button"
         className="underline text-sm text-gray-600 hover:text-gray-900"
@@ -30,6 +35,10 @@ const VerifyEmailTemplate = (props: any) => (
         Cerrar Sesión
       </button>
     </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 );
 export default VerifyEmailTemplate;

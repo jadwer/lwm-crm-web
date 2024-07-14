@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # Resources
-public/images
+public/catalogos
 public/precios

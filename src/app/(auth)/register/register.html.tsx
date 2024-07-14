@@ -5,10 +5,16 @@ const RegisterTemplate = (props : any) => (
 
 
     <main>
-               <form onSubmit={props.functions.submitForm}>
+
+<div className="container-fluid login">
+      <div className="row align-items-center height-100">
+      <div className="col-12 col-md-8 bg-login"></div>
+        <div className="col-12 col-md-4 login-form">
+        <img className="img-fluid logo" alt="" src="/../images/labor-wasser-mexico-logo2.webp" />
+        <form onSubmit={props.functions.submitForm}>
             {/* Name */}
-            <div>
-                <label htmlFor="name">Name</label>
+            <div className="d-grid">
+                <label htmlFor="name">Nombre completo</label>
 
                 <input
                     id="name"
@@ -23,7 +29,7 @@ const RegisterTemplate = (props : any) => (
             </div>
 
             {/* Email Address */}
-            <div className="mt-4">
+            <div className="mt-2 d-grid">
                 <label htmlFor="email">Email</label>
 
                 <input
@@ -38,8 +44,8 @@ const RegisterTemplate = (props : any) => (
             </div>
 
             {/* Password */}
-            <div className="mt-4">
-                <label htmlFor="password">Password</label>
+            <div className="mt-2 d-grid">
+                <label htmlFor="password">Contraseña</label>
 
                 <input
                     id="password"
@@ -54,9 +60,9 @@ const RegisterTemplate = (props : any) => (
             </div>
 
             {/* Confirm Password */}
-            <div className="mt-4">
+            <div className="mt-2 d-grid">
                 <label htmlFor="passwordConfirmation">
-                    Confirm Password
+                    Confirmar contraseña
                 </label>
 
                 <input
@@ -72,14 +78,19 @@ const RegisterTemplate = (props : any) => (
 
             </div>
 
-            <div className="flex items-center justify-end mt-4">
+            <div className="flex items-center justify-end mt-2">
                 <Link href="/login">
-                    Already registered?
+                    ¿Ya estás registrado?
                 </Link>
-
-                <Button type="submit" className="ml-4">Register</Button>
+                <br></br>
+                <Button type="submit" className="ml-4 mt-2">Register</Button>
             </div>
         </form>
+        </div>
+      </div>
+    </div>
+
+            
     </main>
 
 

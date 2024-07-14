@@ -86,98 +86,170 @@ const HomePage = () => (
     <div className="container clients">
       <div className="row">
         <div className="col text-center">
-          <h1>NUESTROS CLIENTES</h1>
+          <h1>NUESTRAS MARCAS</h1>
           <hr className="separator"></hr>
         </div>
       </div>
       <div className="row row-cols-2 row-cols-md-5 g-4">
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
+            <img src="/../images/logos/apera-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
+            <img src="/../images/logos/avantor-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-3.webp" className="card-img-top"
+            <img src="/../images/logos/band-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-4.webp" className="card-img-top"
+            <img src="/../images/logos/bd-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-5.webp" className="card-img-top"
+            <img src="/../images/logos/biomerieux-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
+            <img src="/../images/logos/condalab-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
+            <img src="/../images/logos/dibico-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-3.webp" className="card-img-top"
+            <img src="/../images/logos/dwk-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-4.webp" className="card-img-top"
+            <img src="/../images/logos/eisco-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-5.webp" className="card-img-top"
+            <img src="/../images/logos/fisher.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
+            <img src="/../images/logos/hach-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
+            <img src="/../images/logos/hanna-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-3.webp" className="card-img-top"
+            <img src="/../images/logos/high-purity-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-4.webp" className="card-img-top"
+            <img src="/../images/logos/honeywell-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>
         <div className="col">
           <div className="card">
-            <img src="/../images/logos/logo-demo-5.webp" className="card-img-top"
+            <img src="/../images/logos/imparlab-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/jt-baker-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/merck-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/microbiologics-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/microflex-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/micron-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/productos-quimicos-monterrey-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/thermo-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/toronto-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/usp-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/vwr-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/whatman-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <img src="/../images/logos/whirl-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
           </div>
         </div>

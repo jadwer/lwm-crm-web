@@ -6,26 +6,54 @@ const Footer = () => {
       <div className='container-fluid'>
         <div className='row footer'>
           <div className='col-12 col-md-3'>
-            1
+            <div className='row align-items-md-center d-flex'>
+              <div className='col'>
+                <img src="/../images/labor-wasser-mexico-logo-1.png" className="img-fluid logo-footer d-block mx-auto"
+                  alt="Labor Wasser México" />
+              </div>
+            </div>
           </div>
           <div className='col-12 col-md-3'>
-            2
+            <h4>Productos</h4>
+             <ul>
+              <li><a className="dropdown-item" href="#">Reactivos</a></li>
+              <li><a className="dropdown-item" href="#">Medios de cultivo</a></li>
+              <li><a className="dropdown-item" href="#">Cristalería</a></li>
+              <li><a className="dropdown-item" href="#">Analisis de agua</a></li>
+              <li><a className="dropdown-item" href="#">Procesos</a></li>
+            </ul>
           </div>
           <div className='col-12 col-md-3'>
-            3
+          <h4>Recursos</h4>
+             <ul>
+              <li><a className="dropdown-item" href="catalogos">Catálogos</a></li>
+              <li><a className="dropdown-item" href="certificados">Certificados</a></li>
+              <li><a className="dropdown-item" href="precios">Lista de precios</a></li>
+            </ul>
           </div>
           <div className='col-12 col-md-3'>
-            4
+          <h4>Contacto</h4>
+             <ul>
+              <li>55 7575 1661</li>
+              <li>55 7575 1662</li>
+              <li>55 7160 2454</li>
+              <br></br>
+              <li>56 1040 0441</li>
+              <br></br>
+              <li>ventas@laborwasserdemexico.com</li>
+              <br></br>
+              <li>CDMX y área metropolitana</li>
+            </ul>
           </div>
         </div>
         <div className='row text-muted'>
-        <p className='text-center'>
-          Designed and developed by <a href="http://atomosoluciones.com" target='_blank'>AtomoSoluciones.com</a>
-        </p>
+          <p className='text-center'>
+            Designed and developed by <a href="http://atomosoluciones.com" target='_blank'>AtomoSoluciones.com</a>
+          </p>
         </div>
       </div>
     </footer>
-)
+  )
 }
 
 export default Footer

@@ -5,7 +5,7 @@ const PreciosTemplate = () => (
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>LISTA DE PRECIOS</h1>
+            <h1>LISTAS DE PRECIOS</h1>
           </div>
         </div>
       </div>
@@ -17,86 +17,58 @@ const PreciosTemplate = () => (
       <div className="row row-cols-2 row-cols-md-4 g-4">
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
+          <img src="/../images/logos/apera-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/apera-labor-wasser.pdf" download="apera-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
+          <img src="/../images/logos/dibico-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/dibico-labor-wasser.pdf" download="dibico-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-3.webp" className="card-img-top"
+          <img src="/../images/logos/productos-quimicos-monterrey-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/fermont-labor-wasser.pdf" download="fermont-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-4.webp" className="card-img-top"
+          <img src="/../images/logos/hach-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/hach-labor-wasser.pdf" download="hach-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-5.webp" className="card-img-top"
+          <img src="/../images/logos/jt-baker-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/jt-labor-wasser.pdf" download="jt-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
+          <img src="/../images/logos/dwk-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/kimax-labor-wasser.pdf" download="kimax-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
+          <img src="/../images/logos/merck-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/merck-labor-wasser.pdf" download="merck-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-3.webp" className="card-img-top"
+          <img src="/../images/logos/whatman-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-4.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-5.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../precios/whatman-labor-wasser.pdf" download="whatman-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
       </div>

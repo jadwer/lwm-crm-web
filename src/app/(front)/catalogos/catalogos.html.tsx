@@ -17,86 +17,51 @@ const CatalogosTemplate = () => (
       <div className="row row-cols-2 row-cols-md-4 g-4">
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
+          <img src="/../images/logos/apera-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../catalogos/apr-cat-labor-wasser.pdf" download="apr-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
+          <img src="/../images/logos/eisco-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../catalogos/eisco-cat-labor-wasser.pdf" download="eisco-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-3.webp" className="card-img-top"
+          <img src="/../images/logos/productos-quimicos-monterrey-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../catalogos/fermon-cat-labor-wasser.pdf" download="fermon-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-4.webp" className="card-img-top"
+          <img src="/../images/logos/hanna-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../catalogos/hanna-cat-labor-wasser.pdf" download="hanna-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-5.webp" className="card-img-top"
+          <img src="/../images/logos/high-purity-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../catalogos/high-purity-labor-wasser.pdf" download="high-purity-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
+          <img src="/../images/logos/imparlab-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../catalogos/imparlab-labor-wasser.pdf" download="imparlab-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
+          <img src="/../images/logos/micron-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-3.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-4.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-5.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-1.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="card mx-auto d-block">
-          <img src="/../images/logos/logo-demo-2.webp" className="card-img-top"
-              alt="Labor Wasser México" />
-            <a href="#">CONSULTAR</a>
+            <a href="/../catalogos/myron-labor-wasser.pdf" download="myron-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
       </div>
