@@ -10,19 +10,19 @@ const TopNav = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="reactivos">Reactivos</a>
+              <a className="nav-link active" aria-current="page" href="soon">Reactivos</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="reactivos">Medios de cultivo</a>
+              <a className="nav-link active" aria-current="page" href="soon">Medios de cultivo</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="reactivos">Cristalería</a>
+              <a className="nav-link active" aria-current="page" href="soon">Cristalería</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="reactivos">Analisis de agua</a>
+              <a className="nav-link active" aria-current="page" href="soon">Analisis de agua</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="reactivos">Proceso</a>
+              <a className="nav-link active" aria-current="page" href="soon">Proceso</a>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,7 +35,7 @@ const TopNav = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Nosotros</a>
+              <a className="nav-link active" aria-current="page" href="nosotros">Nosotros</a>
             </li>
           </ul>
         </div>

@@ -4,12 +4,12 @@ const HeaderTemplate = () => {
     
     <header>
       <div className="container-fluid d-flex py-3 border-bottom">
-        <div className='col-12 col-md-6 d-flex align-items-md-center'>
-        <a href='#'>
+        <div className='col-6 col-md-6 d-flex align-items-center'>
+        <a href='/'>
           <img className="img-fluid logo" alt="" src="/../images/labor-wasser-mexico-logo2.webp" />
           </a>
         </div>
-        <div className='col-12 col-md-6 d-flex align-items-md-center justify-content-end'>
+        <div className='col-6 col-md-6 d-flex align-items-center justify-content-end'>
         <LoginLinks />
         <button
           type="button"

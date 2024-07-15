@@ -20078,7 +20078,42 @@ h1,
 .h1 {
   font-weight: 800;
 }
+@media (max-width: 575.98px) {
+  h1,
+  .h1 {
+    text-align: center;
+    font-size: 2.5em !important;
+  }
+}
 
+.container-fluid.about-2, .about-2.container-sm, .about-2.container-md, .about-2.container-lg, .about-2.container-xl, .about-2.container-xxl {
+  background-color: #012A94;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+.container-fluid.about-2 h1, .about-2.container-sm h1, .about-2.container-md h1, .about-2.container-lg h1, .about-2.container-xl h1, .about-2.container-xxl h1, .container-fluid.about-2 .h1, .about-2.container-sm .h1, .about-2.container-md .h1, .about-2.container-lg .h1, .about-2.container-xl .h1, .about-2.container-xxl .h1 {
+  color: #8AC905;
+  text-transform: uppercase;
+}
+.container-fluid.about-2 p, .about-2.container-sm p, .about-2.container-md p, .about-2.container-lg p, .about-2.container-xl p, .about-2.container-xxl p {
+  color: #ffffff;
+}
+.container-fluid.soon, .soon.container-sm, .soon.container-md, .soon.container-lg, .soon.container-xl, .soon.container-xxl {
+  height: 100vh;
+  background-image: url("/../images/labor-wasser-mexico-hero-7.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-fluid.soon h1, .soon.container-sm h1, .soon.container-md h1, .soon.container-lg h1, .soon.container-xl h1, .soon.container-xxl h1, .container-fluid.soon .h1, .soon.container-sm .h1, .soon.container-md .h1, .soon.container-lg .h1, .soon.container-xl .h1, .soon.container-xxl .h1, .container-fluid.soon h2, .soon.container-sm h2, .soon.container-md h2, .soon.container-lg h2, .soon.container-xl h2, .soon.container-xxl h2, .container-fluid.soon .h2, .soon.container-sm .h2, .soon.container-md .h2, .soon.container-lg .h2, .soon.container-xl .h2, .soon.container-xxl .h2 {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.container-fluid.soon img, .soon.container-sm img, .soon.container-md img, .soon.container-lg img, .soon.container-xl img, .soon.container-xxl img {
+  display: block;
+  margin: 0 auto;
+  width: 45%;
+}
 .container-fluid.login .bg-login, .login.container-sm .bg-login, .login.container-md .bg-login, .login.container-lg .bg-login, .login.container-xl .bg-login, .login.container-xxl .bg-login {
   height: 100vh;
   background-image: url("/../images/labor-wasser-mexico-hero-6.webp");
@@ -20100,10 +20135,20 @@ h1,
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media (max-width: 575.98px) {
+  .container-fluid.hero-1, .hero-1.container-sm, .hero-1.container-md, .hero-1.container-lg, .hero-1.container-xl, .hero-1.container-xxl {
+    height: 80vh;
+  }
+}
 .container-fluid.hero-1 .hero-left, .hero-1.container-sm .hero-left, .hero-1.container-md .hero-left, .hero-1.container-lg .hero-left, .hero-1.container-xl .hero-left, .hero-1.container-xxl .hero-left {
   background-color: rgba(0, 148, 255, 0.8);
   height: 100vh;
   padding: 5%;
+}
+@media (max-width: 575.98px) {
+  .container-fluid.hero-1 .hero-left, .hero-1.container-sm .hero-left, .hero-1.container-md .hero-left, .hero-1.container-lg .hero-left, .hero-1.container-xl .hero-left, .hero-1.container-xxl .hero-left {
+    height: 80vh;
+  }
 }
 .container-fluid.hero-1 .hero-left h1, .hero-1.container-sm .hero-left h1, .hero-1.container-md .hero-left h1, .hero-1.container-lg .hero-left h1, .hero-1.container-xl .hero-left h1, .hero-1.container-xxl .hero-left h1, .container-fluid.hero-1 .hero-left .h1, .hero-1.container-sm .hero-left .h1, .hero-1.container-md .hero-left .h1, .hero-1.container-lg .hero-left .h1, .hero-1.container-xl .hero-left .h1, .hero-1.container-xxl .hero-left .h1 {
   font-size: 3.8em;
@@ -20118,10 +20163,15 @@ h1,
 .container-fluid.about, .about.container-sm, .about.container-md, .about.container-lg, .about.container-xl, .about.container-xxl {
   background-color: #F4F4F4;
   height: 100vh;
-  margin-top: -8%;
+  margin-top: inherit;
 }
 .container-fluid.about .left-info, .about.container-sm .left-info, .about.container-md .left-info, .about.container-lg .left-info, .about.container-xl .left-info, .about.container-xxl .left-info {
   padding: 3%;
+}
+@media (max-width: 575.98px) {
+  .container-fluid.about .left-info, .about.container-sm .left-info, .about.container-md .left-info, .about.container-lg .left-info, .about.container-xl .left-info, .about.container-xxl .left-info {
+    padding: 1.5em 1.5em 3em 1.5em;
+  }
 }
 .container-fluid.about .hero-2, .about.container-sm .hero-2, .about.container-md .hero-2, .about.container-lg .hero-2, .about.container-xl .hero-2, .about.container-xxl .hero-2 {
   height: 100vh;
@@ -20130,8 +20180,18 @@ h1,
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media (max-width: 575.98px) {
+  .container-fluid.about .hero-2, .about.container-sm .hero-2, .about.container-md .hero-2, .about.container-lg .hero-2, .about.container-xl .hero-2, .about.container-xxl .hero-2 {
+    height: 50vh;
+  }
+}
 .container-fluid.cta, .cta.container-sm, .cta.container-md, .cta.container-lg, .cta.container-xl, .cta.container-xxl {
   height: 70vh;
+}
+@media (max-width: 575.98px) {
+  .container-fluid.cta, .cta.container-sm, .cta.container-md, .cta.container-lg, .cta.container-xl, .cta.container-xxl {
+    height: auto;
+  }
 }
 .container-fluid.cta .left, .cta.container-sm .left, .cta.container-md .left, .cta.container-lg .left, .cta.container-xl .left, .cta.container-xxl .left {
   height: 70vh;
@@ -20140,6 +20200,11 @@ h1,
   background-repeat: no-repeat;
   background-size: cover;
   border-right: #8AC905 solid 10px;
+}
+@media (max-width: 575.98px) {
+  .container-fluid.cta .left, .cta.container-sm .left, .cta.container-md .left, .cta.container-lg .left, .cta.container-xl .left, .cta.container-xxl .left {
+    height: 45vh;
+  }
 }
 .container-fluid.cta .right, .cta.container-sm .right, .cta.container-md .right, .cta.container-lg .right, .cta.container-xl .right, .cta.container-xxl .right {
   height: 70vh;
@@ -20264,6 +20329,13 @@ h1,
   height: 100vh;
 }
 
+.container.mision {
+  padding: 6em 0;
+}
+.container.mision .card {
+  height: 50vh;
+  padding: 3em;
+}
 .container.numbers {
   background-color: #012A94;
   border-radius: 20px;
@@ -20410,6 +20482,13 @@ hr {
   font-size: 1.1em;
   padding: 0.45em 2em;
   text-transform: uppercase;
+}
+@media (max-width: 575.98px) {
+  .btn-primary,
+  .btn-secondary {
+    display: block;
+    width: 100%;
+  }
 }
 
 .btn-primary {

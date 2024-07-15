@@ -13,7 +13,7 @@ const ProductsTemplate = () => (
             </div>
         </div>
         <div className="container-fluid container-product">
-            <div className="row back-header-2">
+            {/* <div className="row back-header-2">
                 <div className="col-12 col-md-3">
                     <select className="form-select" aria-label="Filtro categoría">
                         <option selected>Filtro por categoría</option>
@@ -40,7 +40,7 @@ const ProductsTemplate = () => (
                         <button className="btn btn-primary" type="button" id="button-addon2">Buscar</button>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="row">
                 <div className="col-12 mt-2 table-product">
                     <table className="table">
