@@ -19,49 +19,49 @@ const CatalogosTemplate = () => (
           <div className="card mx-auto d-block">
           <img src="/../images/logos/apera-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../catalogos/apr-cat-labor-wasser.pdf" download="apr-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../catalogs/apr-cat-labor-wasser.pdf" download="apr-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/eisco-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../catalogos/eisco-cat-labor-wasser.pdf" download="eisco-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../catalogs/eisco-cat-labor-wasser.pdf" download="eisco-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/productos-quimicos-monterrey-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../catalogos/fermon-cat-labor-wasser.pdf" download="fermon-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../catalogs/fermon-cat-labor-wasser.pdf" download="fermon-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/hanna-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../catalogos/hanna-cat-labor-wasser.pdf" download="hanna-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../catalogs/hanna-cat-labor-wasser.pdf" download="hanna-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/high-purity-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../catalogos/high-purity-labor-wasser.pdf" download="high-purity-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../catalogs/high-purity-labor-wasser.pdf" download="high-purity-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/imparlab-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../catalogos/imparlab-labor-wasser.pdf" download="imparlab-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../catalogs/imparlab-labor-wasser.pdf" download="imparlab-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/micron-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../catalogos/myron-labor-wasser.pdf" download="myron-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../catalogs/myron-labor-wasser.pdf" download="myron-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
       </div>

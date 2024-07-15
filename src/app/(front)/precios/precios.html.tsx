@@ -19,56 +19,56 @@ const PreciosTemplate = () => (
           <div className="card mx-auto d-block">
           <img src="/../images/logos/apera-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/apera-labor-wasser.pdf" download="apera-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/apera-labor-wasser.pdf" download="apera-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/dibico-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/dibico-labor-wasser.pdf" download="dibico-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/dibico-labor-wasser.pdf" download="dibico-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/productos-quimicos-monterrey-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/fermont-labor-wasser.pdf" download="fermont-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/fermont-labor-wasser.pdf" download="fermont-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/hach-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/hach-labor-wasser.pdf" download="hach-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/hach-labor-wasser.pdf" download="hach-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/jt-baker-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/jt-labor-wasser.pdf" download="jt-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/jt-labor-wasser.pdf" download="jt-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/dwk-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/kimax-labor-wasser.pdf" download="kimax-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/kimax-labor-wasser.pdf" download="kimax-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/merck-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/merck-labor-wasser.pdf" download="merck-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/merck-labor-wasser.pdf" download="merck-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
           <img src="/../images/logos/whatman-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
-            <a href="/../precios/whatman-labor-wasser.pdf" download="whatman-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+            <a href="/../prices/whatman-labor-wasser.pdf" download="whatman-labor-wasser.pdf" target="_blank">CONSULTAR</a>
           </div>
         </div>
       </div>

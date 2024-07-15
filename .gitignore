@@ -37,4 +37,6 @@ next-env.d.ts
 
 # Resources
 public/catalogos
+public/catalogs
 public/precios
+public/prices

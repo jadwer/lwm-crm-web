@@ -16,7 +16,7 @@ const ProductsTemplate = () => (
             {/* <div className="row back-header-2">
                 <div className="col-12 col-md-3">
                     <select className="form-select" aria-label="Filtro categoría">
-                        <option selected>Filtro por categoría</option>
+                        <option defaultValue={""}>Filtro por categoría</option>
                         <option value="1">Reactivos</option>
                         <option value="2">Medios de cultivo</option>
                         <option value="3">Cristalería</option>
@@ -26,7 +26,7 @@ const ProductsTemplate = () => (
                 </div>
                 <div className="col-12 col-md-3">
                     <select className="form-select" aria-label="Filtro categoría">
-                        <option selected>Filtro por marca</option>
+                        <option defaultValue={""}>Filtro por marca</option>
                         <option value="1">Apera</option>
                         <option value="2">Avantor</option>
                         <option value="3">Brand</option>
