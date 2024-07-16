@@ -15,11 +15,11 @@ const LoginLinks = () => {
         </>
       ) : (
         <>
-          <div class="sesion">
+          <div className="sesion">
             <Link href="/login">Login</Link>
           </div>
           <span>&nbsp;|&nbsp;</span>
-          <div class="sesion">
+          <div className="sesion">
             <Link href="/register">Registrarse</Link>
           </div>
         </>

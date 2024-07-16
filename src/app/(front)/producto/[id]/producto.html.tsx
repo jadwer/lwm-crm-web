@@ -1,11 +1,11 @@
-const ProductoTemplate = () => (
+const ProductoTemplate = (props : any) => (
 
   <main>
     <div className="container-fluid hero-sections mx-auto">
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>MÉTODO COLORIMÉTRICO</h1>
+            <h1>MÉTODO COLORIMÉTRICO - {props.data.id}</h1>
           </div>
         </div>
       </div>
