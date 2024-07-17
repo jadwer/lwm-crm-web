@@ -1,6 +1,4 @@
-import useSWR from 'swr'
 import axios from '@/lib/axios'
-import { useEffect } from 'react'
 
 export const useForms = () => {
     const csrf = () => axios.get('/sanctum/csrf-cookie')
