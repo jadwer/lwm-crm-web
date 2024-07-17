@@ -14,7 +14,20 @@ export const useProducts = () => {
       });      
   };
 
+
+  const getAllProducts = async ({setProductos}) => {
+    await csrf()
+    axios
+      .get(`/api/products/`)
+      .then((res) => {
+        return setProductos(res.data)})
+      .catch((error) => {
+        if (error.response.status !== 409) throw error;
+      });      
+  };
+
   return {
-    getProduct
+    getAllProducts,
+    getProduct,
   };
 }

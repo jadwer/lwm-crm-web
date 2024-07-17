@@ -1,6 +1,6 @@
 const ProductoTemplate = (props: any) => {
   const producto = props.data.producto;
-  console.log(producto);
+ 
   return (
     <main>
       <div className="container-fluid hero-sections mx-auto">
