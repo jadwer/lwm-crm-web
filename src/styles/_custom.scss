@@ -17,6 +17,7 @@ h1,
 }
 
 .container-fluid {
+
     &.about-2 {
         background-color: #012A94;
         padding-top: 3em;
@@ -288,6 +289,14 @@ h1,
         }
     }
 
+}
+
+.login-contact {
+    ul {
+        li {
+            list-style: none;
+        }
+    }
 }
 
 .height-100 {

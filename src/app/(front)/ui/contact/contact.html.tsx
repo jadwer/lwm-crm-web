@@ -1,6 +1,7 @@
-const Contact = () => { return (
+const Contact = () => {
+  return (
 
-  <nav
+    <nav
       className="offcanvas offcanvas-end"
       id="navMenu"
       aria-labelledby="navMenuLabel">
@@ -16,12 +17,32 @@ const Contact = () => { return (
       </div>
       <div className="offcanvas-body">
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet
-          vestibulum nulla. Ut at faucibus velit. Etiam nibh quam, tempor eu
-          mollis vel, dignissim sed sem. In quis ornare arcu.
+          <h6>Ponte en contacto con nosotros y uno de nuestros representantes se pondrán en contacto contigo.</h6>
+          <form>
+            <label className="form-label">Nombre completo</label>
+            <input type="text" className="form-control" id="Nombre completo"></input>
+            <label className="form-label">Correo electrónico</label>
+            <input type="email" className="form-control" id="correo electrónico"></input>
+            <label className="form-label">Teléfono</label>
+            <input type="tel" className="form-control" id="Telefono"></input>
+            <label className="form-label">Mensaje</label>
+                    <textarea className="form-control" id="Mensaje" /*rows="3"*/></textarea>
+                    <button type="submit" className="btn btn-primary mt-2">Enviar</button>
+          </form>
+          <br></br>
+          <div className="col-12 login-contact">
+          <ul>
+              <li>55 7575 1661 | 55 7575 1662 | 55 7160 2454</li>
+              <br></br>
+              <li>56 1040 0441</li>
+              <br></br>
+              <li>ventas@laborwasserdemexico.com</li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
 
 
-);}; export default Contact;
+  );
+}; export default Contact;
