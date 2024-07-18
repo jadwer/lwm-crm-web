@@ -3,13 +3,14 @@ const HeaderTemplate = () => {
   return (
     
     <header>
-      <div className="container-fluid d-flex py-3 border-bottom">
-        <div className='col-6 col-md-6 d-flex align-items-center'>
+      <div className="container-fluid py-3 border-bottom">
+        <div className='row d-flex align-items-center'>
+        <div className='col-6 col-md-6 d-flex'>
         <a href='/'>
           <img className="img-fluid logo" alt="" src="/../images/labor-wasser-mexico-logo2.webp" />
           </a>
         </div>
-        <div className='col-6 col-md-6 d-flex align-items-center justify-content-end'>
+        <div className='col-6 col-md-6 d-flex justify-content-end'>
         <LoginLinks />
         <button
           type="button"
@@ -18,6 +19,7 @@ const HeaderTemplate = () => {
           data-bs-target="#navMenu">
           <i className="bi bi-list"></i>
         </button></div>
+        </div>
       </div>
       
     </header>

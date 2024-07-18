@@ -5,10 +5,10 @@ const HomePage = () => (
       <div className="row align-items-center">
         <div className="col-12 col-md-6 hero-left">
           <h1>MEJORAMOS EL MUNDO DE TU LABORATORIO</h1>
-          <h5 className="highlight-hero">Encuentra los mejores productos, marcas reconocidas y la mejor atención para tu laboratorio</h5>
-          <div className="col d-flex mt-4">
+          <h5 className="highlight-hero text-center text-md-left">Encuentra los mejores productos, marcas reconocidas y la mejor atención para tu laboratorio</h5>
+          <div className="col d-md-flex mt-4">
             <button type="button" className="btn btn-primary">¡Cotiza ahora!</button>
-            <button type="button" className="btn btn-secondary mx-4">Ver productos</button>
+            <button type="button" className="btn btn-secondary mt-4 mt-md-0 mx-md-4">Ver productos</button>
           </div>
         </div>
         <div className="col-12 col-md-6 hero-right"></div>
@@ -28,7 +28,7 @@ const HomePage = () => (
           <p>Por la calidad en nuestro servicio, por la experiencia técnica y la resolución de la problemática tanto en la parte analítica como en la parte de proceso, además de que somos una empresa innovadora con tecnología de vanguardia, trabajamos a través de un CRM y un ERP para un mejor servicio, así como la concentración de las mejores marcas para la parte analítica y de proceso para la industria y la investigación, especialistas en químicos y tratamientos en aguas.</p>
           <div className="col d-flex mt-4">
             {/* <button type="button" className="btn btn-primary">¡Cotiza ahora!</button> */}
-            <button type="button" className="btn btn-secondary mx-4">Más sobre nosotros</button>
+            <button type="button" className="btn btn-secondary mx-0 mx-md-4">Más sobre nosotros</button>
           </div>
         </div>
         <div className="col-12 col-md-6 hero-2">
@@ -90,7 +90,7 @@ const HomePage = () => (
           <hr className="separator"></hr>
         </div>
       </div>
-      <div className="row row-cols-2 row-cols-md-5 g-xs-2 g-md-4">
+      <div className="row row-cols-2 row-cols-md-5 g-3 g-md-4">
         <div className="col">
           <div className="card">
             <img src="/../images/logos/apera-labor-wasser.webp" className="card-img-top"

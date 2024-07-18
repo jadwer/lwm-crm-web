@@ -82,6 +82,8 @@ h1,
             padding: 5%;
             @media (max-width: 575.98px) {
                 height: 80vh;
+                align-items: center !important;
+                display: grid;
             }
             h1 {
                 font-size: 3.8em;
@@ -105,7 +107,7 @@ h1,
         .left-info {
             padding: 3%;
             @media (max-width: 575.98px) {
-                padding: 1.5em 1.5em 3em 1.5em;
+                padding: 4em 2em;
             }
         }
 
@@ -124,7 +126,7 @@ h1,
     &.cta {
         height: 70vh;
         @media (max-width: 575.98px) {
-            height: auto;
+            height: auto !important;
         }
         .left {
             height: 70vh;
@@ -146,6 +148,10 @@ h1,
             background-size: cover;
             color: white;
             padding-top: 10%;
+            @media (max-width: 575.98px) {
+                height: auto !important;
+                padding: 5em 1em;
+            }
         }
     }
 
@@ -289,6 +295,16 @@ h1,
         }
     }
 
+}
+
+#LoginLinks {
+    display: flex;
+    a {
+        color: #8AC905;
+        &:hover {
+            color: #0094FF;
+        }
+    }
 }
 
 .login-contact {
@@ -455,6 +471,9 @@ h1,
 img {
     &.logo {
         width: 40%;
+        @media (max-width: 575.98px) {
+            width: 90%;
+        }
     }
 }
 
