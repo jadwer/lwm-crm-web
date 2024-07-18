@@ -5,7 +5,7 @@ const HomePage = () => (
       <div className="row align-items-center">
         <div className="col-12 col-md-6 hero-left">
           <h1>MEJORAMOS EL MUNDO DE TU LABORATORIO</h1>
-          <h5 className="highlight-hero text-center text-md-left">Encuentra los mejores productos, marcas reconocidas y la mejor atención para tu laboratorio</h5>
+          <h5 className="highlight-hero text-center text-md-start">Encuentra los mejores productos, marcas reconocidas y la mejor atención para tu laboratorio</h5>
           <div className="col d-md-flex mt-4">
             <button type="button" className="btn btn-primary">¡Cotiza ahora!</button>
             <button type="button" className="btn btn-secondary mt-4 mt-md-0 mx-md-4">Ver productos</button>

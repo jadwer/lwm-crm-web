@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -20070,7 +20071,11 @@ textarea.form-control-lg {
   content: "賈";
 }
 
-body {
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: "Anek Bangla", sans-serif;
 }
 
@@ -20086,6 +20091,26 @@ h1,
   }
 }
 
+.container-fluid.toggle-head, .toggle-head.container-sm, .toggle-head.container-md, .toggle-head.container-lg, .toggle-head.container-xl, .toggle-head.container-xxl {
+  justify-content: center;
+}
+.container-fluid.toggle-head .navbar-toggler, .toggle-head.container-sm .navbar-toggler, .toggle-head.container-md .navbar-toggler, .toggle-head.container-lg .navbar-toggler, .toggle-head.container-xl .navbar-toggler, .toggle-head.container-xxl .navbar-toggler {
+  background-color: #8AC905;
+  border: none;
+  border-radius: 0;
+  width: 55px;
+  height: 55px;
+}
+.container-fluid.toggle-head li.nav-item, .toggle-head.container-sm li.nav-item, .toggle-head.container-md li.nav-item, .toggle-head.container-lg li.nav-item, .toggle-head.container-xl li.nav-item, .toggle-head.container-xxl li.nav-item {
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.container-fluid.toggle-head li ul.dropdown-menu.show, .toggle-head.container-sm li ul.dropdown-menu.show, .toggle-head.container-md li ul.dropdown-menu.show, .toggle-head.container-lg li ul.dropdown-menu.show, .toggle-head.container-xl li ul.dropdown-menu.show, .toggle-head.container-xxl li ul.dropdown-menu.show {
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
 .container-fluid.about-2, .about-2.container-sm, .about-2.container-md, .about-2.container-lg, .about-2.container-xl, .about-2.container-xxl {
   background-color: #012A94;
   padding-top: 3em;
@@ -20232,21 +20257,38 @@ h1,
 .container-fluid .footer .logo-footer, .container-sm .footer .logo-footer, .container-md .footer .logo-footer, .container-lg .footer .logo-footer, .container-xl .footer .logo-footer, .container-xxl .footer .logo-footer {
   width: 75%;
 }
+@media (max-width: 575.98px) {
+  .container-fluid .footer .logo-footer, .container-sm .footer .logo-footer, .container-md .footer .logo-footer, .container-lg .footer .logo-footer, .container-xl .footer .logo-footer, .container-xxl .footer .logo-footer {
+    width: 75%;
+    margin-bottom: 2em;
+  }
+}
 .container-fluid .footer h4, .container-sm .footer h4, .container-md .footer h4, .container-lg .footer h4, .container-xl .footer h4, .container-xxl .footer h4, .container-fluid .footer .h4, .container-sm .footer .h4, .container-md .footer .h4, .container-lg .footer .h4, .container-xl .footer .h4, .container-xxl .footer .h4 {
   color: #012A94;
   text-transform: uppercase;
   font-weight: 600;
 }
-.container-fluid .footer li, .container-sm .footer li, .container-md .footer li, .container-lg .footer li, .container-xl .footer li, .container-xxl .footer li {
+@media (max-width: 575.98px) {
+  .container-fluid .footer h4, .container-sm .footer h4, .container-md .footer h4, .container-lg .footer h4, .container-xl .footer h4, .container-xxl .footer h4, .container-fluid .footer .h4, .container-sm .footer .h4, .container-md .footer .h4, .container-lg .footer .h4, .container-xl .footer .h4, .container-xxl .footer .h4 {
+    text-align: center;
+  }
+}
+@media (max-width: 575.98px) {
+  .container-fluid .footer ul, .container-sm .footer ul, .container-md .footer ul, .container-lg .footer ul, .container-xl .footer ul, .container-xxl .footer ul {
+    padding-left: 0rem;
+    text-align: center;
+  }
+}
+.container-fluid .footer ul li, .container-sm .footer ul li, .container-md .footer ul li, .container-lg .footer ul li, .container-xl .footer ul li, .container-xxl .footer ul li {
   list-style: none;
 }
-.container-fluid .footer li a, .container-sm .footer li a, .container-md .footer li a, .container-lg .footer li a, .container-xl .footer li a, .container-xxl .footer li a {
+.container-fluid .footer ul li a, .container-sm .footer ul li a, .container-md .footer ul li a, .container-lg .footer ul li a, .container-xl .footer ul li a, .container-xxl .footer ul li a {
   color: #8AC905;
-  font-size: 1.1em;
+  font-size: 1em;
   text-transform: uppercase;
   line-height: 2.5em;
 }
-.container-fluid .footer li a:hover, .container-sm .footer li a:hover, .container-md .footer li a:hover, .container-lg .footer li a:hover, .container-xl .footer li a:hover, .container-xxl .footer li a:hover {
+.container-fluid .footer ul li a:hover, .container-sm .footer ul li a:hover, .container-md .footer ul li a:hover, .container-lg .footer ul li a:hover, .container-xl .footer ul li a:hover, .container-xxl .footer ul li a:hover {
   color: #012A94;
 }
 .container-fluid.container-product .back-header-2 .btn-primary, .container-product.container-sm .back-header-2 .btn-primary, .container-product.container-md .back-header-2 .btn-primary, .container-product.container-lg .back-header-2 .btn-primary, .container-product.container-xl .back-header-2 .btn-primary, .container-product.container-xxl .back-header-2 .btn-primary {
@@ -20359,9 +20401,20 @@ h1,
 .container.mision {
   padding: 6em 0;
 }
+@media (max-width: 575.98px) {
+  .container.mision {
+    padding: 1.5em;
+  }
+}
 .container.mision .card {
   height: 50vh;
   padding: 3em;
+}
+@media (max-width: 575.98px) {
+  .container.mision .card {
+    height: auto;
+    padding: 1em;
+  }
 }
 .container.numbers {
   background-color: #012A94;
@@ -20411,6 +20464,11 @@ h1,
 .container.products-cards {
   margin-top: 4em;
   margin-bottom: 4em;
+}
+@media (max-width: 575.98px) {
+  .container.products-cards {
+    text-align: center;
+  }
 }
 .container.products-cards h2, .container.products-cards .h2 {
   font-weight: 600;
