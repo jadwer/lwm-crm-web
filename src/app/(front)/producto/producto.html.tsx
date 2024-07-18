@@ -12,11 +12,11 @@ const ProductoTemplate = () => (
     </div>
     <div className="container product-detail mt-4">
       <div className="row align-items-center">
-        <div className="col col-md-6 product-detail">
+        <div className="col-12 col-md-6 product-detail">
           <img src="/../images/labor-wasser-mexico-product-detail.webp" className="img-fluid"
             alt="Labor Wasser México" />
         </div>
-        <div className="col col-md-6 text-detail">
+        <div className="col-12 col-md-6 text-detail">
           <div className="row align-items-center">
             <div className="col">
               <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
