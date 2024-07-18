@@ -1,4 +1,4 @@
-const ContactFormTemplate = (props:any) => {
+const ContactFormTemplate = (props: any) => {
     return (
   
       <nav
