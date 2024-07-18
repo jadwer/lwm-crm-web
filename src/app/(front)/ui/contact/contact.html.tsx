@@ -2,6 +2,7 @@
 import { useState } from "react"
 import ContactFormTemplate from "./contact.html"
 import { useForms } from "@/hooks/forms"
+import { Button } from "react-bootstrap"
 
 const Contact = () => {
   const [nombre, setNombre] = useState("");
@@ -59,6 +60,72 @@ const Contact = () => {
                   <textarea className="form-control" id="Mensaje" /*rows="3"*/></textarea>
                   <button type="submit" className="btn btn-primary mt-2">Enviar</button>
         </form>
+
+        <form onSubmit={ (e) => { submitContact(e)} }>
+            <label htmlFor="nombre">Nombre:</label>
+            <input
+              id="nombre"
+              type="text"
+              value={nombre}
+              onChange={(event) => {setNombre(event.target.value)}}
+              required
+              placeholder="Nombre completo"></input>
+            <label htmlFor="tel">Teléfono:</label>
+            <input
+              id="tel"
+              type="text"
+              value={tel}
+              onChange={(event) => {setTel(event.target.value)}}
+              required
+              placeholder="Teléfono con lada"></input>
+            <label htmlFor="mail">Email:</label>
+            <input
+              id="mail"
+              type="email"
+              value={mail}
+              onChange={(event) => {setMail(event.target.value)}}
+              required
+              placeholder="Email válido"></input>
+            <label htmlFor="producto">Producto requerido:</label>
+            <input
+              id="producto"
+              type="text"
+              value={producto}
+              onChange={(event) => {setProducto(event.target.value)}}
+              required
+              placeholder="Descripción del producto"></input>
+            <label htmlFor="cantidad">Cantidad:</label>
+            <input
+              id="cantidad"
+              type="text"
+              value={cantidad}
+              onChange={(event) => {setCantidad(event.target.value)}}
+              required
+              placeholder="Cantidad de productos"></input>
+            <label htmlFor="mensaje">Mensaje:</label>
+            <input
+              id="mensaje"
+              type="textarea"
+              value={mensaje}
+              onChange={(event) => {setMensaje(event.target.value)}}
+              required
+              placeholder="Mensaje"></input>
+
+            <label htmlFor="privacidad">
+              <input 
+              id="privacidad"
+              type="checkbox"
+              onChange={(event) => {setPrivacidad(event.target.checked)}}
+              required
+              ></input>
+              &nbsp;Al enviar aceptas nuestro Aviso de Privacidad
+            </label>
+
+            <Button className="ml-3 mt-3" type="submit">
+              ¡COTIZA AHORA!
+            </Button>
+          </form>
+
         <br></br>
         <div className="col-12 login-contact">
         <ul>
