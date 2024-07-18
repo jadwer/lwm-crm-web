@@ -11,15 +11,15 @@ const LoginLinks = () => {
       {user ? (
         <>
           <p>{user.name}</p>
-          <Link href="/dashboard">Dashboard</Link>
+          <Link className="sesion" href="/dashboard">Dashboard</Link>
         </>
       ) : (
         <>
-          <div class="sesion">
+          <div className="sesion">
             <Link href="/login">Login</Link>
           </div>
           <span>&nbsp;|&nbsp;</span>
-          <div class="sesion">
+          <div className="sesion">
             <Link href="/register">Registrarse</Link>
           </div>
         </>
