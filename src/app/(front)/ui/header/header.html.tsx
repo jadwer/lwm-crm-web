@@ -1,7 +1,9 @@
-import LoginLinks from '@/app/(auth)/components/LoginLinks'
+import LoginLinks from '@/app/(auth)/components/LoginLinks';
+import WhatsappWidget from "../whatsapp/whatsapp"
+
 const HeaderTemplate = () => {
   return (
-    
+    <>
     <header>
       <div className="container-fluid py-3 border-bottom">
         <div className='row d-flex align-items-center'>
@@ -23,6 +25,8 @@ const HeaderTemplate = () => {
       </div>
       
     </header>
+    <WhatsappWidget></WhatsappWidget>
+    </>
 
 
   )
