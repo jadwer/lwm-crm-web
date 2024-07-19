@@ -9,9 +9,9 @@ const NosotrosTemplate = () => (
           </div>
           <div className="col-12 col-md-6">
             <h1>Acerca de nosotros</h1>
-            <p className="text-justify">Bienvenidos a Labor Wasser de México, una empresa líder en la comercialización de productos y equipos para laboratorio. Con más de 20 años de experiencia en el sector, nos hemos consolidado como un proveedor confiable y comprometido con la calidad y la innovación.</p>
-            <p className="text-justify">Nos mantenemos a la vanguardia de las innovaciones tecnológicas y científicas para ofrecer siempre las soluciones más avanzadas a nuestros clientes. Participamos en ferias y congresos internacionales, y colaboramos con instituciones académicas y de investigación para estar al tanto de las últimas tendencias y avances en el campo.</p>
-            <p className="text-justify">En Labor Wasser de México, su éxito es nuestra prioridad. Confíe en nosotros para proporcionarle los productos y el soporte que necesita para llevar a cabo su trabajo con excelencia y precisión.</p>
+            <p className="text-center text-md-start">Bienvenidos a Labor Wasser de México, una empresa líder en la comercialización de productos y equipos para laboratorio. Con más de 20 años de experiencia en el sector, nos hemos consolidado como un proveedor confiable y comprometido con la calidad y la innovación.</p>
+            <p className="text-center text-md-start">Nos mantenemos a la vanguardia de las innovaciones tecnológicas y científicas para ofrecer siempre las soluciones más avanzadas a nuestros clientes. Participamos en ferias y congresos internacionales, y colaboramos con instituciones académicas y de investigación para estar al tanto de las últimas tendencias y avances en el campo.</p>
+            <p className="text-center text-md-start">En Labor Wasser de México, su éxito es nuestra prioridad. Confíe en nosotros para proporcionarle los productos y el soporte que necesita para llevar a cabo su trabajo con excelencia y precisión.</p>
           </div>
         </div>
       </div>
