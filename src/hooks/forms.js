@@ -12,7 +12,10 @@ export const useForms = () => {
         
         axios
         .post('/contact_form', props)
-        .then(response => setStatus(response.data.status))
+        .then(response => {
+            setStatus(response.data.status);
+            console.log(response.data)
+        })
         .catch(error => {
             if (error.response.status !== 422) throw error
             

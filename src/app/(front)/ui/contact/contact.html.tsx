@@ -21,7 +21,15 @@ const Contact = () => {
     event.preventDefault();
 
     
-    let dataForm = [nombre, tel, mail, producto, cantidad, mensaje, privacidad];
+    let dataForm = {
+      "nombre" : nombre,
+      "tel" : tel,
+      "mail" : mail,
+      "producto" : producto,
+      "cantidad" : cantidad,
+      "mensaje" : mensaje,
+      "privacidad" : privacidad,
+    };
     
     contactForm({setErrors, setStatus}, dataForm);
 
@@ -49,80 +57,50 @@ const Contact = () => {
     <div className="offcanvas-body">
       <div>
         <h6>Ponte en contacto con nosotros y uno de nuestros representantes se pondrán en contacto contigo.</h6>
-        <form>
-          <label className="form-label">Nombre completo</label>
-          <input type="text" className="form-control" id="Nombre completo"></input>
-          <label className="form-label">Correo electrónico</label>
-          <input type="email" className="form-control" id="correo electrónico"></input>
-          <label className="form-label">Teléfono</label>
-          <input type="tel" className="form-control" id="Telefono"></input>
-          <label className="form-label">Mensaje</label>
-                  <textarea className="form-control" id="Mensaje" /*rows="3"*/></textarea>
-                  <button type="submit" className="btn btn-primary mt-2">Enviar</button>
-        </form>
-
         <form onSubmit={ (e) => { submitContact(e)} }>
-            <label htmlFor="nombre">Nombre:</label>
+
+            <label htmlFor="nombre" className="form-label">Nombre</label>
             <input
               id="nombre"
               type="text"
+              className="form-control"
               value={nombre}
               onChange={(event) => {setNombre(event.target.value)}}
               required
               placeholder="Nombre completo"></input>
-            <label htmlFor="tel">Teléfono:</label>
-            <input
-              id="tel"
-              type="text"
-              value={tel}
-              onChange={(event) => {setTel(event.target.value)}}
-              required
-              placeholder="Teléfono con lada"></input>
-            <label htmlFor="mail">Email:</label>
+
+
+          <label htmlFor="mail" className="form-label">Correo electrónico</label>
             <input
               id="mail"
               type="email"
+              className="form-control"
               value={mail}
               onChange={(event) => {setMail(event.target.value)}}
               required
               placeholder="Email válido"></input>
-            <label htmlFor="producto">Producto requerido:</label>
+
+          <label htmlFor="tel" className="form-label">Teléfono</label>
             <input
-              id="producto"
-              type="text"
-              value={producto}
-              onChange={(event) => {setProducto(event.target.value)}}
+              id="tel"
+              type="tel"
+              className="form-control"
+              value={tel}
+              onChange={(event) => {setTel(event.target.value)}}
               required
-              placeholder="Descripción del producto"></input>
-            <label htmlFor="cantidad">Cantidad:</label>
-            <input
-              id="cantidad"
-              type="text"
-              value={cantidad}
-              onChange={(event) => {setCantidad(event.target.value)}}
-              required
-              placeholder="Cantidad de productos"></input>
-            <label htmlFor="mensaje">Mensaje:</label>
-            <input
+              placeholder="Teléfono con lada"></input>
+
+          <label htmlFor="mensaje" className="form-label">Mensaje:</label>
+            <textarea
               id="mensaje"
-              type="textarea"
+              className="form-control"
               value={mensaje}
               onChange={(event) => {setMensaje(event.target.value)}}
               required
-              placeholder="Mensaje"></input>
+              placeholder="Mensaje"></textarea>
 
-            <label htmlFor="privacidad">
-              <input 
-              id="privacidad"
-              type="checkbox"
-              onChange={(event) => {setPrivacidad(event.target.checked)}}
-              required
-              ></input>
-              &nbsp;Al enviar aceptas nuestro Aviso de Privacidad
-            </label>
-
-            <Button className="ml-3 mt-3" type="submit">
-              ¡COTIZA AHORA!
+            <Button className="btn btn-primary mt-2" type="submit">
+              ENVIAR
             </Button>
           </form>
 
