@@ -15,7 +15,7 @@ const Contact = () => {
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const { contactForm } = useForms();
+  const { contactFormDirect } = useForms();
 
   const submitContact = async (event: { preventDefault: () => void}) => {
     event.preventDefault();
@@ -31,7 +31,7 @@ const Contact = () => {
       "privacidad" : privacidad,
     };
     
-    contactForm({setErrors, setStatus}, dataForm);
+    contactFormDirect({setErrors, setStatus}, dataForm);
 
 
     console.log(dataForm);
@@ -99,7 +99,7 @@ const Contact = () => {
               required
               placeholder="Mensaje"></textarea>
 
-            <Button className="btn btn-primary mt-2" type="submit">
+            <Button className="btn btn-primary mt-2" type="submit" id="submit" name="submit">
               ENVIAR
             </Button>
           </form>

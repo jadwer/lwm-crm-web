@@ -5,7 +5,7 @@ export const useForms = () => {
 
     const contactForm = async ({setErrors, setStatus}, props) => {
         await csrf();
-
+        
         console.log("from forms.js")
         
         setErrors([])
@@ -25,7 +25,29 @@ export const useForms = () => {
         console.log(props)
     }
 
+    const contactFormDirect = async ({setErrors, setStatus}, props) => {
+        
+        console.log("from forms.js")
+        
+        setErrors([])
+        
+        axios
+        .post('/api/send_form.php', props)
+        .then(response => {
+            setStatus(response.data.status);
+            console.log(response.data)
+        })
+        .catch(error => {
+            if (error.response.status !== 422) throw error
+            
+            setErrors(error.response.data.errors)
+        })
+
+        console.log(props)
+    }
+
     return {
-        contactForm
+        contactForm,
+        contactFormDirect,
     }
 }

@@ -20631,6 +20631,10 @@ hr {
   margin-top: 13px;
 }
 
+.bi-whatsapp::before {
+  vertical-align: -9px;
+}
+
 .mi-color {
   color: #f00;
 }
