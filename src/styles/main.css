@@ -20311,7 +20311,7 @@ h1,
 }
 .container-fluid .footer, .container-sm .footer, .container-md .footer, .container-lg .footer, .container-xl .footer, .container-xxl .footer {
   padding-top: 3em;
-  margin-top: 3.5em;
+  padding-bottom: 2em;
   min-height: 50vh;
   background-color: #eeeeee;
 }
@@ -20443,6 +20443,8 @@ h1,
 
 #LoginLinks {
   display: flex;
+  margin-top: 12px;
+  color: #8AC905;
 }
 #LoginLinks a {
   color: #8AC905;
