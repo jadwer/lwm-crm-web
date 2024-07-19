@@ -1,6 +1,5 @@
 "use client"
 import { useState } from "react"
-import ContactFormTemplate from "./contact.html"
 import { useForms } from "@/hooks/forms"
 import { Button } from "react-bootstrap"
 
@@ -12,7 +11,7 @@ const Contact = () => {
   const [cantidad, setCantidad] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [privacidad, setPrivacidad] = useState(false);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState([]);
 
   const { contactFormDirect } = useForms();
@@ -103,7 +102,8 @@ const Contact = () => {
               ENVIAR
             </Button>
           </form>
-
+          {(status != null)? <div className="send-form">Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.</div> : null}
+          
         <br></br>
         <div className="col-12 login-contact">
         <ul>
