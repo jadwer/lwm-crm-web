@@ -20075,7 +20075,18 @@ p {
   font-family: "Poppins", sans-serif;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   font-family: "Anek Bangla", sans-serif;
 }
 
@@ -20091,6 +20102,42 @@ h1,
   }
 }
 
+.container-fluid.valor, .valor.container-sm, .valor.container-md, .valor.container-lg, .valor.container-xl, .valor.container-xxl {
+  padding: 6em 0;
+  background-image: url("/../images/labor-wasser-mexico-hero-8.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.container-fluid.valor img.valor-img, .valor.container-sm img.valor-img, .valor.container-md img.valor-img, .valor.container-lg img.valor-img, .valor.container-xl img.valor-img, .valor.container-xxl img.valor-img {
+  width: 30%;
+  margin-bottom: 2em;
+}
+.container-fluid.valor .col-valor, .valor.container-sm .col-valor, .valor.container-md .col-valor, .valor.container-lg .col-valor, .valor.container-xl .col-valor, .valor.container-xxl .col-valor {
+  height: 100vh;
+}
+.container-fluid.valor h1, .valor.container-sm h1, .valor.container-md h1, .valor.container-lg h1, .valor.container-xl h1, .valor.container-xxl h1, .container-fluid.valor .h1, .valor.container-sm .h1, .valor.container-md .h1, .valor.container-lg .h1, .valor.container-xl .h1, .valor.container-xxl .h1,
+.container-fluid.valor h4,
+.valor.container-sm h4,
+.valor.container-md h4,
+.valor.container-lg h4,
+.valor.container-xl h4,
+.valor.container-xxl h4,
+.container-fluid.valor .h4,
+.valor.container-sm .h4,
+.valor.container-md .h4,
+.valor.container-lg .h4,
+.valor.container-xl .h4,
+.valor.container-xxl .h4,
+.container-fluid.valor p,
+.valor.container-sm p,
+.valor.container-md p,
+.valor.container-lg p,
+.valor.container-xl p,
+.valor.container-xxl p {
+  color: #ffffff;
+}
 .container-fluid.toggle-head, .toggle-head.container-sm, .toggle-head.container-md, .toggle-head.container-lg, .toggle-head.container-xl, .toggle-head.container-xxl {
   justify-content: center;
 }
@@ -20114,7 +20161,6 @@ h1,
 .container-fluid.about-2, .about-2.container-sm, .about-2.container-md, .about-2.container-lg, .about-2.container-xl, .about-2.container-xxl {
   background-color: #012A94;
   padding-top: 3em;
-  padding-bottom: 3em;
 }
 .container-fluid.about-2 h1, .about-2.container-sm h1, .about-2.container-md h1, .about-2.container-lg h1, .about-2.container-xl h1, .about-2.container-xxl h1, .container-fluid.about-2 .h1, .about-2.container-sm .h1, .about-2.container-md .h1, .about-2.container-lg .h1, .about-2.container-xl .h1, .about-2.container-xxl .h1 {
   color: #8AC905;
@@ -20130,7 +20176,19 @@ h1,
   background-repeat: no-repeat;
   background-size: cover;
 }
-.container-fluid.soon h1, .soon.container-sm h1, .soon.container-md h1, .soon.container-lg h1, .soon.container-xl h1, .soon.container-xxl h1, .container-fluid.soon .h1, .soon.container-sm .h1, .soon.container-md .h1, .soon.container-lg .h1, .soon.container-xl .h1, .soon.container-xxl .h1, .container-fluid.soon h2, .soon.container-sm h2, .soon.container-md h2, .soon.container-lg h2, .soon.container-xl h2, .soon.container-xxl h2, .container-fluid.soon .h2, .soon.container-sm .h2, .soon.container-md .h2, .soon.container-lg .h2, .soon.container-xl .h2, .soon.container-xxl .h2 {
+.container-fluid.soon h1, .soon.container-sm h1, .soon.container-md h1, .soon.container-lg h1, .soon.container-xl h1, .soon.container-xxl h1, .container-fluid.soon .h1, .soon.container-sm .h1, .soon.container-md .h1, .soon.container-lg .h1, .soon.container-xl .h1, .soon.container-xxl .h1,
+.container-fluid.soon h2,
+.soon.container-sm h2,
+.soon.container-md h2,
+.soon.container-lg h2,
+.soon.container-xl h2,
+.soon.container-xxl h2,
+.container-fluid.soon .h2,
+.soon.container-sm .h2,
+.soon.container-md .h2,
+.soon.container-lg .h2,
+.soon.container-xl .h2,
+.soon.container-xxl .h2 {
   color: #ffffff;
   text-transform: uppercase;
 }
@@ -20194,6 +20252,9 @@ h1,
 }
 .container-fluid.about .left-info, .about.container-sm .left-info, .about.container-md .left-info, .about.container-lg .left-info, .about.container-xl .left-info, .about.container-xxl .left-info {
   padding: 3%;
+}
+.container-fluid.about .left-info h4, .about.container-sm .left-info h4, .about.container-md .left-info h4, .about.container-lg .left-info h4, .about.container-xl .left-info h4, .about.container-xxl .left-info h4, .container-fluid.about .left-info .h4, .about.container-sm .left-info .h4, .about.container-md .left-info .h4, .about.container-lg .left-info .h4, .about.container-xl .left-info .h4, .about.container-xxl .left-info .h4 {
+  color: #8AC905;
 }
 @media (max-width: 575.98px) {
   .container-fluid.about .left-info, .about.container-sm .left-info, .about.container-md .left-info, .about.container-lg .left-info, .about.container-xl .left-info, .about.container-xxl .left-info {
@@ -20416,6 +20477,11 @@ h1,
     padding: 1em;
   }
 }
+.container.mision .card h2, .container.mision .card .h2 {
+  color: #8AC905;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 .container.numbers {
   background-color: #012A94;
   border-radius: 20px;
@@ -20424,6 +20490,11 @@ h1,
   z-index: 1;
   padding: 5em 1em;
   color: white;
+}
+@media (max-width: 575.98px) {
+  .container.products {
+    margin-top: 60px;
+  }
 }
 .container.products h1, .container.products .h1 {
   color: #012A94;
@@ -20496,7 +20567,7 @@ h1,
   font-weight: 600;
 }
 .container.products-cards .card img .card-img-top {
-  width: 60%;
+  width: 45% !important;
 }
 .container.product-detail .text-detail {
   padding: 2em;
@@ -20533,9 +20604,9 @@ h1,
 img.logo {
   width: 40%;
 }
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
   img.logo {
-    width: 90%;
+    width: 70%;
   }
 }
 
@@ -20611,6 +20682,19 @@ hr {
   line-height: 0;
   font-weight: 600;
   margin-left: 20px;
+  color: #8AC905;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  border: none;
+  width: auto;
+}
+.burger img.contact-head {
+  width: 3em;
+}
+@media (max-width: 575.98px) {
+  .burger img.contact-head {
+    width: 2em;
+  }
 }
 
 .whatsapp {

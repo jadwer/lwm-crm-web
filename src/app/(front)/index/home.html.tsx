@@ -14,21 +14,34 @@ const HomePage = () => (
         <div className="col-12 col-md-6 hero-right"></div>
       </div>
     </div>
-    {/* <div className="container numbers text-center">
+    <div className="container numbers text-center">
       <div className="row">
-        <div className="col-12 col-md-4">Numero 1</div>
-        <div className="col-12 col-md-4">Numero 2</div>
-        <div className="col-12 col-md-4">Numero 3</div>
+        <div className="col-12 col-md-3 text-center">
+          <h1>+180,000</h1>
+          <h5>PRODUCTOS</h5>
+        </div>
+        <div className="col-12 col-md-3 text-center">
+          <h1>+2,000</h1>
+          <h5>CLIENTES SATISFECHOS</h5>
+        </div>
+        <div className="col-12 col-md-3 text-center">
+          <h1>27</h1>
+          <h5>MARCAS</h5>
+        </div>
+        <div className="col-12 col-md-3 text-center">
+          <h1>+1,000</h1>
+          <h5>COTIZACIONES REALIZADAS</h5>
+        </div>
       </div>
-    </div> */}
+    </div>
     <div className="container-fluid about">
       <div className="row align-items-center">
         <div className="col-12 col-md-6 left-info">
-          <h4>¿Por qué comprar con nosotros?</h4>
-          <p>Por la calidad en nuestro servicio, por la experiencia técnica y la resolución de la problemática tanto en la parte analítica como en la parte de proceso, además de que somos una empresa innovadora con tecnología de vanguardia, trabajamos a través de un CRM y un ERP para un mejor servicio, así como la concentración de las mejores marcas para la parte analítica y de proceso para la industria y la investigación, especialistas en químicos y tratamientos en aguas.</p>
+          <h4 className="text-center text-md-start">¿Por qué comprar con nosotros?</h4>
+          <p className="text-center text-md-start">Por la calidad en nuestro servicio, por la experiencia técnica y la resolución de la problemática tanto en la parte analítica como en la parte de proceso, además de que somos una empresa innovadora con tecnología de vanguardia, trabajamos a través de un CRM y un ERP para un mejor servicio, así como la concentración de las mejores marcas para la parte analítica y de proceso para la industria y la investigación, especialistas en químicos y tratamientos en aguas.</p>
           <div className="col d-flex mt-4">
             {/* <button type="button" className="btn btn-primary">¡Cotiza ahora!</button> */}
-            <button type="button" className="btn btn-secondary mx-0 mx-md-4">Más sobre nosotros</button>
+            <button type="button" className="btn btn-secondary mx-0">Más sobre nosotros</button>
           </div>
         </div>
         <div className="col-12 col-md-6 hero-2">

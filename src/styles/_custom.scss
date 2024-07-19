@@ -10,13 +10,25 @@ p {
     font-family: "Poppins", sans-serif;
 }
 
-h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
     font-family: "Anek Bangla", sans-serif;
 }
 
 h1,
 .h1 {
     font-weight: 800;
+
     @media (max-width: 575.98px) {
         text-align: center;
         font-size: 2.5em !important;
@@ -25,8 +37,35 @@ h1,
 
 .container-fluid {
 
+    &.valor {
+        padding: 6em 0;
+        background-image: url("/../images/labor-wasser-mexico-hero-8.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+        img {
+            &.valor-img {
+                width: 30%;
+                margin-bottom: 2em;
+            }
+        }
+
+        .col-valor {
+            height: 100vh;
+        }
+
+        h1,
+        h4,
+        p {
+            color: #ffffff;
+        }
+    }
+
     &.toggle-head {
         justify-content: center;
+
         .navbar-toggler {
             background-color: #8AC905;
             border: none;
@@ -34,12 +73,14 @@ h1,
             width: 55px;
             height: 55px;
         }
+
         li {
             &.nav-item {
                 text-align: center;
                 font-size: 1rem;
                 text-transform: uppercase;
             }
+
             ul {
                 &.dropdown-menu {
                     &.show {
@@ -55,25 +96,30 @@ h1,
     &.about-2 {
         background-color: #012A94;
         padding-top: 3em;
-        padding-bottom: 3em;
+
         h1 {
             color: #8AC905;
             text-transform: uppercase;
         }
+
         p {
             color: #ffffff;
         }
     }
+
     &.soon {
         height: 100vh;
         background-image: url("/../images/labor-wasser-mexico-hero-7.webp");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        h1,h2 {
+
+        h1,
+        h2 {
             color: #ffffff;
             text-transform: uppercase;
         }
+
         img {
             display: block;
             margin: 0 auto;
@@ -106,6 +152,7 @@ h1,
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+
         @media (max-width: 575.98px) {
             height: 80vh;
         }
@@ -114,11 +161,13 @@ h1,
             background-color: rgba(0, 148, 255, 0.8);
             height: 100vh;
             padding: 5%;
+
             @media (max-width: 575.98px) {
                 height: 80vh;
                 align-items: center !important;
                 display: grid;
             }
+
             h1 {
                 font-size: 3.8em;
                 line-height: 1em;
@@ -140,6 +189,11 @@ h1,
 
         .left-info {
             padding: 3%;
+
+            h4 {
+                color: #8AC905;
+            }
+
             @media (max-width: 575.98px) {
                 padding: 4em 2em;
             }
@@ -151,6 +205,7 @@ h1,
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+
             @media (max-width: 575.98px) {
                 height: 50vh;
             }
@@ -159,9 +214,11 @@ h1,
 
     &.cta {
         height: 70vh;
+
         @media (max-width: 575.98px) {
             height: auto !important;
         }
+
         .left {
             height: 70vh;
             background-image: url("/../images/labor-wasser-mexico-hero-4.webp");
@@ -169,6 +226,7 @@ h1,
             background-repeat: no-repeat;
             background-size: cover;
             border-right: #8AC905 solid 10px;
+
             @media (max-width: 575.98px) {
                 height: 45vh;
             }
@@ -182,6 +240,7 @@ h1,
             background-size: cover;
             color: white;
             padding-top: 10%;
+
             @media (max-width: 575.98px) {
                 height: auto !important;
                 padding: 5em 1em;
@@ -197,6 +256,7 @@ h1,
 
         .logo-footer {
             width: 75%;
+
             @media (max-width: 575.98px) {
                 width: 75%;
                 margin-bottom: 2em;
@@ -207,6 +267,7 @@ h1,
             color: #012A94;
             text-transform: uppercase;
             font-weight: 600;
+
             @media (max-width: 575.98px) {
                 text-align: center;
             }
@@ -217,16 +278,17 @@ h1,
                 padding-left: 0rem;
                 text-align: center;
             }
+
             li {
                 list-style: none;
-    
+
                 a {
                     color: #8AC905;
                     font-size: 1em;
                     text-transform: uppercase;
                     line-height: 2.5em;
                 }
-    
+
                 a:hover {
                     color: #012A94;
                 }
@@ -247,16 +309,20 @@ h1,
             -moz-box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.30);
             min-height: 45vh;
             border-radius: 16px;
+
             th {
                 &.tab-name {
                     width: 40%;
                 }
+
                 &.tab-category {
                     width: 22.5%;
                 }
+
                 &.tab-brand {
                     width: 22.5%;
                 }
+
                 &.tab-actions {
                     width: 15%;
                 }
@@ -281,9 +347,11 @@ h1,
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
+
         @media (max-width: 575.98px) {
             height: 30vh;
         }
+
         h1 {
             margin-top: 2.25em;
             color: white;
@@ -348,8 +416,10 @@ h1,
 
 #LoginLinks {
     display: flex;
+
     a {
         color: #8AC905;
+
         &:hover {
             color: #0094FF;
         }
@@ -372,15 +442,24 @@ h1,
 
     &.mision {
         padding: 6em 0;
+
         @media (max-width: 575.98px) {
             padding: 1.5em;
         }
+
         .card {
             height: 50vh;
             padding: 3em;
+
             @media (max-width: 575.98px) {
                 height: auto;
                 padding: 1em;
+            }
+
+            h2 {
+                color: #8AC905;
+                text-transform: uppercase;
+                font-weight: 600;
             }
         }
     }
@@ -396,6 +475,10 @@ h1,
     }
 
     &.products {
+        @media (max-width: 575.98px) {
+            margin-top: 60px;
+        }
+
         h1 {
             color: #012A94;
             font-size: 3em;
@@ -451,9 +534,11 @@ h1,
     &.products-cards {
         margin-top: 4em;
         margin-bottom: 4em;
+
         @media (max-width: 575.98px) {
             text-align: center;
         }
+
         h2 {
             font-weight: 600;
             color: #012A94;
@@ -463,9 +548,11 @@ h1,
 
         .card {
             padding: 3em !important;
+
             @media (max-width: 575.98px) {
                 padding: 1em !important;
             }
+
             h3 {
                 font-weight: 600;
                 color: #012A94;
@@ -481,7 +568,7 @@ h1,
 
             img {
                 .card-img-top {
-                    width: 60%;
+                    width: 45% !important;
                 }
             }
         }
@@ -531,8 +618,9 @@ h1,
 img {
     &.logo {
         width: 40%;
-        @media (max-width: 575.98px) {
-            width: 90%;
+
+        @media (max-width: 991.98px) {
+            width: 70%;
         }
     }
 }
@@ -575,6 +663,7 @@ hr {
     font-size: 1.1em;
     padding: .45em 2em;
     text-transform: uppercase;
+
     @media (max-width: 575.98px) {
         display: block;
         width: 100%;
@@ -607,23 +696,37 @@ hr {
         line-height: 0;
         font-weight: 600;
         margin-left: 20px;
+        color: #8AC905;
+        font-size: .9rem;
+        background-color: #ffffff;
+        border: none;
+        width: auto;
+    }
+
+    img {
+        &.contact-head {
+            width: 3em;
+            @media (max-width: 575.98px) {
+                width: 2em;
+            }
+        }
     }
 }
 
 .whatsapp {
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:40px;
-    right:40px;
-    background-color:#25d366;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:30px;
-    z-index:100;
-  }
-  
-  .whatsapp-icon {
-    margin-top:13px;
-  }
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 100;
+}
+
+.whatsapp-icon {
+    margin-top: 13px;
+}
