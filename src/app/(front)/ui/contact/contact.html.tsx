@@ -103,7 +103,7 @@ const Contact = () => {
             </Button>
           </form>
           {/* (status != null)? <div className="send-form">Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.</div> : null */}
-          <div className="send-form">Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.</div>
+          <div className="send-form">Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.</div> : null
           
         <br></br>
         <div className="col-12 login-contact">
