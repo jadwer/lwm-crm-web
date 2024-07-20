@@ -1,7 +1,7 @@
-const AvisoPrivacidadTemplate = () => (
+const DerechosReservadosTemplate = () => (
 
 <main>
   </main>
 
 
-); export default AvisoPrivacidadTemplate;
+); export default DerechosReservadosTemplate;
