@@ -15,7 +15,7 @@ const Footer = () => {
           </div>
           <div className='col-12 col-md-3'>
             <h4>Productos</h4>
-             <ul>
+            <ul>
               <li><a className="dropdown-item" href="soon">Reactivos</a></li>
               <li><a className="dropdown-item" href="soon">Medios de cultivo</a></li>
               <li><a className="dropdown-item" href="soon">Cristalería</a></li>
@@ -24,16 +24,16 @@ const Footer = () => {
             </ul>
           </div>
           <div className='col-12 col-md-3'>
-          <h4>Recursos</h4>
-             <ul>
+            <h4>Recursos</h4>
+            <ul>
               <li><a className="dropdown-item" href="catalogos">Catálogos</a></li>
               <li><a className="dropdown-item" href="certificados">Certificados</a></li>
               <li><a className="dropdown-item" href="precios">Lista de precios</a></li>
             </ul>
           </div>
           <div className='col-12 col-md-3'>
-          <h4>Contacto</h4>
-             <ul>
+            <h4>Contacto</h4>
+            <ul>
               <li>55 7575 1661</li>
               <li>55 7575 1662</li>
               <li>55 7160 2454</li>

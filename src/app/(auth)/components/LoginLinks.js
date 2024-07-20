@@ -11,7 +11,7 @@ const LoginLinks = () => {
       {user ? (
         <>
           <p>{user.name}</p>
-          <Link href="/dashboard">Dashboard</Link>
+          <Link className="sesion" href="/dashboard">Dashboard</Link>
         </>
       ) : (
         <>

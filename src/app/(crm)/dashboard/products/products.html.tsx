@@ -7,6 +7,7 @@ const ProductsTemplate = (props: any) => {
       <div className="container-fluid back-header">
         <div className="row my-4 align-items-md-center">
           <div className="col-12 col-md-6">
+          <h2>Categorías</h2>
             <h4>Todos los productos</h4>
           </div>
           <div className="col-12 col-md-6 d-flex justify-content-end">
