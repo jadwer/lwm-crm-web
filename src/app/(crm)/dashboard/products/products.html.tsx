@@ -1,13 +1,21 @@
+import Paginator from "../../ui/paginator/paginator";
+
 const ProductsTemplate = (props: any) => {
   const productos = props.data.productos.data;
   const metaData = props.data.productos;
-  console.log(metaData);
+
+  const links = metaData.links
+  const first = metaData.first_page_url
+  const first_url = metaData.prev_page_url
+  const last = metaData.last_page_url
+  const last_url = metaData.next_page_url
+
   return (
     <main>
       <div className="container-fluid back-header">
         <div className="row my-4 align-items-md-center">
           <div className="col-12 col-md-6">
-          <h2>Categorías</h2>
+            <h2>Categorías</h2>
             <h4>Todos los productos</h4>
           </div>
           <div className="col-12 col-md-6 d-flex justify-content-end">
@@ -91,6 +99,7 @@ const ProductsTemplate = (props: any) => {
                 })}
               </tbody>
             </table>
+            <Paginator data={{links, first, last, first_url, last_url}}></Paginator>
           </div>
         </div>
       </div>

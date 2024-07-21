@@ -19,7 +19,6 @@ const DashboardPage = () => {
       </Suspense>
     )
   } else {
-    console.log(typeof(productos))
     return (
       <Suspense>
         <ProductsTemplate data={{productos}}/>

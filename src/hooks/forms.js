@@ -21,8 +21,6 @@ export const useForms = () => {
             
             setErrors(error.response.data.errors)
         })
-
-        console.log(props)
     }
 
     const contactFormDirect = async ({setErrors, setStatus}, props) => {
@@ -42,8 +40,6 @@ export const useForms = () => {
             
             setErrors(error.response.data.errors)
         })
-
-        console.log(props)
     }
 
     return {

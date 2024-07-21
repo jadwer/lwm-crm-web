@@ -1,6 +1,0 @@
-class Product {
-    constructor(){
-
-    }
-    
-}

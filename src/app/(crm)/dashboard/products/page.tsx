@@ -3,9 +3,11 @@
 import { Suspense, useEffect, useState } from "react"
 import ProductsTemplate from "./products.html"
 import { useProducts } from "@/hooks/products";
+import { Products } from "@/lib/interfaces";
+
 
 const ProductsPage = () => {
-  const [productos, setProductos] = useState([]);
+  const [productos, setProductos] = useState<Products[]>([]);
   const {getAllProducts} = useProducts();
 
   useEffect(() => {
@@ -19,7 +21,7 @@ const ProductsPage = () => {
       </Suspense>
     )
   } else {
-    console.log(typeof(productos))
+    
     return (
       <Suspense>
         <ProductsTemplate data={{productos}}/>

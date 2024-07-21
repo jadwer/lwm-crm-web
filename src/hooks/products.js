@@ -18,7 +18,7 @@ export const useProducts = () => {
   const getAllProducts = async ({setProductos}) => {
     await csrf()
     axios
-      .get(`/api/products/`)
+      .get(`/api/products/?page=1`)
       .then((res) => {
         return setProductos(res.data)})
       .catch((error) => {
