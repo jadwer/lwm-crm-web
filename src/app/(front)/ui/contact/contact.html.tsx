@@ -14,7 +14,7 @@ const Contact = () => {
   const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState([]);
 
-  const { contactFormDirect } = useForms();
+  const { contactForm } = useForms();
 
   const submitContact = async (event: { preventDefault: () => void}) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ const Contact = () => {
       "privacidad" : privacidad,
     };
     
-    contactFormDirect({setErrors, setStatus}, dataForm);
+    contactForm({setErrors, setStatus}, dataForm);
 
 
     console.log(dataForm);
@@ -102,8 +102,7 @@ const Contact = () => {
               ENVIAR
             </Button>
           </form>
-          {/* (status != null)? <div className="send-form">Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.</div> : null */}
-          <div className="send-form">Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.</div> : null
+          {(status != null)? <div className="send-form">Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.</div> : null}
           
         <br></br>
         <div className="col-12 login-contact">

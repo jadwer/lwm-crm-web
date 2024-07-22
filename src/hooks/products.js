@@ -18,9 +18,8 @@ export const useProducts = () => {
   const getAllProducts = async ({setProductos}) => {
     await csrf()
     axios
-      .get(`/api/products/?page=1`)
-      .then((res) => {
-        return setProductos(res.data)})
+      .get(`/api/products`)
+      .then((res) => setProductos(res.data))
       .catch((error) => {
         if (error.response.status !== 409) throw error;
       });      
