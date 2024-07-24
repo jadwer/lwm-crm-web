@@ -21,7 +21,6 @@ const ProductsPage = () => {
       </Suspense>
     )
   } else {
-    
     return (
       <Suspense>
         <ProductsTemplate data={{productos}}/>

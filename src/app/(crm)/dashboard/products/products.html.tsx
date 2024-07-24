@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Paginator from "../../ui/paginator/paginator";
 
 const ProductsTemplate = (props: any) => {
@@ -22,9 +23,9 @@ const ProductsTemplate = (props: any) => {
             <button type="button" className="btn btn-primary">
               Importar lista
             </button>
-            <button type="button" className="btn btn-primary ms-2">
-              Agregar producto
-            </button>
+            <Link href={"/dashboard/add-product"} className="btn btn-primary ms-2">
+              Agregar producto 
+            </Link>
           </div>
         </div>
       </div>

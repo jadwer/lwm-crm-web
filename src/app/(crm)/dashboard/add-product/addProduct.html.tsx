@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const AddProductTemplate = () => (
 
     <main>
@@ -30,7 +32,7 @@ const AddProductTemplate = () => (
                         <div className="col-6">
                             <label className="form-label">Unidad de medida del producto</label>
                             <select id="unidad" className="form-select">
-                                <option selected>Selecciona una opción</option>
+                                <option defaultValue="">Selecciona una opción</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -39,7 +41,7 @@ const AddProductTemplate = () => (
                         <div className="col-6">
                             <label className="form-label">Categoría del producto</label>
                             <select id="categoria" className="form-select">
-                                <option selected>Selecciona una opción</option>
+                                <option  defaultValue="">Selecciona una opción</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -48,7 +50,7 @@ const AddProductTemplate = () => (
                         <div className="col-6">
                             <label className="form-label">Marca del producto</label>
                             <select id="marca" className="form-select">
-                                <option selected>Selecciona una opción</option>
+                                <option  defaultValue="">Selecciona una opción</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -64,7 +66,7 @@ const AddProductTemplate = () => (
                         <label className="form-label">Descripción técnica o larga del producto</label>
                         <textarea className="form-control" id="Descripcion larga o técnica del producto" /*rows="3"*/ placeholder="Descripción técnica o larga del producto"></textarea>
                         <br></br>
-                        <button type="submit" className="btn btn-secondary mt-2 me-4">Cancelar</button>
+                        <Link href="/dashboard/products" className="btn btn-secondary mt-2 me-4">Cancelar</Link>
                         <button type="submit" className="btn btn-primary mt-2">Guardar</button>
                 </div>
             </form>
