@@ -1,58 +1,60 @@
-import { useProducts } from "@/hooks/products";
-import { Category } from "@/lib/interfaces";
+import { useUnits } from "@/hooks/units";
+import { Unit } from "@/lib/interfaces";
 import { redirect } from "next/navigation";
 import { FormEvent, MouseEvent, useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 
-const AddUpdateCategory = (
+const AddUpdateUnits = (
   props:
     | {
-        data: Category | null;
-        cat_id: string;
+        data: Unit | null;
+        unit_id: string;
       }
     | any
 ) => {
-  const cat_id = props.cat_id;
-  const category = props.data == null ? ({} as Category) : props.data;
+  const unit_id = props.unit_id;
+  const unit = props.data == null ? ({} as Unit) : props.data;
 
-  const [nombre, setNombre] = useState(category.name);
-  const [descripcion, setDescripcion] = useState(category.description);
-  const [slug, setSlug] = useState(category.slug);
+  const [nombre, setNombre] = useState(unit.name);
+  const [tipo, setTipo] = useState(unit.type);
+  const [code, setCode] = useState(unit.code);
   const [errors, setErrors] = useState([]);
   const setStatus = props.status.setStatus;
   const status = props.status.status;
 
-  const { setCategory } = useProducts();
+  const { setUnit } = useUnits();
 
-  const submitNewCategory = async (event: { preventDefault: () => void; }) => {
+  const submitNewUnit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     let dataForm = {
-      id: category.id,
+      id: unit.id,
       name: nombre,
-      description: descripcion,
-      slug: slug,
+      type: tipo,
+      code: code,
     };
 
-    await setCategory({ setErrors, setStatus }, dataForm);
+    await setUnit({ setErrors, setStatus }, dataForm);
   };
-  const handleSubmit = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-    submitNewCategory(e);
+  const handleSubmit = (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
+    submitNewUnit(e);
   };
 
   return (
     <div
       className="modal fade"
-      id={cat_id}
+      id={unit_id}
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      /*tabindex="-1" */ aria-labelledby={"Label-" + cat_id}
+      /*tabindex="-1" */ aria-labelledby={"Label-" + unit_id}
       aria-hidden="true">
       <div className="modal-dialog">
         <form>
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id={"Label-" + cat_id}>
+              <h1 className="modal-title fs-5" id={"Label-" + unit_id}>
                 Agregar / Editar
               </h1>
               <button
@@ -67,8 +69,8 @@ const AddUpdateCategory = (
                 <input
                   type="text"
                   className="form-control"
-                  id={"name-" + cat_id}
-                  placeholder="Nombre de la categoría"
+                  id={"name-" + unit_id}
+                  placeholder="Nombre de la unidad de medida"
                   value={nombre}
                   onChange={(event) => {
                     setNombre(event.target.value);
@@ -77,21 +79,21 @@ const AddUpdateCategory = (
                 <input
                   type="text"
                   className="form-control"
-                  id={"descript-" + cat_id}
-                  placeholder="Nombre de la categoría"
-                  value={descripcion}
+                  id={"type-" + unit_id}
+                  placeholder="descripción de la medida"
+                  value={tipo}
                   onChange={(event) => {
-                    setDescripcion(event.target.value);
+                    setTipo(event.target.value);
                   }}></input>
-                <label className="form-label">Slug</label>
+                <label className="form-label">Código</label>
                 <input
                   type="text"
                   className="form-control"
-                  id={"slug-" + cat_id}
-                  placeholder="Nombre de la categoría"
-                  value={slug}
+                  id={"code-" + unit_id}
+                  placeholder="Código del tipo de unidad de medida"
+                  value={code}
                   onChange={(event) => {
-                    setSlug(event.target.value);
+                    setCode(event.target.value);
                   }}></input>
               </div>
             </div>
@@ -122,4 +124,4 @@ const AddUpdateCategory = (
     </div>
   );
 };
-export default AddUpdateCategory;
+export default AddUpdateUnits;

@@ -1,7 +1,7 @@
 'use client'
 
 import { Suspense, useEffect, useState } from "react";
-import { useProducts } from "@/hooks/products";
+import { useCategories } from "@/hooks/categories";
 import { Category } from "@/lib/interfaces";
 
 import CategoriesTemplate from "./categories.html"
@@ -9,7 +9,7 @@ import CategoriesTemplate from "./categories.html"
 const CategoriesPage = () => {
   const [categorias, setCategories] = useState<Category[]>([]);
   const [status, setStatus] = useState("");
-  const { getCategories } = useProducts();
+  const { getCategories } = useCategories();
   
   useEffect(() => {
     getCategories( {setCategories} );

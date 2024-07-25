@@ -1,5 +1,33 @@
-const BrandsTemplate = () => (
+import AddUpdateBrands from "./addUpdateBrands";
+import { useBrands } from "@/hooks/brands";
+import { useState } from "react";
 
+const BrandsTemplate = (props: any) => {
+    
+    const marcas = props.data.marcas.data;
+    const setStatus = props.data.setStatus;
+    const status = props.data.status;
+  
+    const [errors, setErrors] = useState([]);
+  
+    const { delBrand } = useBrands();
+  
+    const submitDelBrand = (
+      e: { preventDefault: () => void },
+      brand_id: number
+    ) => {
+      e.preventDefault();
+      if (
+        confirm(
+          "¿Estás seguro que quieres eliminar esta marca? Esta acción no se puede deshacer."
+        )
+      ) {
+        delBrand({ setErrors, setStatus }, brand_id);
+      }
+    };
+
+    
+    return (
     <main>
         <div className="container-fluid back-header">
             <div className="row my-4 align-items-md-center">
@@ -8,7 +36,7 @@ const BrandsTemplate = () => (
                     <h4>Agregar Marca</h4>
                 </div>
                 <div className="col-12 col-md-6 d-flex justify-content-end">
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newBrand">
                         Agregar
                     </button>
                 </div>
@@ -25,40 +53,52 @@ const BrandsTemplate = () => (
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">Nombre de la marca</th>
-                                <td>Editar | Eliminar</td>
-                            </tr>
+                        {marcas.map((marca: any) => {
+                  return (
+                    <tr key={marca.id}>
+                      <td scope="row">{marca.name}</td>
+                      <td>
+                        {" "}
+                        <button
+                          type="button"
+                          className="btn-action"
+                          data-bs-toggle="modal"
+                          data-bs-target={`#brand-${marca.id}`}>
+                          Editar
+                        </button>
+                        |
+                        <button
+                          type="button"
+                          className="btn-action"
+                          onClick={(e) => {
+                            submitDelBrand(e, marca.id);
+                          }}>
+                          Eliminar
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        {marcas.map((marca: any) => {
+        return (
+          <AddUpdateBrands
+            data={marca}
+            brand_id={"brand-" + marca.id}
+            status={{ setStatus, status }}
+            key={marca.id}></AddUpdateBrands>
+        );
+      })}
+      ;
+      <AddUpdateBrands
+        data={null}
+        status={{ setStatus, status }}
+        brand_id={"newBrand"}></AddUpdateBrands>
 
-        <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" /*tabindex="-1" */ aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="staticBackdropLabel">Agregar / Editar</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                        <div>
-                            <label className="form-label">Nombre</label>
-                            <input type="text" className="form-control" id="name" placeholder="Nombre de la marca"></input>
-                            <label className="form-label">Descripción</label>
-                            <input type="text" className="form-control" id="descript" placeholder="Nombre de la marca"></input>
-                            <label className="form-label">Slug</label>
-                            <input type="text" className="form-control" id="slug" placeholder="Nombre de la marca"></input>
-                        </div>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="submit" className="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" className="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
-); export default BrandsTemplate;
+)}; export default BrandsTemplate;

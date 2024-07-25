@@ -1,35 +1,43 @@
-import Link from "next/link";
-import AddUpdateCategory from "./addUpdateCats";
-import { useCategories } from "@/hooks/categories";
+import AddUpdateUnits from "./addUpdateUnits";
+import { useUnits } from "@/hooks/units";
 import { useState } from "react";
 
-const CategoriesTemplate = (props: any) => {
-  const categorias = props.data.categorias.data;
+const UnitsTemplate = (props: any) => {
+  const unidades = props.data.unidades.data;
   const setStatus = props.data.setStatus;
-  const status = props.data.status
+  const status = props.data.status;
 
   const [errors, setErrors] = useState([]);
 
-  const {delCategory} = useCategories();
+  const { delUnit } = useUnits();
 
-  const submitDelCategory = (e: { preventDefault: () => void; }, cat_id : number) => {
+  const submitDelUnit = (
+    e: { preventDefault: () => void },
+    unit_id: number
+  ) => {
     e.preventDefault();
-    if(confirm("¿Estás seguro que quieres eliminar esta categoría? Esta acción no se puede deshacer.")){delCategory({setErrors, setStatus}, cat_id);}
-  }
+    if (
+      confirm(
+        "¿Estás seguro que quieres eliminar esta unidad de medida? Esta acción no se puede deshacer."
+      )
+    ) {
+      delUnit({ setErrors, setStatus }, unit_id);
+    }
+  };
   return (
     <main>
       <div className="container-fluid back-header">
         <div className="row my-4 align-items-md-center">
           <div className="col-12 col-md-6">
-            <h2>Categorías</h2>
-            <h4>Agregar Categoría</h4>
+            <h2>Unidades</h2>
+            <h4>Agregar unidad de medida</h4>
           </div>
           <div className="col-12 col-md-6 d-flex justify-content-end">
             <button
               type="button"
               className="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#newCat">
+              data-bs-target="#newUnit">
               Agregar
             </button>
           </div>
@@ -42,13 +50,13 @@ const CategoriesTemplate = (props: any) => {
               <thead>
                 <tr>
                   <th className="tab-category" scope="col">
-                    Nombre de la categoría
+                    Nombre de la unidad de medida
                   </th>
                   <th className="tab-name" scope="col">
                     Descripción
                   </th>
                   <th className="tab-brand" scope="col">
-                    Slug
+                    Código de unidad de medida
                   </th>
                   <th className="tab-actions" scope="col">
                     Acciones
@@ -56,23 +64,28 @@ const CategoriesTemplate = (props: any) => {
                 </tr>
               </thead>
               <tbody>
-                {categorias.map((categoria: any) => {
+                {unidades.map((unidad: any) => {
                   return (
-                    <tr key={categoria.id}>
-                      <td scope="row">{categoria.name}</td>
-                      <td scope="row">{categoria.description}</td>
-                      <td scope="row">{categoria.slug}</td>
+                    <tr key={unidad.id}>
+                      <td scope="row">{unidad.name}</td>
+                      <td scope="row">{unidad.type}</td>
+                      <td scope="row">{unidad.code}</td>
                       <td>
                         {" "}
                         <button
                           type="button"
                           className="btn-action"
                           data-bs-toggle="modal"
-                          data-bs-target={`#cat-${categoria.id}`}>
+                          data-bs-target={`#unit-${unidad.id}`}>
                           Editar
                         </button>
                         |
-                        <button type="button" className="btn-action" onClick={(e) =>{submitDelCategory(e, categoria.id)}}>
+                        <button
+                          type="button"
+                          className="btn-action"
+                          onClick={(e) => {
+                            submitDelUnit(e, unidad.id);
+                          }}>
                           Eliminar
                         </button>
                       </td>
@@ -84,15 +97,21 @@ const CategoriesTemplate = (props: any) => {
           </div>
         </div>
       </div>
-
-      {categorias.map((categoria: any) => {
-          return (
-              <AddUpdateCategory data={categoria} cat_id={"cat-"+categoria.id} status={{setStatus, status}} key={categoria.id}></AddUpdateCategory>
-            )
-        })
-    };
-    <AddUpdateCategory data={null}  status={{setStatus, status}} cat_id={"newCat"}></AddUpdateCategory>
+      {unidades.map((unidad: any) => {
+        return (
+          <AddUpdateUnits
+            data={unidad}
+            unit_id={"unit-" + unidad.id}
+            status={{ setStatus, status }}
+            key={unidad.id}></AddUpdateUnits>
+        );
+      })}
+      ;
+      <AddUpdateUnits
+        data={null}
+        status={{ setStatus, status }}
+        unit_id={"newUnit"}></AddUpdateUnits>
     </main>
   );
 };
-export default CategoriesTemplate;
+export default UnitsTemplate;
