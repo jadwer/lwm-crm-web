@@ -4,7 +4,7 @@ const SideNav = () => (
       <img className="img-fluid mt-3 mb-3" alt="" src="/../images/labor-wasser-mexico-logo-3.png" />
         <ul className="nav flex-column w-25 mw-25">
       <li className="nav-item">
-        <a className="nav-link active" aria-current="page" href="/dashboard">
+        <a className="nav-link active" aria-current="page" href="/dashboard/products">
           Productos
         </a>
       </li>
@@ -19,8 +19,8 @@ const SideNav = () => (
         </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/dashboard/users">
-          Usuarios
+        <a className="nav-link" href="/dashboard/units">
+          Unidades
         </a>
       </li>
     </ul>

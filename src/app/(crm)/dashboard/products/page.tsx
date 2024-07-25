@@ -1,18 +1,21 @@
 'use client'
-
 import { Suspense, useEffect, useState } from "react"
+import { Brand, Category, Products, Unit } from "@/lib/interfaces";
 import ProductsTemplate from "./products.html"
 import { useProducts } from "@/hooks/products";
-import { Products } from "@/lib/interfaces";
+
+
 
 
 const ProductsPage = () => {
-  const [productos, setProductos] = useState<Products[]>([]);
   const {getAllProducts} = useProducts();
+
+  const [productos, setProductos] = useState<Products[]>([]);
 
   useEffect(() => {
     getAllProducts({setProductos});
   }, []);
+
 
   if(Object.keys(productos).length === 0){
     return (

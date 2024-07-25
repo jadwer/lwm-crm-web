@@ -27,6 +27,11 @@ export interface Products {
     brand_id: Brand
   }
   
+  export interface Units {
+    status: string,
+    data: Unit[]
+  }
+
   export interface Unit {
     id: number
     type: string
@@ -34,6 +39,11 @@ export interface Products {
     name: string
   }
   
+  export interface Categories {
+    status: string,
+    data: Category[]
+  }
+
   export interface Category {
     id: number
     name: string
@@ -41,6 +51,10 @@ export interface Products {
     slug: string
   }
   
+  export interface Brands {
+    status: string,
+    data: Brand[]
+  }
   export interface Brand {
     id: number
     name: string
