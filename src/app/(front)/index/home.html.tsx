@@ -1,3 +1,5 @@
+import Recommended from "../ui/widgets/recomended";
+
 const HomePage = () => (
 
   <main>
@@ -48,43 +50,7 @@ const HomePage = () => (
         </div>
       </div>
     </div>
-    <div className="container products">
-      <div className="row">
-        <div className="col text-center">
-          <h1>PRODUCTOS RECOMENDADOS</h1>
-          <hr className="separator"></hr>
-        </div>
-      </div>
-      <div className="row products-list">
-        <div className="col-12">
-          <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-          <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="producto">VER DETALLE</a>
-        </div>
-        <hr></hr>
-        <div className="col-12">
-          <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-          <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="producto">VER DETALLE</a>
-        </div>
-        <hr></hr>
-        <div className="col-12">
-          <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-          <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="producto">VER DETALLE</a>
-        </div>
-        <hr></hr>
-        <div className="col-12">
-          <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-          <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-          <a href="producto">VER DETALLE</a>
-        </div>
-        <hr></hr>
-        <div className="col-12 text-center btn-space">
-          <a className="btn btn-primary" href="productos" role="button">Ver todos los productos</a>
-        </div>
-      </div>
-    </div>
+    <Recommended />
     <div className="container-fluid cta">
       <div className="row align-items-center">
         <div className="col-12 col-md-5 left">

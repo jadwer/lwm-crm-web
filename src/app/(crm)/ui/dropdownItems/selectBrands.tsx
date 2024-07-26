@@ -18,11 +18,22 @@ const SelectBrands = (props: any) => {
     return (
       <>
         <label className="form-label">Marca del producto</label>
-        <select id="marca" className="form-select">
+        <select
+          id="marca"
+          className="form-select"
+          value={props.stateData.marca}
+          onChange={(e) => {
+            props.stateData.setMarca(e.target.value);
+          }}
+          >
           <option defaultValue="">Selecciona una opción</option>
-        {brands.data.map((marca: Brand) => { return(
-          <option value={marca.id} key={marca.id}>{marca.name}</option>
-        )})}
+          {brands.data.map((marca: Brand) => {
+            return (
+              <option value={marca.id} key={marca.id}>
+                {marca.name}
+              </option>
+            );
+          })}
         </select>
       </>
     );

@@ -18,7 +18,13 @@ const SelectUnits = (props: any) => {
     return (
       <>
         <label className="form-label">Unidad de medida del producto</label>
-        <select id="unidad" className="form-select">
+        <select id="unidad" className="form-select"
+                  value={props.stateData.unidad}
+                  onChange={(e) => {
+                    props.stateData.setUnidad(e.target.value);
+                  }}
+        
+        >
           <option defaultValue="">Selecciona una opción</option>
         {units.data.map((unidad: Unit) => { return(
           <option value={unidad.id} key={unidad.id}>{unidad.name}</option>

@@ -16,7 +16,7 @@ const ProductoTemplate = (props: any) => {
         <div className="row align-items-center">
           <div className="col col-md-6 product-detail">
             <img
-              src={producto.img_path}
+              src={process.env.NEXT_PUBLIC_BACKEND_URL+'/storage/products/'+producto.img_path}
               className="img-fluid"
               alt="Labor Wasser México"
             />

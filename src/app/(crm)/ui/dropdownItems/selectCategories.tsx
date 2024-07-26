@@ -18,7 +18,13 @@ const SelectCategories = (props: any) => {
     return (
       <>
         <label className="form-label">Categoría del producto</label>
-        <select id="categoria" className="form-select">
+        <select id="categoria" className="form-select"
+                  value={props.stateData.categoria}
+                  onChange={(e) => {
+                    props.stateData.setCategoria(e.target.value);
+                  }}
+        
+        >
           <option defaultValue="">Selecciona una opción</option>
         {categories.data.map((categoria: Category) => { return(
           <option value={categoria.id} key={categoria.id}>{categoria.name}</option>
