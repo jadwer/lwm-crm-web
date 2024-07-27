@@ -1,15 +1,22 @@
 import Link from "next/link";
 import Paginator from "../../ui/paginator/paginator";
+import SelectCategories from "../../ui/dropdownItems/selectCategories";
+import { useState } from "react";
+import { Brand, Category } from "@/lib/interfaces";
+import SelectBrands from "../../ui/dropdownItems/selectBrands";
 
 const ProductsTemplate = (props: any) => {
   const productos = props.data.productos.data;
   const metaData = props.data.productos;
 
-  const links = metaData.links
-  const first = metaData.first_page_url
-  const first_url = metaData.prev_page_url
-  const last = metaData.last_page_url
-  const last_url = metaData.next_page_url
+  const links = metaData.links;
+  const first = metaData.first_page_url;
+  const first_url = metaData.prev_page_url;
+  const last = metaData.last_page_url;
+  const last_url = metaData.next_page_url;
+
+  const [categoria, setCategoria] = useState<Category>({} as Category);
+  const [marca, setMarca] = useState<Brand>({} as Brand)
 
   return (
     <main>
@@ -23,8 +30,10 @@ const ProductsTemplate = (props: any) => {
             <button type="button" className="btn btn-primary">
               Importar lista
             </button>
-            <Link href={"/dashboard/add-product"} className="btn btn-primary ms-2">
-              Agregar producto 
+            <Link
+              href={"/dashboard/add-product"}
+              className="btn btn-primary ms-2">
+              Agregar producto
             </Link>
           </div>
         </div>
@@ -32,24 +41,16 @@ const ProductsTemplate = (props: any) => {
       <div className="container-fluid container-product">
         <div className="row back-header-2">
           <div className="col-12 col-md-3">
-            <select className="form-select" aria-label="Filtro categoría">
-              <option defaultValue={""}>Filtro por categoría</option>
-              <option value="1">Reactivos</option>
-              <option value="2">Medios de cultivo</option>
-              <option value="3">Cristalería</option>
-              <option value="3">Analisis de agua</option>
-              <option value="3">Procesos</option>
-            </select>
+            <SelectCategories
+              stateData={{ categoria, setCategoria }}
+              label="Filtro por categoría"
+            />
           </div>
           <div className="col-12 col-md-3">
-            <select className="form-select" aria-label="Filtro categoría">
-              <option defaultValue={""}>Filtro por marca</option>
-              <option value="1">Apera</option>
-              <option value="2">Avantor</option>
-              <option value="3">Brand</option>
-              <option value="3">BD</option>
-              <option value="3">Biometrux</option>
-            </select>
+          <SelectBrands
+              stateData={{ marca, setMarca }}
+              label="Filtro por marca"
+            />
           </div>
           <div className="col-12 col-md-6">
             <div className="input-group mb-3">
@@ -100,7 +101,8 @@ const ProductsTemplate = (props: any) => {
                 })}
               </tbody>
             </table>
-            <Paginator data={{links, first, last, first_url, last_url}}></Paginator>
+            <Paginator
+              data={{ links, first, last, first_url, last_url }}></Paginator>
           </div>
         </div>
       </div>
