@@ -1,7 +1,15 @@
-const ReactivosTemplate = () => (
+'use client'
+import { useState } from "react";
+import FilteredSearch from "../ui/filters/fiteredSearch";
 
+const ReactivosTemplate = () => {
+  const [items, setItems] = useState<number>(5);
+  const [category, setCategory] = useState<number>(1);
+  const [brand, setBrand] = useState(1);
+  const [searchString, setSearchString] = useState<string>("");
 
-  <main>
+  return (
+    <main>
     <div className="container-fluid hero-sections mx-auto">
       <div className="container">
         <div className="row">
@@ -61,6 +69,8 @@ const ReactivosTemplate = () => (
           <div className="row mb-4">
             <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
           </div>
+
+          <FilteredSearch data={{items, category, brand, searchString}}/>
           <div className="row products-list">
             <div className="col-12">
               <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
@@ -111,6 +121,7 @@ const ReactivosTemplate = () => (
             </div>
             <hr></hr>
           </div>
+
           <div className="row mb-4">
             <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
           </div>
@@ -130,6 +141,6 @@ const ReactivosTemplate = () => (
     </div>
   </main>
 
+  );
 
-
-); export default ReactivosTemplate;
+}; export default ReactivosTemplate;

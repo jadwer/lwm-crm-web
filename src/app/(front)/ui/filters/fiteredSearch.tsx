@@ -3,7 +3,12 @@ import { useProducts } from "@/hooks/products";
 import { Product, Products } from "@/lib/interfaces";
 import { useEffect, useState } from "react";
 
-const Recommended = () => {
+const FilteredSearch = (props:any) => {
+  const items = props.data.items;
+  const category = props.data.category;
+  const brand = props.data.brand;
+  const searchString = props.data.searchString;
+
   const [productos, setProductos] = useState<Products>({} as Products);
   const { getAllProducts } = useProducts();
 
@@ -54,4 +59,4 @@ const Recommended = () => {
   }
 };
 
-export default Recommended;
+export default FilteredSearch;

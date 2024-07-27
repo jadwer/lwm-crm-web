@@ -9,7 +9,7 @@ import { useProducts } from "@/hooks/products";
 import { Product } from "@/lib/interfaces";
 
 const AddProductTemplate = (props: { producto: Product }) => {
-    const producto = props.producto == null ? ({} as Product) : props.producto;
+  const producto = props.producto == null ? ({} as Product) : props.producto;
 
   const { setProduct } = useProducts();
   const [selectedImage, setSelectedImage] = useState<string>();
@@ -45,10 +45,11 @@ const AddProductTemplate = (props: { producto: Product }) => {
 
     await setProduct({ setErrors, setStatus }, dataForm);
   };
-  const handleSubmit = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+  const handleSubmit = (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
     submitNewProduct(e);
   };
-
 
   return (
     <main>
@@ -70,7 +71,7 @@ const AddProductTemplate = (props: { producto: Product }) => {
               accept="image/*"
               onChange={(e) => {
                 const file = e.target.files?.[0];
-                setImage_path(file?file:undefined);
+                setImage_path(file ? file : undefined);
                 setSelectedImage(file ? URL.createObjectURL(file) : undefined);
               }}
             />
@@ -111,14 +112,31 @@ const AddProductTemplate = (props: { producto: Product }) => {
                   }}></input>
               </div>
               <div className="col-6">
-                <SelectBrands stateData={{ marca, setMarca }}></SelectBrands>
+                <label className="form-label">
+                  Marca del producto
+                  <SelectBrands
+                    stateData={{ marca, setMarca }}
+                    label="Seleccione una marca"
+                  />
+                </label>
               </div>
               <div className="col-6">
-                <SelectUnits stateData={{ unidad, setUnidad }}></SelectUnits>
+                <label className="form-label">
+                  Unidad de medida del producto
+                  <SelectUnits
+                    stateData={{ unidad, setUnidad }}
+                    label="Seleccione un medida"
+                  />
+                </label>
               </div>
               <div className="col-6">
-                <SelectCategories
-                  stateData={{ categoria, setCategoria }}></SelectCategories>
+                <label className="form-label">
+                  Categoría del producto
+                  <SelectCategories
+                    stateData={{ categoria, setCategoria }}
+                    label="Seleccione una categoría"
+                  />
+                </label>
               </div>
               <div className="col-md-12">
                 <label className="form-label">
@@ -135,18 +153,16 @@ const AddProductTemplate = (props: { producto: Product }) => {
                   }}></input>
               </div>
               <div className="col-md-12">
-                <label className="form-label">
-                  Datasheet:&nbsp;
-                </label>
+                <label className="form-label">Datasheet:&nbsp;</label>
                 <input
-              type="file"
-              id="fileInput"
-              accept="application/pdf"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                setDatasheet(file?file:undefined);
-              }}
-            />
+                  type="file"
+                  id="fileInput"
+                  accept="application/pdf"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    setDatasheet(file ? file : undefined);
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -168,7 +184,12 @@ const AddProductTemplate = (props: { producto: Product }) => {
               className="btn btn-secondary mt-2 me-4">
               Cancelar
             </Link>
-            <button type="button" className="btn btn-primary mt-2" onClick={(e)=>{handleSubmit(e)}}>
+            <button
+              type="button"
+              className="btn btn-primary mt-2"
+              onClick={(e) => {
+                handleSubmit(e);
+              }}>
               Guardar
             </button>
           </div>

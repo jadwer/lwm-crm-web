@@ -5,28 +5,27 @@ import { Brands, Brand } from "@/lib/interfaces";
 import { useEffect, useState } from "react";
 
 const SelectBrands = (props: any) => {
+  const label = props.label;
   const { getBrands } = useBrands();
   const [brands, setBrands] = useState<Brands>({} as Brands);
 
   useEffect(() => {
     getBrands({ setBrands });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (Object.keys(brands).length === 0) {
     return <>Cargando...</>;
   } else {
     return (
-      <>
-        <label className="form-label">Marca del producto</label>
         <select
           id="marca"
           className="form-select"
           value={props.stateData.marca}
           onChange={(e) => {
             props.stateData.setMarca(e.target.value);
-          }}
-          >
-          <option defaultValue="">Selecciona una opción</option>
+          }}>
+          <option defaultValue={""}>{label}</option>
           {brands.data.map((marca: Brand) => {
             return (
               <option value={marca.id} key={marca.id}>
@@ -35,7 +34,6 @@ const SelectBrands = (props: any) => {
             );
           })}
         </select>
-      </>
     );
   }
 };

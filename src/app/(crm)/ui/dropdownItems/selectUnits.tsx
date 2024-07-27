@@ -5,6 +5,8 @@ import { Units, Unit } from "@/lib/interfaces";
 import { useEffect, useState } from "react";
 
 const SelectUnits = (props: any) => {
+  const label = props.label;
+
   const { getUnits } = useUnits();
   const [units, setUnits] = useState<Units>({} as Units);
 
@@ -16,21 +18,22 @@ const SelectUnits = (props: any) => {
     return <>Cargando...</>;
   } else {
     return (
-      <>
-        <label className="form-label">Unidad de medida del producto</label>
-        <select id="unidad" className="form-select"
-                  value={props.stateData.unidad}
-                  onChange={(e) => {
-                    props.stateData.setUnidad(e.target.value);
-                  }}
-        
-        >
-          <option defaultValue="">Selecciona una opción</option>
-        {units.data.map((unidad: Unit) => { return(
-          <option value={unidad.id} key={unidad.id}>{unidad.name}</option>
-        )})}
+        <select
+          id="unidad"
+          className="form-select"
+          value={props.stateData.unidad}
+          onChange={(e) => {
+            props.stateData.setUnidad(e.target.value);
+          }}>
+          <option defaultValue={""}>{label}</option>
+          {units.data.map((unidad: Unit) => {
+            return (
+              <option value={unidad.id} key={unidad.id}>
+                {unidad.name}
+              </option>
+            );
+          })}
         </select>
-      </>
     );
   }
 };
