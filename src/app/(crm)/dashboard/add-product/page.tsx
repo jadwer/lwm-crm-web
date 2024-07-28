@@ -1,8 +1,10 @@
+import { Product } from "@/lib/interfaces"
 import AddProductTemplate from "./addProduct.html"
 
 const AddProductPage = () => {
+  const product = {} as Product
   return (
-    <AddProductTemplate />
+    <AddProductTemplate producto={product} />
   )
 }
 

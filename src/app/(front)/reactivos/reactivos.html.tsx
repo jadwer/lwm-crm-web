@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import FilteredSearch from "../ui/filters/fiteredSearch";
+import FilteredSearch from "../ui/search/fiteredSearch";
 
 const ReactivosTemplate = () => {
   const [items, setItems] = useState<number>(5);
@@ -10,15 +10,6 @@ const ReactivosTemplate = () => {
 
   return (
     <main>
-    <div className="container-fluid hero-sections mx-auto">
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <h1>REACTIVOS</h1>
-          </div>
-        </div>
-      </div>
-    </div>
     <div className="container-fluid products-page">
       <div className="row">
         <div className="col-12 col-md-2">
@@ -71,56 +62,6 @@ const ReactivosTemplate = () => {
           </div>
 
           <FilteredSearch data={{items, category, brand, searchString}}/>
-          <div className="row products-list">
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-            <div className="col-12">
-              <p><span className="labels">Marca:Merk | Categoría: Microbiología</span></p>
-              <h6>Bactident® Oxidasa, para detección de /br la citocromo oxidasa en microorganismos. 50 tiras</h6>
-              <a href="producto">VER DETALLE</a>
-            </div>
-            <hr></hr>
-          </div>
 
           <div className="row mb-4">
             <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
@@ -128,6 +69,7 @@ const ReactivosTemplate = () => {
         </div>
       </div>
     </div>
+
     <div className="container-fluid cta">
       <div className="row align-items-center">
         <div className="col-12 col-md-5 left">

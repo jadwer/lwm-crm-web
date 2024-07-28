@@ -23,12 +23,6 @@ const FilteredSearch = (props:any) => {
   } else {
     return (
       <div className="container products">
-        <div className="row">
-          <div className="col text-center">
-            <h1>PRODUCTOS RECOMENDADOS</h1>
-            <hr className="separator"></hr>
-          </div>
-        </div>
         <div className="row products-list">
           {productos.data.map((producto: Product) => {
             return (
@@ -48,11 +42,6 @@ const FilteredSearch = (props:any) => {
               </>
             );
           })}
-          <div className="col-12 text-center btn-space">
-            <a className="btn btn-primary" href="productos" role="button">
-              Ver todos los productos
-            </a>
-          </div>
         </div>
       </div>
     );
