@@ -1,25 +1,24 @@
 "use client";
 import Link from "next/link";
 import SelectCategories from "@/app/(crm)/ui/dropdownItems/selectCategories";
-import SelectBrands from "../../ui/dropdownItems/selectBrands";
-import SelectUnits from "../../ui/dropdownItems/selectUnits";
+import SelectBrands from "@/app/(crm)/ui/dropdownItems/selectBrands";
+import SelectUnits from "@/app/(crm)/ui/dropdownItems/selectUnits";
 import { MouseEvent, useState } from "react";
 import Image from "next/image";
 import { useProducts } from "@/hooks/products";
 import { Product } from "@/lib/interfaces";
 
-const AddProductTemplate = (props: { producto: Product }) => {
+const EditProductTemplate = (props: { producto: Product }) => {
   const producto = props.producto == null ? ({} as Product) : props.producto;
-console.log("Producto: "+producto.name);
   const { setProduct } = useProducts();
   const [selectedImage, setSelectedImage] = useState<string>();
-  const [nombre, setNombre] = useState<string>();
-  const [sku, setSku] = useState<string>();
-  const [descripcion, setDescripcion] = useState<string>();
-  const [descripcionTecnica, setDescripcionTecnica] = useState<string>();
-  const [categoria, setCategoria] = useState<number>();
-  const [marca, setMarca] = useState<number>();
-  const [unidad, setUnidad] = useState<number>();
+  const [nombre, setNombre] = useState<string>(producto.name);
+  const [sku, setSku] = useState<string>(producto.sku);
+  const [descripcion, setDescripcion] = useState<string>(producto.description? producto.description : "");
+  const [descripcionTecnica, setDescripcionTecnica] = useState<string>(producto.full_description? producto.full_description : "");
+  const [categoria, setCategoria] = useState<number>(producto.category_id.id);
+  const [marca, setMarca] = useState<number>(producto.brand_id.id);
+  const [unidad, setUnidad] = useState<number>(producto.unit_id.id);
   const [image_path, setImage_path] = useState<File>();
   const [datasheet, setDatasheet] = useState<File>();
   const [errors, setErrors] = useState<any[]>([]);
@@ -32,8 +31,8 @@ console.log("Producto: "+producto.name);
       id: producto.id,
       name: nombre,
       sku: sku,
-      description: descripcion,
-      full_description: descripcionTecnica,
+      description: descripcion  != "" ? descripcion : nombre,
+      full_description: descripcionTecnica != "" ? descripcionTecnica : nombre,
       img_path: image_path?.name,
       datasheet_path: datasheet?.name,
       unit_id: unidad,
@@ -50,7 +49,7 @@ console.log("Producto: "+producto.name);
   ) => {
     submitNewProduct(e);
   };
-
+ console.log(image_path)
   return (
     <main>
       <div className="container-fluid back-header">
@@ -83,6 +82,16 @@ console.log("Producto: "+producto.name);
                 alt={"Imagen del producto"}
                 className="img-fluid"></Image>
             )}
+            {!selectedImage && producto.img_path && (
+              <img
+              src={process.env.NEXT_PUBLIC_BACKEND_URL+"/storage/products/"+producto.img_path}
+              width={300}
+              height={300}
+              alt={"Imagen del producto"}
+              className="img-fluid"></img>
+
+            )
+            }
             <label>Seleccionar Imagen</label>
           </div>
           <div className="col-12 col-md-8">
@@ -198,4 +207,4 @@ console.log("Producto: "+producto.name);
     </main>
   );
 };
-export default AddProductTemplate;
+export default EditProductTemplate;

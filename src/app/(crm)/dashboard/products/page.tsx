@@ -14,7 +14,7 @@ const ProductsPage = () => {
 
   useEffect(() => {
     getAllProducts({setProductos});
-  }, []);
+  }, [productos]);
 
 
   if(Object.keys(productos).length === 0){

@@ -4,6 +4,7 @@ import SelectCategories from "../../ui/dropdownItems/selectCategories";
 import { useState } from "react";
 import { Brand, Category } from "@/lib/interfaces";
 import SelectBrands from "../../ui/dropdownItems/selectBrands";
+import { useProducts } from "@/hooks/products";
 
 const ProductsTemplate = (props: any) => {
   const productos = props.data.productos.data;
@@ -17,6 +18,16 @@ const ProductsTemplate = (props: any) => {
 
   const [categoria, setCategoria] = useState<Category>({} as Category);
   const [marca, setMarca] = useState<Brand>({} as Brand)
+  const [errors, setErrors] = useState<any[]>([]);
+  const [status, setStatus] = useState<string>();
+
+  const {delProduct} = useProducts();
+
+  const submitDelProduct = (e: { preventDefault: () => void; }, prod_id : number) => {
+    e.preventDefault();
+    if(confirm("¿Estás seguro que quieres eliminar este producto? Esta acción no se puede deshacer.")){delProduct({setErrors, setStatus}, prod_id);}
+  }
+
 
   return (
     <main>
@@ -95,7 +106,7 @@ const ProductsTemplate = (props: any) => {
                       <th scope="row">{producto.name}</th>
                       <td>{producto.category_id.name}</td>
                       <td>{producto.brand_id.name}</td>
-                      <td>Editar | Eliminar</td>
+                      <td><Link href={`/dashboard/edit-product/${producto.id}`}>Editar</Link> | <a href="#" onClick={(e) =>{submitDelProduct(e, producto.id)}}>Eliminar</a></td>
                     </tr>
                   );
                 })}

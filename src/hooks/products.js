@@ -26,21 +26,52 @@ export const useProducts = () => {
   };
 
   const setProduct = async ({ setErrors, setStatus }, producto) => {
-    console.log(producto);
+    await csrf();
+    if (isUndefined(producto.id)) {
+      axios
+        .post(`/api/products`, producto, {
+          headers: { "content-type": "multipart/form-data" },
+        })
+        .then((res) => setStatus(res.status))
+        .catch((error) => {
+          if (error.response.status !== 409) throw error;
+          setErrors(error);
+          console.log(error);
+        });
+    } else {
+      axios
+        .post(
+          `/api/products/${producto.id}`,
+          { ...producto, _method: "patch" },
+          { headers: { "content-type": "multipart/form-data" } }
+        )
+        .then((res) => setStatus(res.status))
+        .catch((error) => {
+          if (error.response.status !== 409) throw error;
+          setErrors(error);
+          console.log(error);
+        });
+    }
+  };
+
+  const delProduct = async ({ setErrors, setStatus }, product) => {
     await csrf();
     axios
-      .post(`/api/products`, producto, {headers:{"content-type": "multipart/form-data"}})
+      .post(`/api/products/${product}`,{
+        _method:"delete"
+      })
       .then((res) => setStatus(res.status))
       .catch((error) => {
-        if (error.response.status !== 409) throw error;
+        console.log(error);
         setErrors(error);
-        console.log(error)
       });
   };
+
 
   return {
     getAllProducts,
     getProduct,
     setProduct,
+    delProduct,
   };
 };
