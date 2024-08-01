@@ -10,6 +10,11 @@ const Footer = () => {
               <div className='col'>
                 <img src="/../images/labor-wasser-mexico-logo-1.png" className="img-fluid logo-footer d-block mx-auto"
                   alt="Labor Wasser México" />
+                  <div className='d-flex justify-content-around mt-4'>
+                    <a href="#"><i className="bi bi-facebook"></i></a>
+                    <a href="#"><i className="bi bi-instagram"></i></a>
+                    <a href="#"><i className="bi bi-linkedin"></i></a>
+                  </div>
               </div>
             </div>
           </div>

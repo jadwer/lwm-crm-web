@@ -427,10 +427,14 @@ h1,
 }
 
 .login-contact {
-    ul {
-        li {
-            list-style: none;
-        }
+    i {
+        color: #8AC905;
+    }
+    a {
+        color: red;
+        text-decoration: none;
+        padding-left: 1em;
+        padding-bottom: .5em;
     }
 }
 
