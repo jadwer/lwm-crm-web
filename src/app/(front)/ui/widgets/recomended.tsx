@@ -20,7 +20,7 @@ const Recommended = () => {
       <div className="container products">
         <div className="row">
           <div className="col text-center">
-            <h1>PRODUCTOS RECOMENDADOS</h1>
+            <h1>ÚLTIMOS PRODUCTOS</h1>
             <hr className="separator"></hr>
           </div>
         </div>

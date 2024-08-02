@@ -19,11 +19,13 @@ const HomePage = () => (
               data-bs-target="#navMenu">
               ¡Cotiza ahora!
             </button>
-            <button
-              type="button"
-              className="btn btn-secondary mt-4 mt-md-0 mx-md-4">
-              Ver productos
-            </button>
+            <a href="">
+              <button
+                type="button"
+                className="btn btn-secondary mt-4 mt-md-0 mx-md-4">
+                Ver productos
+              </button>
+            </a>
           </div>
         </div>
         <div className="col-12 col-md-6 hero-right"></div>
@@ -65,10 +67,11 @@ const HomePage = () => (
             investigación, especialistas en químicos y tratamientos en aguas.
           </p>
           <div className="col d-flex mt-4">
-            {/* <button type="button" className="btn btn-primary">¡Cotiza ahora!</button> */}
-            <button type="button" className="btn btn-secondary mx-0">
-              Más sobre nosotros
-            </button>
+            <a href="/nosotros">
+              <button type="button" className="btn btn-secondary mx-0">
+                Más sobre nosotros
+              </button>
+            </a>
           </div>
         </div>
         <div className="col-12 col-md-6 hero-2"></div>

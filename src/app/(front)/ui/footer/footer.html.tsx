@@ -50,8 +50,8 @@ const Footer = () => {
         <div className='row text-muted'>
           <p className='text-center'>
             2024. Labor Wasser de México. Todos los Derechos Reservados. 
-            <a href="/privacidad" target='_blank'>Aviso de privacidad </a>
-             Designed and developed by <a href="http://atomosoluciones.com" target='_blank'>AtomoSoluciones.com</a>
+            &nbsp;<a href="/aviso-privacidad" target='_blank'>Aviso de privacidad.</a>
+             &nbsp;Designed and developed by <a href="http://atomosoluciones.com" target='_blank'>AtomoSoluciones.com</a>
           </p>
         </div>
       </div>
