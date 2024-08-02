@@ -25,6 +25,16 @@ export const useProducts = () => {
       });
   };
 
+  const getFilteredProducts = async ({ setProductos }, searchFilter) => {
+    await csrf();
+    axios
+      .get(`/api/products/${searchFilter}`)
+      .then((res) => setProductos(res.data))
+      .catch((error) => {
+        if (error.response.status !== 409) throw error;
+      });
+  };
+
   const setProduct = async ({ setErrors, setStatus }, producto) => {
     await csrf();
     if (isUndefined(producto.id)) {
@@ -70,6 +80,7 @@ export const useProducts = () => {
 
   return {
     getAllProducts,
+    getFilteredProducts,
     getProduct,
     setProduct,
     delProduct,
