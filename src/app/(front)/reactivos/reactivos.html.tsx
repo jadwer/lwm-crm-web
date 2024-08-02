@@ -10,6 +10,15 @@ const ReactivosTemplate = () => {
 
   return (
     <main>
+      <div className="container-fluid hero-sections mx-auto">
+      <div className="container">
+        <div className="row row align-items-center">
+          <div className="col">
+            <h1>REACTIVOS</h1>
+          </div>
+        </div>
+      </div>
+    </div>
     <div className="container-fluid products-page">
       <div className="row">
         <div className="col-12 col-md-2">

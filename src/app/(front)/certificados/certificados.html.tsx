@@ -3,7 +3,7 @@ const CertificadosTemplate = () => (
 <main>
     <div className="container-fluid hero-sections mx-auto">
       <div className="container">
-        <div className="row">
+        <div className="row row align-items-center">
           <div className="col">
             <h1>CERTIFICADOS DE ANALISIS</h1>
           </div>

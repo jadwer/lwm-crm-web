@@ -127,6 +127,26 @@ h1,
         }
     }
 
+    &.success {
+        height: 100vh;
+        background-image: url("/../images/labor-wasser-mexico-hero-9.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        h1,
+        h2 {
+            color: #ffffff;
+            padding-bottom: 1em;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 30%;
+        }
+    }
+
     &.login {
         .bg-login {
             height: 100vh;
@@ -147,7 +167,6 @@ h1,
     }
 
     &.hero-1 {
-        height: 100vh;
         background-image: url("/../images/labor-wasser-mexico-hero-1.webp");
         background-position: center;
         background-repeat: no-repeat;
@@ -155,6 +174,10 @@ h1,
 
         @media (max-width: 575.98px) {
             height: 80vh;
+        }
+
+        .row {
+            height: 100vh;
         }
 
         .hero-left {
@@ -254,6 +277,25 @@ h1,
         min-height: 50vh;
         background-color: #eeeeee;
 
+        .social {
+            i {
+                color: #8AC905;
+                font-size: 2em;
+                &.bi-whatsapp::before {
+                    vertical-align: 0;
+                }
+            }
+            a {
+                color: #000000;
+                text-decoration: none;
+                padding-left: 1em;
+                padding-bottom: .5em;
+                &:hover {
+                    color: #012A94;
+                }
+            }
+        }
+
         .logo-footer {
             width: 75%;
 
@@ -341,7 +383,6 @@ h1,
     }
 
     &.hero-sections {
-        height: 40vh;
         background-image: url("/../images/labor-wasser-mexico-hero-5.webp");
         background-position: center;
         background-repeat: no-repeat;
@@ -353,8 +394,10 @@ h1,
         }
 
         h1 {
-            margin-top: 2.25em;
             color: white;
+        }
+        .row {
+            height: 40vh;
         }
     }
 
@@ -429,12 +472,18 @@ h1,
 .login-contact {
     i {
         color: #8AC905;
+        &.bi-whatsapp::before {
+            vertical-align: 0;
+        }
     }
     a {
-        color: red;
+        color: #000000;
         text-decoration: none;
         padding-left: 1em;
         padding-bottom: .5em;
+        &:hover {
+            color: #012A94;
+        }
     }
 }
 

@@ -3,7 +3,7 @@ const PreciosTemplate = () => (
 <main>
     <div className="container-fluid hero-sections mx-auto">
       <div className="container">
-        <div className="row">
+        <div className="row row align-items-center">
           <div className="col">
             <h1>LISTAS DE PRECIOS</h1>
           </div>

@@ -3,7 +3,7 @@ const ProductosTemplate = () => (
   <main>
     <div className="container-fluid hero-sections mx-auto">
       <div className="container">
-        <div className="row">
+        <div className="row align-items-center">
           <div className="col">
             <h1>PRODUCTOS</h1>
           </div>

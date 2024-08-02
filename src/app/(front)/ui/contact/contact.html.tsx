@@ -111,6 +111,7 @@ const Contact = () => {
             <div className="d-flex"><i className="bi bi-telephone-fill"></i><a href="tel:5571602454">55 7160 2454</a></div>
             <div className="d-flex"><i className="bi bi-whatsapp"></i><a href="https://wa.link/4e5cqt">56 1040 0441</a></div>
             <div className="d-flex"><i className="bi bi-envelope"></i><a href="mailto:ventas@laborwasserdemexico.com">ventas@laborwasserdemexico.com</a></div>
+            <div className="d-flex"><i className="bi bi-geo-alt"></i><a href="#">CDMX y Área metropolitana</a></div>
           </div>
         </div>
       </div>
