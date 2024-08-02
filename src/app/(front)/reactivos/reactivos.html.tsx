@@ -70,7 +70,6 @@ const ReactivosTemplate = () => {
             <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
           </div>
 
-          <FilteredSearch data={{items, category, brand, searchString}}/>
 
           <div className="row mb-4">
             <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>

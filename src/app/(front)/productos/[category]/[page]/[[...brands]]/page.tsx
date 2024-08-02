@@ -35,7 +35,9 @@ const ProductoPage = ({
           setCategory(cat.id);
         }
       });
-      setSearchFilter(searchQueryBuilder(page, category, queryBrandsId, searchString));
+      if(category !== undefined){
+        setSearchFilter(searchQueryBuilder(page, category, queryBrandsId, searchString));
+      }
       //console.log(searchFilter);
     }
   }, [selectedBrands, categories, queryBrandsId]);
