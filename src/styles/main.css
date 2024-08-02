@@ -20197,6 +20197,34 @@ h1,
   margin: 0 auto;
   width: 45%;
 }
+.container-fluid.success, .success.container-sm, .success.container-md, .success.container-lg, .success.container-xl, .success.container-xxl {
+  height: 100vh;
+  background-image: url("/../images/labor-wasser-mexico-hero-9.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-fluid.success h1, .success.container-sm h1, .success.container-md h1, .success.container-lg h1, .success.container-xl h1, .success.container-xxl h1, .container-fluid.success .h1, .success.container-sm .h1, .success.container-md .h1, .success.container-lg .h1, .success.container-xl .h1, .success.container-xxl .h1,
+.container-fluid.success h2,
+.success.container-sm h2,
+.success.container-md h2,
+.success.container-lg h2,
+.success.container-xl h2,
+.success.container-xxl h2,
+.container-fluid.success .h2,
+.success.container-sm .h2,
+.success.container-md .h2,
+.success.container-lg .h2,
+.success.container-xl .h2,
+.success.container-xxl .h2 {
+  color: #ffffff;
+  padding-bottom: 1em;
+}
+.container-fluid.success img, .success.container-sm img, .success.container-md img, .success.container-lg img, .success.container-xl img, .success.container-xxl img {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+}
 .container-fluid.login .bg-login, .login.container-sm .bg-login, .login.container-md .bg-login, .login.container-lg .bg-login, .login.container-xl .bg-login, .login.container-xxl .bg-login {
   height: 100vh;
   background-image: url("/../images/labor-wasser-mexico-hero-6.webp");
@@ -20212,7 +20240,6 @@ h1,
   margin-bottom: 2em;
 }
 .container-fluid.hero-1, .hero-1.container-sm, .hero-1.container-md, .hero-1.container-lg, .hero-1.container-xl, .hero-1.container-xxl {
-  height: 100vh;
   background-image: url("/../images/labor-wasser-mexico-hero-1.webp");
   background-position: center;
   background-repeat: no-repeat;
@@ -20222,6 +20249,9 @@ h1,
   .container-fluid.hero-1, .hero-1.container-sm, .hero-1.container-md, .hero-1.container-lg, .hero-1.container-xl, .hero-1.container-xxl {
     height: 80vh;
   }
+}
+.container-fluid.hero-1 .row, .hero-1.container-sm .row, .hero-1.container-md .row, .hero-1.container-lg .row, .hero-1.container-xl .row, .hero-1.container-xxl .row {
+  height: 100vh;
 }
 .container-fluid.hero-1 .hero-left, .hero-1.container-sm .hero-left, .hero-1.container-md .hero-left, .hero-1.container-lg .hero-left, .hero-1.container-xl .hero-left, .hero-1.container-xxl .hero-left {
   background-color: rgba(0, 148, 255, 0.8);
@@ -20315,6 +20345,22 @@ h1,
   min-height: 50vh;
   background-color: #eeeeee;
 }
+.container-fluid .footer .social i, .container-sm .footer .social i, .container-md .footer .social i, .container-lg .footer .social i, .container-xl .footer .social i, .container-xxl .footer .social i {
+  color: #8AC905;
+  font-size: 2em;
+}
+.container-fluid .footer .social i.bi-whatsapp::before, .container-sm .footer .social i.bi-whatsapp::before, .container-md .footer .social i.bi-whatsapp::before, .container-lg .footer .social i.bi-whatsapp::before, .container-xl .footer .social i.bi-whatsapp::before, .container-xxl .footer .social i.bi-whatsapp::before {
+  vertical-align: 0;
+}
+.container-fluid .footer .social a, .container-sm .footer .social a, .container-md .footer .social a, .container-lg .footer .social a, .container-xl .footer .social a, .container-xxl .footer .social a {
+  color: #000000;
+  text-decoration: none;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+}
+.container-fluid .footer .social a:hover, .container-sm .footer .social a:hover, .container-md .footer .social a:hover, .container-lg .footer .social a:hover, .container-xl .footer .social a:hover, .container-xxl .footer .social a:hover {
+  color: #012A94;
+}
 .container-fluid .footer .logo-footer, .container-sm .footer .logo-footer, .container-md .footer .logo-footer, .container-lg .footer .logo-footer, .container-xl .footer .logo-footer, .container-xxl .footer .logo-footer {
   width: 75%;
 }
@@ -20383,7 +20429,6 @@ h1,
   color: white !important;
 }
 .container-fluid.hero-sections, .hero-sections.container-sm, .hero-sections.container-md, .hero-sections.container-lg, .hero-sections.container-xl, .hero-sections.container-xxl {
-  height: 40vh;
   background-image: url("/../images/labor-wasser-mexico-hero-5.webp");
   background-position: center;
   background-repeat: no-repeat;
@@ -20396,8 +20441,10 @@ h1,
   }
 }
 .container-fluid.hero-sections h1, .hero-sections.container-sm h1, .hero-sections.container-md h1, .hero-sections.container-lg h1, .hero-sections.container-xl h1, .hero-sections.container-xxl h1, .container-fluid.hero-sections .h1, .hero-sections.container-sm .h1, .hero-sections.container-md .h1, .hero-sections.container-lg .h1, .hero-sections.container-xl .h1, .hero-sections.container-xxl .h1 {
-  margin-top: 2.25em;
   color: white;
+}
+.container-fluid.hero-sections .row, .hero-sections.container-sm .row, .hero-sections.container-md .row, .hero-sections.container-lg .row, .hero-sections.container-xl .row, .hero-sections.container-xxl .row {
+  height: 40vh;
 }
 .container-fluid.products-page, .products-page.container-sm, .products-page.container-md, .products-page.container-lg, .products-page.container-xl, .products-page.container-xxl {
   margin-top: 3em;
@@ -20453,8 +20500,20 @@ h1,
   color: #0094FF;
 }
 
-.login-contact ul li {
-  list-style: none;
+.login-contact i {
+  color: #8AC905;
+}
+.login-contact i.bi-whatsapp::before {
+  vertical-align: 0;
+}
+.login-contact a {
+  color: #000000;
+  text-decoration: none;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+}
+.login-contact a:hover {
+  color: #012A94;
 }
 
 .height-100 {

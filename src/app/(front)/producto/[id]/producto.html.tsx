@@ -5,7 +5,7 @@ const ProductoTemplate = (props: any) => {
     <main>
       <div className="container-fluid hero-sections mx-auto">
         <div className="container">
-          <div className="row">
+          <div className="row align-items-center">
             <div className="col">
               <h1>{producto.name}</h1>
             </div>
