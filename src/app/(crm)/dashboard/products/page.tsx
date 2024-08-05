@@ -14,7 +14,8 @@ const ProductsPage = () => {
 
   useEffect(() => {
     getAllProducts({setProductos});
-  }, [productos]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   if(Object.keys(productos).length === 0){

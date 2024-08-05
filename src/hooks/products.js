@@ -5,7 +5,7 @@ export const useProducts = () => {
   const csrf = () => axios.get("/sanctum/csrf-cookie");
 
   const getProduct = async ({ id, setProducto }) => {
-//    await csrf();
+    //    await csrf();
 
     axios
       .get(`/api/products/${id}`)
@@ -16,17 +16,20 @@ export const useProducts = () => {
   };
 
   const getAllProducts = async ({ setProductos }) => {
-//    await csrf();
+    //    await csrf();
     axios
       .get(`/api/products`)
-      .then((res) => setProductos(res.data))
+      .then((res) => {
+        setProductos(res.data);
+        console.log("getAllProds");
+      })
       .catch((error) => {
         if (error.response.status !== 409) throw error;
       });
   };
 
   const getFilteredProducts = async ({ setProductos }, searchFilter) => {
-//    await csrf();
+    //    await csrf();
     axios
       .get(`/api/products${searchFilter}`)
       .then((res) => setProductos(res.data))
@@ -36,7 +39,7 @@ export const useProducts = () => {
   };
 
   const setProduct = async ({ setErrors, setStatus }, producto) => {
-//    await csrf();
+    //    await csrf();
     if (isUndefined(producto.id)) {
       axios
         .post(`/api/products`, producto, {
@@ -65,10 +68,10 @@ export const useProducts = () => {
   };
 
   const delProduct = async ({ setErrors, setStatus }, product) => {
-//    await csrf();
+    //    await csrf();
     axios
-      .post(`/api/products/${product}`,{
-        _method:"delete"
+      .post(`/api/products/${product}`, {
+        _method: "delete",
       })
       .then((res) => setStatus(res.status))
       .catch((error) => {
@@ -77,6 +80,22 @@ export const useProducts = () => {
       });
   };
 
+  const CSVImport = async ({ setErrors, setStatus }, list) => {
+    //    await csrf();
+    axios
+      .post(`/api/CSVImport`, list, {
+        headers: { "content-type": "multipart/form-data" },
+      })
+      .then((res) => {
+        setStatus(res.data.status);
+        console.log(res.data.status);
+      })
+      .catch((error) => {
+        if (error.response.status !== 409) throw error;
+        setErrors(error);
+        console.log(error);
+      });
+  };
 
   return {
     getAllProducts,
@@ -84,5 +103,6 @@ export const useProducts = () => {
     getProduct,
     setProduct,
     delProduct,
+    CSVImport,
   };
 };
