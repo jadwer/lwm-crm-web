@@ -3,14 +3,23 @@
 import { Suspense, useEffect, useState } from "react"
 import ProductsTemplate from "./products/products.html"
 import { useProducts } from "@/hooks/products";
+import { Products } from "@/lib/interfaces";
 
 const DashboardPage = () => {
-  const [productos, setProductos] = useState([]);
-  const {getAllProducts} = useProducts();
+  const {getFilteredProducts} = useProducts();
+  
+  const [productos, setProductos] = useState<Products[]>([]);
+  const [searchFilter, setSearchFilter] = useState("");
 
   useEffect(() => {
-    getAllProducts({setProductos});
-  }, []);
+    getFilteredProducts({setProductos}, searchFilter);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchFilter]);
+
+  const searchQueryBuilder = (e : Event, id : string) => {
+    setSearchFilter(id);
+  }
+
 
   if(Object.keys(productos).length === 0){
     return (
@@ -21,10 +30,9 @@ const DashboardPage = () => {
   } else {
     return (
       <Suspense>
-        <ProductsTemplate data={{productos}}/>
+        <ProductsTemplate data={{productos}} functions={ {searchQueryBuilder} }/>
       </Suspense>
     )
   }
 }
-
 export default DashboardPage

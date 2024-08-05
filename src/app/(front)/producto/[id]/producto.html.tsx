@@ -1,5 +1,8 @@
+import Estimate from "../../ui/estimate/estimate.html";
+
 const ProductoTemplate = (props: any) => {
   const producto = props.data.producto;
+  const name = producto.name;
 
   return (
     <main>
@@ -69,6 +72,8 @@ const ProductoTemplate = (props: any) => {
           </div>
         </div>
       </div>
+
+      <Estimate producto = {{name}}></Estimate>
     </main>
   );
 };

@@ -1,24 +1,28 @@
 "use client";
+import Paginator from "@/app/(crm)/ui/paginator/paginator";
 import { useProducts } from "@/hooks/products";
 import { Product, Products } from "@/lib/interfaces";
 import { useEffect, useState } from "react";
 
-const FilteredSearch = (props: {data : {searchFilter : string}}) => {
+const FilteredSearch = (props: any ) => {
   const searchFilter = props.data.searchFilter;
+  const searchQueryBuilder = props.functions.searchQueryBuilder;
 
   const [productos, setProductos] = useState<Products>({} as Products);
   const { getFilteredProducts } = useProducts();
 
   useEffect(() => {
-    getFilteredProducts({ setProductos }, searchFilter);
-    console.log(searchFilter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getFilteredProducts({setProductos}, searchFilter);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchFilter]);
+
 
   if (Object.keys(productos).length === 0) {
     return <>Cargando...</>;
   } else {
+    const metaData = productos
     return (
+      <>
       <div className="container products">
         <div className="row products-list">
           {productos.data.map((producto: Product) => {
@@ -38,6 +42,8 @@ const FilteredSearch = (props: {data : {searchFilter : string}}) => {
           })}
         </div>
       </div>
+      <Paginator
+              data={{ metaData }} functions = {{searchQueryBuilder}}></Paginator>      </>
     );
   }
 };

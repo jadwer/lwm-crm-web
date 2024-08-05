@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 
 const Recommended = () => {
   const [productos, setProductos] = useState<Products>({} as Products);
-  const { getAllProducts } = useProducts();
+  const { getFilteredProducts } = useProducts();
 
   useEffect(() => {
-    getAllProducts({ setProductos });
+    getFilteredProducts({ setProductos }, "?sort=created_at");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

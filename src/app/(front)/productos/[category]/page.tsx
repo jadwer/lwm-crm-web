@@ -9,10 +9,9 @@ import { useCategories } from "@/hooks/categories";
 const ProductoPage = ({
   params,
 }: {
-  params: { category: string; page: number; brands?: string[] };
+  params: { category: string };
 }) => {
-  const page = params.page;
-  const queryBrands = params.brands !== null ? params.brands : [];
+
   const [queryBrandsId, setQueryBrandsId] = useState<number[]>([]);
   const [category, setCategory] = useState<number>();
   const [categories, setCategories] = useState<Categories>({} as Categories);
@@ -31,33 +30,21 @@ const ProductoPage = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     if (Object.keys(categories).length !== 0) {
       categories.data.map((cat) => {
-        if (cat.name === params.category) {
+        if (cat.slug === params.category) {
           setCategory(cat.id);
         }
       });
-      if(category !== undefined){
-        setSearchFilter(searchQueryBuilder(page, category, queryBrandsId, searchString));
-      }
-      //console.log(searchFilter);
+      setSearchFilter('?category='+category);
     }
-  }, [selectedBrands, categories, queryBrandsId]);
+  }, [categories]);
 
-  const searchQueryBuilder = (
-    page: number,
-    category: number,
-    brandsIds: number[],
-    searchString: string
-  ) => {
-    let query = "";
-
-    query += `?category=${category}`;
-    query += `&page=${page}`;
-    query += (searchString !== "")? `&name=${searchString}` : "";
-    brandsIds.map((i) => {
-      query += `&brand[]=${i}`;
-    });
-    return query;
-  };
+  const searchQueryBuilder = (e : Event, id : string) => {
+    if(id.includes('?')){
+      id = id.replace('?', '');
+    }
+    setSearchFilter('?category='+category+'&'+id);
+  }
+  console.log(searchFilter);
 
   return (
     <main>
@@ -68,20 +55,13 @@ const ProductoPage = ({
             data={{
               brands,
               selectedBrands,
-              queryBrands,
               queryBrandsId,
             }}></SideBrands>
 
           <div className="col-12 col-md-10">
-            <div className="row mb-4">
-              <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
-            </div>
 
-            <FilteredSearch data={{ searchFilter }} />
+            <FilteredSearch data={{ searchFilter }} functions = {{searchQueryBuilder}} />
 
-            <div className="row mb-4">
-              <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
-            </div>
           </div>
 
           <EstimateBanner />
