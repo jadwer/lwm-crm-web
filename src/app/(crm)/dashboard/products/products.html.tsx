@@ -9,12 +9,7 @@ import { useProducts } from "@/hooks/products";
 const ProductsTemplate = (props: any) => {
   const productos = props.data.productos.data;
   const metaData = props.data.productos;
-
-  const links = metaData.links;
-  const first = metaData.first_page_url;
-  const first_url = metaData.prev_page_url;
-  const last = metaData.last_page_url;
-  const last_url = metaData.next_page_url;
+  const searchQueryBuilder = props.functions.searchQueryBuilder;
 
   const [categoria, setCategoria] = useState<Category>({} as Category);
   const [marca, setMarca] = useState<Brand>({} as Brand);
@@ -139,7 +134,7 @@ const ProductsTemplate = (props: any) => {
               </tbody>
             </table>
             <Paginator
-              data={{ links, first, last, first_url, last_url }}></Paginator>
+              data={{ metaData }} functions = {{searchQueryBuilder}}></Paginator>
           </div>
         </div>
       </div>
