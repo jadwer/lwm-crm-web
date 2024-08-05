@@ -1,6 +1,6 @@
 const ProductoTemplate = (props: any) => {
   const producto = props.data.producto;
- 
+
   return (
     <main>
       <div className="container-fluid hero-sections mx-auto">
@@ -16,7 +16,11 @@ const ProductoTemplate = (props: any) => {
         <div className="row align-items-center">
           <div className="col col-md-6 product-detail">
             <img
-              src={process.env.NEXT_PUBLIC_BACKEND_URL+'/storage/products/'+producto.img_path}
+              src={
+                process.env.NEXT_PUBLIC_BACKEND_URL +
+                "/storage/products/" +
+                producto.img_path
+              }
               className="img-fluid"
               alt="Labor Wasser México"
             />
@@ -36,15 +40,14 @@ const ProductoTemplate = (props: any) => {
                 <p>Categoría: {producto.category_id.name}</p>
                 <p>Unidad de medida: {producto.unit_id.type}</p>
                 <div className="d-grid gap-2">
-                  <button type="button" className="btn btn-secondary mt-1">
-                  <span><a
-                      href={producto.datasheet_path}
-                      download={producto.datasheet_path}
-                      target="_blank">
-                      DESCARGAR FICHA TÉCNICA
-                    </a>
-                    </span>
-                  </button>
+                  <a
+                    href={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
+                    download={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
+                    target="_blank">
+                    <button type="button" className="btn btn-secondary mt-1">
+                      <span>DESCARGAR FICHA TÉCNICA</span>
+                    </button>
+                  </a>
                   <button
                     type="button"
                     className="btn btn-primary mt-1"

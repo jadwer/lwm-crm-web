@@ -172,6 +172,16 @@ const EditProductTemplate = (props: { producto: Product }) => {
                     setDatasheet(file ? file : undefined);
                   }}
                 />
+                <div className="d-grid gap-2">
+                  <a
+                    href={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
+                    download={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
+                    target="_blank">
+                    <button type="button" className="btn btn-secondary mt-1">
+                      <span>DESCARGAR FICHA TÉCNICA</span>
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

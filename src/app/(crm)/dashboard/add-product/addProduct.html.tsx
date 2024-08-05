@@ -13,10 +13,10 @@ const AddProductTemplate = (props: { producto: Product }) => {
 console.log("Producto: "+producto.name);
   const { setProduct } = useProducts();
   const [selectedImage, setSelectedImage] = useState<string>();
-  const [nombre, setNombre] = useState<string>();
-  const [sku, setSku] = useState<string>();
-  const [descripcion, setDescripcion] = useState<string>();
-  const [descripcionTecnica, setDescripcionTecnica] = useState<string>();
+  const [nombre, setNombre] = useState<string>("");
+  const [sku, setSku] = useState<string>("");
+  const [descripcion, setDescripcion] = useState<string>("");
+  const [descripcionTecnica, setDescripcionTecnica] = useState<string>("");
   const [categoria, setCategoria] = useState<number>();
   const [marca, setMarca] = useState<number>();
   const [unidad, setUnidad] = useState<number>();

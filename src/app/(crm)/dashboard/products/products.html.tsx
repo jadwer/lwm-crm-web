@@ -113,7 +113,11 @@ const ProductsTemplate = (props: any) => {
                 {productos.map((producto: any) => {
                   return (
                     <tr key={producto.id}>
-                      <th scope="row">{producto.name}</th>
+                      <th scope="row">
+                        <Link href={`/producto/${producto.id}`} rel="noopener noreferrer" target="_blank">
+                          {producto.name}
+                        </Link>
+                      </th>
                       <td>{producto.category_id.name}</td>
                       <td>{producto.brand_id.name}</td>
                       <td>
