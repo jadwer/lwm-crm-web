@@ -5,7 +5,7 @@ export const useProducts = () => {
   const csrf = () => axios.get("/sanctum/csrf-cookie");
 
   const getProduct = async ({ id, setProducto }) => {
-    await csrf();
+//    await csrf();
 
     axios
       .get(`/api/products/${id}`)
@@ -16,7 +16,7 @@ export const useProducts = () => {
   };
 
   const getAllProducts = async ({ setProductos }) => {
-    await csrf();
+//    await csrf();
     axios
       .get(`/api/products`)
       .then((res) => setProductos(res.data))
@@ -26,9 +26,9 @@ export const useProducts = () => {
   };
 
   const getFilteredProducts = async ({ setProductos }, searchFilter) => {
-    await csrf();
+//    await csrf();
     axios
-      .get(`/api/products/${searchFilter}`)
+      .get(`/api/products${searchFilter}`)
       .then((res) => setProductos(res.data))
       .catch((error) => {
         if (error.response.status !== 409) throw error;
@@ -36,7 +36,7 @@ export const useProducts = () => {
   };
 
   const setProduct = async ({ setErrors, setStatus }, producto) => {
-    await csrf();
+//    await csrf();
     if (isUndefined(producto.id)) {
       axios
         .post(`/api/products`, producto, {
@@ -65,7 +65,7 @@ export const useProducts = () => {
   };
 
   const delProduct = async ({ setErrors, setStatus }, product) => {
-    await csrf();
+//    await csrf();
     axios
       .post(`/api/products/${product}`,{
         _method:"delete"

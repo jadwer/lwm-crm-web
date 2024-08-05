@@ -12,7 +12,6 @@ const Recommended = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(productos?.data);
   if (Object.keys(productos).length === 0) {
     return <>Cargando...</>;
   } else {
@@ -27,7 +26,6 @@ const Recommended = () => {
         <div className="row products-list">
           {productos.data.map((producto: Product) => {
             return (
-              <>
                 <div className="col-12" key={producto.id}>
                   <p>
                     <span className="labels">
@@ -38,9 +36,8 @@ const Recommended = () => {
                     {producto.name}
                   </h6>
                   <a href={`producto/${producto.id}`}>VER DETALLE</a>
+                  <hr></hr>
                 </div>
-                <hr></hr>
-              </>
             );
           })}
           <div className="col-12 text-center btn-space">

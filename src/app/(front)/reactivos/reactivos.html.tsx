@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";
 import FilteredSearch from "../ui/search/fiteredSearch";
+import Recommended from "../ui/widgets/recomended";
 
 const ReactivosTemplate = () => {
   const [items, setItems] = useState<number>(5);
@@ -70,7 +71,7 @@ const ReactivosTemplate = () => {
             <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
           </div>
 
-
+        <Recommended></Recommended>
           <div className="row mb-4">
             <div className="col mb-4">AQUÍ VAN LOS FILTROS</div>
           </div>
