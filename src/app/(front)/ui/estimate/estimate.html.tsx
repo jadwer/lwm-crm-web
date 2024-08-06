@@ -34,10 +34,7 @@ const Estimate = (props: any) => {
 
     contactForm({ setErrors, setStatus }, dataForm);
 
-    console.log(dataForm);
-    console.log(status);
   };
-  console.log(props);
 
   return (
     <nav

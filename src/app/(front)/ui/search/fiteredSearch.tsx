@@ -35,7 +35,7 @@ const FilteredSearch = (props: any ) => {
                     </span>
                   </p>
                   <h6>{producto.name}</h6>
-                  <a href={`producto/${producto.id}`}>VER DETALLE</a>
+                  <a href={`/producto/${producto.id}`}>VER DETALLE</a>
                   <hr></hr>
                 </div>
             );

@@ -12,8 +12,10 @@ const ProductoPage = ({
   params: { category: string };
 }) => {
 
+  const { category } = params;
+
   const [queryBrandsId, setQueryBrandsId] = useState<number[]>([]);
-  const [category, setCategory] = useState<number>();
+  const [categoryId, setCategoryId] = useState<number>();
   const [categories, setCategories] = useState<Categories>({} as Categories);
   const [selectedBrands, setSelectedBrands] = useState<boolean[]>([]);
   const [brands, setBrands] = useState<Brands>({} as Brands);
@@ -23,28 +25,30 @@ const ProductoPage = ({
   const { getCategories } = useCategories();
 
   useEffect(() => {
-    getCategories({ setCategories });
+    async function getCat () {
+      await getCategories({ setCategories });
+    }
+    getCat();
   }, []);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     if (Object.keys(categories).length !== 0) {
       categories.data.map((cat) => {
-        if (cat.slug === params.category) {
-          setCategory(cat.id);
+        if (cat.slug == category) {
+          setCategoryId(cat.id);
+          setSearchFilter(`?category=${categoryId}`);
         }
       });
-      setSearchFilter('?category='+category);
     }
-  }, [categories]);
+  }, [categories, category, categoryId]);
 
   const searchQueryBuilder = (e : Event, id : string) => {
     if(id.includes('?')){
       id = id.replace('?', '');
     }
-    setSearchFilter('?category='+category+'&'+id);
+    setSearchFilter('?category='+categoryId+'&'+id);
   }
-  console.log(searchFilter);
 
   return (
     <main>
