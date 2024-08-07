@@ -7,6 +7,7 @@ import { MouseEvent, useState } from "react";
 import Image from "next/image";
 import { useProducts } from "@/hooks/products";
 import { Product } from "@/lib/interfaces";
+import { useRouter } from "next/navigation";
 
 const EditProductTemplate = (props: { producto: Product }) => {
   const producto = props.producto == null ? ({} as Product) : props.producto;
@@ -23,6 +24,7 @@ const EditProductTemplate = (props: { producto: Product }) => {
   const [datasheet, setDatasheet] = useState<File>();
   const [errors, setErrors] = useState<any[]>([]);
   const [status, setStatus] = useState<string>();
+  const router = useRouter();
 
   const submitNewProduct = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -43,6 +45,9 @@ const EditProductTemplate = (props: { producto: Product }) => {
     };
 
     await setProduct({ setErrors, setStatus }, dataForm);
+    setTimeout(() => {
+      router.push('/dashboard/products');
+    }, 5000);
   };
   const handleSubmit = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>

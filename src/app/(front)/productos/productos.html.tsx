@@ -17,7 +17,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-reactivos.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Reactivos</h3>
-            <a href="reactivos">VER PRODUCTOS</a>
+            <a href="/productos/reactivos">VER PRODUCTOS</a>
           </div>
         </div>
         <div className="col text-center">
@@ -25,15 +25,15 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-cultivo.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Medios de cultivo</h3>
-            <a href="reactivos">VER PRODUCTOS</a>
+            <a href="/productos/medios-de-cultivo">VER PRODUCTOS</a>
           </div>
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
-            <img src="/../images/iconos/labor-wasser-mexico-cristalería.webp" className="card-img-top"
+            <img src="/../images/iconos/labor-wasser-mexico-cristaleria.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Cristalería</h3>
-            <a href="reactivos">Cristalería</a>
+            <a href="/productos/cristaleria">Cristalería</a>
           </div>
         </div>
         <div className="col text-center">
@@ -41,7 +41,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-agua.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Analisis de agua</h3>
-            <a href="reactivos">VER PRODUCTOS</a>
+            <a href="/productos/analisis-de-agua">VER PRODUCTOS</a>
           </div>
         </div>
         <div className="col text-center">
@@ -49,7 +49,7 @@ const ProductosTemplate = () => (
             <img src="/../images/iconos/labor-wasser-mexico-procesos.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <h3>Procesos</h3>
-            <a href="reactivos">VER PRODUCTOS</a>
+            <a href="/productos/proceso">VER PRODUCTOS</a>
           </div>
         </div>
       </div>
