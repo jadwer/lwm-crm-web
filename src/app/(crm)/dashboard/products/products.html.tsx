@@ -9,25 +9,28 @@ import { useProducts } from "@/hooks/products";
 const ProductsTemplate = (props: any) => {
   const productos = props.data.productos.data;
   const metaData = props.data.productos;
-
-  const links = metaData.links;
-  const first = metaData.first_page_url;
-  const first_url = metaData.prev_page_url;
-  const last = metaData.last_page_url;
-  const last_url = metaData.next_page_url;
+  const searchQueryBuilder = props.functions.searchQueryBuilder;
 
   const [categoria, setCategoria] = useState<Category>({} as Category);
-  const [marca, setMarca] = useState<Brand>({} as Brand)
+  const [marca, setMarca] = useState<Brand>({} as Brand);
   const [errors, setErrors] = useState<any[]>([]);
   const [status, setStatus] = useState<string>();
 
-  const {delProduct} = useProducts();
+  const { delProduct } = useProducts();
 
-  const submitDelProduct = (e: { preventDefault: () => void; }, prod_id : number) => {
+  const submitDelProduct = (
+    e: { preventDefault: () => void },
+    prod_id: number
+  ) => {
     e.preventDefault();
-    if(confirm("¿Estás seguro que quieres eliminar este producto? Esta acción no se puede deshacer.")){delProduct({setErrors, setStatus}, prod_id);}
-  }
-
+    if (
+      confirm(
+        "¿Estás seguro que quieres eliminar este producto? Esta acción no se puede deshacer."
+      )
+    ) {
+      delProduct({ setErrors, setStatus }, prod_id);
+    }
+  };
 
   return (
     <main>
@@ -38,9 +41,11 @@ const ProductsTemplate = (props: any) => {
             <h4>Todos los productos</h4>
           </div>
           <div className="col-12 col-md-6 d-flex justify-content-end">
-            <button type="button" className="btn btn-primary">
+            <Link
+              href={"/dashboard/import-list"}
+              className="btn btn-primary ms-2">
               Importar lista
-            </button>
+            </Link>
             <Link
               href={"/dashboard/add-product"}
               className="btn btn-primary ms-2">
@@ -58,7 +63,7 @@ const ProductsTemplate = (props: any) => {
             />
           </div>
           <div className="col-12 col-md-3">
-          <SelectBrands
+            <SelectBrands
               stateData={{ marca, setMarca }}
               label="Filtro por marca"
             />
@@ -103,17 +108,33 @@ const ProductsTemplate = (props: any) => {
                 {productos.map((producto: any) => {
                   return (
                     <tr key={producto.id}>
-                      <th scope="row">{producto.name}</th>
+                      <th scope="row">
+                        <Link href={`/producto/${producto.id}`} rel="noopener noreferrer" target="_blank">
+                          {producto.name}
+                        </Link>
+                      </th>
                       <td>{producto.category_id.name}</td>
                       <td>{producto.brand_id.name}</td>
-                      <td><Link href={`/dashboard/edit-product/${producto.id}`}>Editar</Link> | <a href="#" onClick={(e) =>{submitDelProduct(e, producto.id)}}>Eliminar</a></td>
+                      <td>
+                        <Link href={`/dashboard/edit-product/${producto.id}`}>
+                          Editar
+                        </Link>{" "}
+                        |{" "}
+                        <a
+                          href="#"
+                          onClick={(e) => {
+                            submitDelProduct(e, producto.id);
+                          }}>
+                          Eliminar
+                        </a>
+                      </td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
             <Paginator
-              data={{ links, first, last, first_url, last_url }}></Paginator>
+              data={{ metaData }} functions = {{searchQueryBuilder}}></Paginator>
           </div>
         </div>
       </div>

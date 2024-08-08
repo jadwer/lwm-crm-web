@@ -49,6 +49,7 @@ const LoginPage = () => {
       setErrors,
       setStatus,
     });
+    router.push('/dashboard')
   };
 
   return (

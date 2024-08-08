@@ -7,13 +7,15 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     const router = useRouter()
     const params = useParams()
 
-    const { data: user, error, mutate } = useSWR('/api/user'+middleware, () =>
+    const { data: user, error, mutate } = useSWR('/api/user', () =>
         axios
             .get('/api/user')
-            .then(res => res.data)
+            .then(res => {
+                return res.data
+            })
             .catch(error => {
                 if (error.response.status !== 409) throw error
-
+                console.log(error)
                 router.push('/verify-email')
             }),
     )
@@ -30,7 +32,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .then(() => mutate())
             .catch(error => {
                 if (error.response.status !== 422) throw error
-
+                console.log(error)
                 setErrors(error.response.data.errors)
             })
     }
@@ -49,6 +51,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
                 if (error.response.status !== 422) throw error
 
                 setErrors(error.response.data.errors)
+                console.log(error)
             })
     }
 

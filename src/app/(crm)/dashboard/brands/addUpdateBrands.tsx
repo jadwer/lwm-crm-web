@@ -17,6 +17,7 @@ const AddUpdateBrands = (
 
   const [nombre, setNombre] = useState(brand.name);
   const [descripcion, setDescripcion] = useState(brand.description);
+  const [slug, setSlug] = useState(brand.slug);
   const [errors, setErrors] = useState([]);
   const setStatus = props.status.setStatus;
   const status = props.status.status;
@@ -30,6 +31,7 @@ const AddUpdateBrands = (
       id: brand.id,
       name: nombre,
       description: descripcion,
+      slug: slug,
     };
 
     await setBrand({ setErrors, setStatus }, dataForm);
@@ -82,6 +84,16 @@ const AddUpdateBrands = (
                   value={descripcion}
                   onChange={(event) => {
                     setDescripcion(event.target.value);
+                  }}></input>
+                <label className="form-label">Slug</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id={"slug-" + brand_id}
+                  placeholder="Nombre de la categoría"
+                  value={slug}
+                  onChange={(event) => {
+                    setSlug(event.target.value);
                   }}></input>
               </div>
             </div>

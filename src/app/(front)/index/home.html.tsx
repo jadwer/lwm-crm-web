@@ -19,7 +19,7 @@ const HomePage = () => (
               data-bs-target="#navMenu">
               ¡Cotiza ahora!
             </button>
-            <a href="">
+            <a href="/productos">
               <button
                 type="button"
                 className="btn btn-secondary mt-4 mt-md-0 mx-md-4">

@@ -7,16 +7,17 @@ import { MouseEvent, useState } from "react";
 import Image from "next/image";
 import { useProducts } from "@/hooks/products";
 import { Product } from "@/lib/interfaces";
+import { useRouter } from "next/navigation";
 
 const AddProductTemplate = (props: { producto: Product }) => {
   const producto = props.producto == null ? ({} as Product) : props.producto;
 console.log("Producto: "+producto.name);
   const { setProduct } = useProducts();
   const [selectedImage, setSelectedImage] = useState<string>();
-  const [nombre, setNombre] = useState<string>();
-  const [sku, setSku] = useState<string>();
-  const [descripcion, setDescripcion] = useState<string>();
-  const [descripcionTecnica, setDescripcionTecnica] = useState<string>();
+  const [nombre, setNombre] = useState<string>("");
+  const [sku, setSku] = useState<string>("");
+  const [descripcion, setDescripcion] = useState<string>("");
+  const [descripcionTecnica, setDescripcionTecnica] = useState<string>("");
   const [categoria, setCategoria] = useState<number>();
   const [marca, setMarca] = useState<number>();
   const [unidad, setUnidad] = useState<number>();
@@ -24,6 +25,7 @@ console.log("Producto: "+producto.name);
   const [datasheet, setDatasheet] = useState<File>();
   const [errors, setErrors] = useState<any[]>([]);
   const [status, setStatus] = useState<string>();
+  const router = useRouter()
 
   const submitNewProduct = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -44,6 +46,9 @@ console.log("Producto: "+producto.name);
     };
 
     await setProduct({ setErrors, setStatus }, dataForm);
+    setTimeout(() => {
+      router.push('/dashboard/products');
+    }, 5000);
   };
   const handleSubmit = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>

@@ -5,7 +5,7 @@ export const useCategories = () => {
   const csrf = () => axios.get("/sanctum/csrf-cookie");
 
   const getCategories = async ({ setCategories }) => {
-    await csrf();
+//    await csrf();
     axios
       .get(`/api/categories`)
       .then((res) => setCategories(res.data))
@@ -16,7 +16,7 @@ export const useCategories = () => {
   };
 
   const setCategory = async ({ setErrors, setStatus }, category) => {
-    await csrf();
+ //   await csrf();
 
     setErrors([]);
 
@@ -48,7 +48,7 @@ export const useCategories = () => {
   };
 
   const delCategory = async ({ setErrors, setStatus }, category) => {
-    await csrf();
+//    await csrf();
     axios
       .post(`/api/categories/${category}`,{
         _method:"delete"

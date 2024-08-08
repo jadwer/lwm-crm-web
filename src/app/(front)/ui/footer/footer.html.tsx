@@ -21,11 +21,11 @@ const Footer = () => {
           <div className='col-12 col-md-3'>
             <h4>Productos</h4>
             <ul>
-              <li><a className="dropdown-item" href="soon">Reactivos</a></li>
-              <li><a className="dropdown-item" href="soon">Medios de cultivo</a></li>
-              <li><a className="dropdown-item" href="soon">Cristalería</a></li>
-              <li><a className="dropdown-item" href="soon">Analisis de agua</a></li>
-              <li><a className="dropdown-item" href="soon">Procesos</a></li>
+              <li><a className="dropdown-item" href="/productos/reactivos">Reactivos</a></li>
+              <li><a className="dropdown-item" href="/productos/medios-de-cultivo">Medios de cultivo</a></li>
+              <li><a className="dropdown-item" href="/productos/cristaleria">Cristalería</a></li>
+              <li><a className="dropdown-item" href="/productos/analisis-de-agua">Analisis de agua</a></li>
+              <li><a className="dropdown-item" href="/productos/proceso">Procesos</a></li>
             </ul>
           </div>
           <div className='col-12 col-md-3'>
