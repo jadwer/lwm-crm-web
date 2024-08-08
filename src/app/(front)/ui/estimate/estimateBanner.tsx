@@ -9,7 +9,11 @@ const EstimateBanner = () => {
             Ponte en contacto con nosotros y uno de nuestros representantes se
             pondrán en contacto contigo.
           </h6>
-          <button type="button" className="btn btn-primary">
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#navMenu">
             Cotiza ahora
           </button>
         </div>
