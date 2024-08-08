@@ -31,7 +31,7 @@ const HomePage = () => (
         <div className="col-12 col-md-6 hero-right"></div>
       </div>
     </div>
-    <div className="container numbers text-center">
+    <div className="container numbers text-center d-none">
       <div className="row">
         <div className="col-12 col-md-3 text-center">
           <h1>+180,000</h1>

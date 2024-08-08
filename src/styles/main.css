@@ -20331,7 +20331,6 @@ h1,
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
-  padding-top: 10%;
 }
 @media (max-width: 575.98px) {
   .container-fluid.cta .right, .cta.container-sm .right, .cta.container-md .right, .cta.container-lg .right, .cta.container-xl .right, .cta.container-xxl .right {
@@ -20587,6 +20586,9 @@ h1,
   color: white;
   text-decoration: none;
   font-weight: 600;
+}
+.container.clients {
+  margin-bottom: 3em;
 }
 .container.clients h1, .container.clients .h1 {
   color: #012A94;

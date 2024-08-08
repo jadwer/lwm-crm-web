@@ -262,8 +262,6 @@ h1,
             background-repeat: no-repeat;
             background-size: cover;
             color: white;
-            padding-top: 10%;
-
             @media (max-width: 575.98px) {
                 height: auto !important;
                 padding: 5em 1em;
@@ -577,6 +575,7 @@ h1,
     }
 
     &.clients {
+        margin-bottom: 3em;
         h1 {
             color: #012A94;
             font-size: 3em;
