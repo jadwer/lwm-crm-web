@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/main.css";
 import BootStrapClient from '@/components/BootStrapClient';
+import 'animate.css'
 
 export const metadata: Metadata = {
   title: "Labor Wasser México.",
