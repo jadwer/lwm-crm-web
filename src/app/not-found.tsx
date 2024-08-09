@@ -1,7 +1,8 @@
+import NotFoundTemplate from "./(custom)/notfound/notFound.html"
 
 const NotFound = () => {
   return (
-    <div>404 Página no encontrada</div>
+    <NotFoundTemplate />
   )
 }
 
