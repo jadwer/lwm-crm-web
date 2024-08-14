@@ -22,6 +22,8 @@ const ProductoPage = ({
   const [searchString, setSearchString] = useState<string>("");
   const [searchFilter, setSearchFilter] = useState<string>("");
 
+  const [page, setPage] = useState<string>("");
+
   const { getCategories } = useCategories();
 
   useEffect(() => {
@@ -43,11 +45,37 @@ const ProductoPage = ({
     }
   }, [categories, category, categoryId]);
 
-  const searchQueryBuilder = (e : Event, id : string) => {
-    if(id.includes('?')){
-      id = id.replace('?', '');
-    }
-    setSearchFilter('?category='+categoryId+'&'+id);
+  useEffect(()=>{
+    searchQueryBuilder();
+  }, [searchString, page]);
+
+  const searchQueryBuilder = () => {
+    console.log("query");
+    let cat = (categoryId !== undefined) ? '?category='+categoryId : "";
+    let pg = (page !== "") ? '&'+page : "";
+    let sstr = (searchString !== "") ? '&name='+searchString : "";
+    let searchFS = cat+pg+sstr;
+    console.log(searchFS)
+    setSearchFilter(searchFS);
+  }
+
+  const catQuery = () => {
+
+  }
+
+  const pageQuery = (page : string) => {
+    if(page.includes('?')){
+      page = page.replace('?', '');
+      setPage(page);
+    }    
+  }
+
+  const brandsQuery = () => {
+    
+  }
+
+  const searchQuery = (searchStr: string) => {
+    setSearchString(searchStr);
   }
 
   return (
@@ -63,8 +91,13 @@ const ProductoPage = ({
             }}></SideBrands>
 
           <div className="col-12 col-md-10">
+          <div className="row mb-4">
+            <div className="col-md-1">Buscar:
+            </div>
+              <input type="text" id="searchProduct" className="col-md-10" placeholder="Introduzca el nombre del producto" value={searchString} onChange={(e) => {searchQuery(e.target.value)}}/>
+          </div>
 
-            <FilteredSearch data={{ searchFilter }} functions = {{searchQueryBuilder}} />
+            <FilteredSearch data={{ searchFilter }} functions = {{pageQuery}} />
 
           </div>
 

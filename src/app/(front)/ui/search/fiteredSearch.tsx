@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const FilteredSearch = (props: any ) => {
   const searchFilter = props.data.searchFilter;
-  const searchQueryBuilder = props.functions.searchQueryBuilder;
+  const pageQuery = props.functions.pageQuery;
 
   const [productos, setProductos] = useState<Products>({} as Products);
   const { getFilteredProducts } = useProducts();
@@ -43,7 +43,7 @@ const FilteredSearch = (props: any ) => {
         </div>
       </div>
       <Paginator
-              data={{ metaData }} functions = {{searchQueryBuilder}}></Paginator>      </>
+              data={{ metaData }} functions = {{pageQuery}}></Paginator>      </>
     );
   }
 };
