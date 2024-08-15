@@ -3,57 +3,32 @@ import { Brand, Brands } from "@/lib/interfaces";
 import { useEffect } from "react";
 
 const SideBrands = (props : any) => {
-    const setSelectedBrands = props.functions.setSelectedBrands;
-    const setBrands = props.functions.setBrands;
-    const brands : Brands = props.data.brands;
-    const selectedBrands : boolean[] = props.data.selectedBrands;
-    const queryBrands = props.data.queryBrands;
-    const setQueryBrandsId = props.functions.setQueryBrandsId;
+  const brands : Brands = props.data.brands;
+  const setBrands = props.functions.setBrands;
     const queryBrandsId = props.data.queryBrandsId
-
+    const setQueryBrandsId = props.functions.setQueryBrandsId;
+    const brandsQuery = props.functions.brandsQuery;
+    
     const { getBrands } = useBrands();
     useEffect(() => {
       getBrands({setBrands});
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     useEffect(() => {
       if (Object.keys(brands).length !== 0) {
-        let selectedMarcas: boolean[] = [];
-        let selectedMarcasId : number[] = [];
-        brands.data.map((marca, index) => {
-          if(queryBrands){
-            if(queryBrands.includes(marca.name)){
-              selectedMarcas[index] =  true;
-              selectedMarcasId.push(marca.id);
-            } else {
-              selectedMarcas[index] =  false;
-            }
-          } else {
-            selectedMarcas = [];
-          }
-        });
-        setSelectedBrands(selectedMarcas);
-        setQueryBrandsId(selectedMarcasId);
+        setQueryBrandsId(Array(brands.data.length).fill(-1));
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [brands]);
   
     const handleOnChange = (toggleBrand : number, id : number) => {
-      const updatedSelectedBrands = selectedBrands.map((marca, index) =>
-        index === toggleBrand ? !marca : marca
+      const updatedSelectedBrands = queryBrandsId.map((marca : number, index: number) =>
+        index === toggleBrand ? marca !== -1 ? -1 : id : marca
       );
-      setSelectedBrands(updatedSelectedBrands);
-
-      let qbId = queryBrandsId;
-      if(queryBrandsId.includes(id)){
-        qbId = qbId.filter((qid : number)=> qid !== id);
-      } else {
-        qbId.push(id);
-      }
-        
-      setQueryBrandsId(qbId);
+      setQueryBrandsId(updatedSelectedBrands);
+      brandsQuery(updatedSelectedBrands);
     }
     
     if(Object.keys(brands).length === 0){
@@ -62,7 +37,7 @@ const SideBrands = (props : any) => {
           return (
               <div className="col-12 col-md-2">
               <h5>MARCAS</h5>
-              {selectedBrands && Object.keys(brands).length !== 0 &&
+              {Object.keys(brands).length !== 0 &&
                 brands.data.map((marca, index) => {
                   return (
                     <div className="form-check" key={marca.id}>
@@ -70,7 +45,7 @@ const SideBrands = (props : any) => {
                         id={`marca${marca.id}`}
                         type="checkbox"
                         className="form-check-input"
-                        checked={selectedBrands[index]? selectedBrands[index] : false}
+                        checked={queryBrandsId[index] !== -1 ? true : false}
                         onChange={(e) => handleOnChange(index, marca.id)}
                         value={marca.id}
                       />

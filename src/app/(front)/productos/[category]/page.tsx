@@ -14,13 +14,13 @@ const ProductoPage = ({
 
   const { category } = params;
 
+  const [brands, setBrands] = useState<Brands>({} as Brands);
   const [queryBrandsId, setQueryBrandsId] = useState<number[]>([]);
   const [categoryId, setCategoryId] = useState<number>();
   const [categories, setCategories] = useState<Categories>({} as Categories);
-  const [selectedBrands, setSelectedBrands] = useState<boolean[]>([]);
-  const [brands, setBrands] = useState<Brands>({} as Brands);
-  const [searchString, setSearchString] = useState<string>("");
   const [searchFilter, setSearchFilter] = useState<string>("");
+  const [searchString, setSearchString] = useState<string>("");
+  const [queryBrands, setQueryBrands] = useState<string>("");
 
   const [page, setPage] = useState<string>("");
 
@@ -31,10 +31,10 @@ const ProductoPage = ({
       await getCategories({ setCategories });
     }
     getCat();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (Object.keys(categories).length !== 0) {
       categories.data.map((cat) => {
         if (cat.slug == category) {
@@ -47,20 +47,20 @@ const ProductoPage = ({
 
   useEffect(()=>{
     searchQueryBuilder();
-  }, [searchString, page]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchString, page, queryBrandsId]);
 
   const searchQueryBuilder = () => {
-    console.log("query");
-    let cat = (categoryId !== undefined) ? '?category='+categoryId : "";
+//    let cat = (categoryId !== undefined) ? '?category='+categoryId : "";
+    let cat = '?category='+categoryId;
     let pg = (page !== "") ? '&'+page : "";
     let sstr = (searchString !== "") ? '&name='+searchString : "";
-    let searchFS = cat+pg+sstr;
-    console.log(searchFS)
+    let qb = (queryBrands !== "") ? queryBrands : "";
+    let searchFS = cat+pg+sstr+qb;
     setSearchFilter(searchFS);
   }
 
   const catQuery = () => {
-
   }
 
   const pageQuery = (page : string) => {
@@ -70,8 +70,15 @@ const ProductoPage = ({
     }    
   }
 
-  const brandsQuery = () => {
-    
+  const brandsQuery = (updatedSelectedBrands:[]) => {
+    let qbrands = "";
+    updatedSelectedBrands.forEach((id)=>{
+      if(id !== -1){
+        qbrands += "&brand[]="+id;
+      }
+      return qbrands;
+    })
+    setQueryBrands(qbrands);
   }
 
   const searchQuery = (searchStr: string) => {
@@ -83,10 +90,9 @@ const ProductoPage = ({
       <div className="container-fluid products-page">
         <div className="row">
           <SideBrands
-            functions={{ setBrands, setSelectedBrands, setQueryBrandsId }}
+            functions={{ setBrands, setQueryBrandsId, brandsQuery }}
             data={{
               brands,
-              selectedBrands,
               queryBrandsId,
             }}></SideBrands>
 
