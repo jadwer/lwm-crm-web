@@ -5,7 +5,7 @@ export const useBrands = () => {
   const csrf = () => axios.get("/sanctum/csrf-cookie");
 
   const getBrands = async ({ setBrands }) => {
-    await csrf();
+    //await csrf();
     axios
       .get(`/api/brands`)
       .then((res) => setBrands(res.data))

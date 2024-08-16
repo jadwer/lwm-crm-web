@@ -4,7 +4,7 @@ const Paginator = (props: any) => {
   const first_url = props.data.metaData.prev_page_url;
   const last = props.data.metaData.last_page_url;
   const last_url = props.data.metaData.next_page_url;
-  const searchQueryBuilder = props.functions.searchQueryBuilder;
+  const pageQuery = props.functions.pageQuery;
   let link = "";
   let classN: string = "";
 
@@ -16,7 +16,7 @@ const Paginator = (props: any) => {
             className="page-link"
                 href="#"
                 onClick={(e) => {
-                  searchQueryBuilder(e, first);
+                  pageQuery(first);
                 }}>
             Primero
           </a>
@@ -33,7 +33,7 @@ const Paginator = (props: any) => {
                 className="page-link"
                 href="#"
                 onClick={(e) => {
-                  searchQueryBuilder(e, page.url);
+                  pageQuery(page.url);
                 }}>
                 {<span  dangerouslySetInnerHTML={{__html: page.label}}></span>}
               </a>
@@ -45,7 +45,7 @@ const Paginator = (props: any) => {
             className="page-link"
             href="#"
             onClick={(e) => {
-              searchQueryBuilder(e, last);
+              pageQuery(last);
             }}>
         Último
           </a>
