@@ -60,7 +60,7 @@ const SideBrands = (props : any) => {
             return <>Cargando...</>;
     }else{
           return (
-              <div className="col-12 col-md-2">
+              <div className="col-12 col-md-2 sidebar-products">
               <h5>MARCAS</h5>
               {selectedBrands && Object.keys(brands).length !== 0 &&
                 brands.data.map((marca, index) => {

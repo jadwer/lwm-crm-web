@@ -20489,6 +20489,17 @@ h1,
   margin: 3em 0 5em 0;
 }
 
+ul.pagination {
+  margin: 3em auto;
+}
+ul.pagination .page-item.active > .page-link {
+  background-color: #012A94;
+}
+ul.pagination a.page-link:hover {
+  background-color: #8AC905;
+  color: #ffffff;
+}
+
 #LoginLinks {
   display: flex;
   margin-top: 12px;
@@ -20556,6 +20567,11 @@ h1,
 @media (max-width: 575.98px) {
   .container.products {
     margin-top: 60px;
+  }
+}
+@media (min-width: 1400px) {
+  .container.products {
+    max-width: 100% !important;
   }
 }
 .container.products h1, .container.products .h1 {
@@ -20664,6 +20680,10 @@ h1,
 }
 .sidebar a:hover {
   color: #8AC905;
+}
+
+.sidebar-products {
+  padding-left: 4em;
 }
 
 img.logo {
