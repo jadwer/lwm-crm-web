@@ -6,8 +6,8 @@ const HomePage = () => (
     <div className="container-fluid hero-1 mx-auto">
       <div className="row align-items-center">
         <div className="col-12 col-md-6 hero-left">
-          <h1>MEJORAMOS EL MUNDO DE TU LABORATORIO</h1>
-          <h5 className="highlight-hero text-center text-md-start">
+          <h1 className="animate__animated animate__zoomInLeft animate__delay-500ms">MEJORAMOS EL MUNDO DE TU LABORATORIO</h1>
+          <h5 className="highlight-hero text-center text-md-start animate__animated animate__fadeInLeft animate__delay-750ms">
             Encuentra los mejores productos, marcas reconocidas y la mejor
             atención para tu laboratorio
           </h5>
@@ -53,7 +53,7 @@ const HomePage = () => (
     </div>
     <div className="container-fluid about">
       <div className="row align-items-center">
-        <div className="col-12 col-md-6 left-info">
+        <div className="col-12 col-md-6 left-info animate__animated animate__fadeInLeft animate__delay-1s">
           <h4 className="text-center text-md-start">
             ¿Por qué comprar con nosotros?
           </h4>
@@ -82,8 +82,8 @@ const HomePage = () => (
       <div className="row align-items-center">
         <div className="col-12 col-md-5 left"></div>
         <div className="col-12 col-md-7 text-center right">
-          <h1>¿NECESITAS UNA COTIZACIÓN?</h1>
-          <h6>
+          <h1 className="animate__animated animate__bounceInDown animate__delay-1s">¿NECESITAS UNA COTIZACIÓN?</h1>
+          <h6 className="animate__animated animate__bounceInDown animate__delay-1.5s">
             Ponte en contacto con nosotros y uno de nuestros representantes se
             pondrán en contacto contigo.
           </h6>

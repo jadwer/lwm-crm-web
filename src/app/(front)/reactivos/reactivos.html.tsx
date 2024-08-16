@@ -23,7 +23,7 @@ const ReactivosTemplate = () => {
     <div className="container-fluid products-page">
       <div className="row">
         <div className="col-12 col-md-2">
-          <h5>MARCAS</h5>
+          <h5>MARCAS 222</h5>
           <div className="form-check">
             <input
               id="marca1"
