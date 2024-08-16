@@ -51,12 +51,11 @@ const ProductoPage = ({
   }, [searchString, page, queryBrandsId]);
 
   const searchQueryBuilder = () => {
-//    let cat = (categoryId !== undefined) ? '?category='+categoryId : "";
-    let cat = '?category='+categoryId;
-    let pg = (page !== "") ? '&'+page : "";
+    let pg = (page !== "") ? '?'+page : "?page=1";
+    let cat = (categoryId !== undefined) ? '&category='+categoryId : "";
     let sstr = (searchString !== "") ? '&name='+searchString : "";
     let qb = (queryBrands !== "") ? queryBrands : "";
-    let searchFS = cat+pg+sstr+qb;
+    let searchFS = pg+cat+sstr+qb;
     setSearchFilter(searchFS);
   }
 
@@ -82,6 +81,7 @@ const ProductoPage = ({
   }
 
   const searchQuery = (searchStr: string) => {
+    setPage("");
     setSearchString(searchStr);
   }
 
