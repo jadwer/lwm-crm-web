@@ -19,7 +19,7 @@ const LoginTemplate = (props: any) => (
                 id="email"
                 type="email"
                 value={props.data.email}
-                className="block mt-1 w-full"
+                className="block mt-1 w-full form-control"
                 onChange={(event) => props.functions.setEmail(event.target.value)}
                 required
                 autoFocus
@@ -35,7 +35,7 @@ const LoginTemplate = (props: any) => (
                 id="password"
                 type="password"
                 value={props.data.password}
-                className="block mt-1 w-full"
+                className="block mt-1 w-full form-control"
                 onChange={(event) => props.functions.setPassword(event.target.value)}
                 required
                 autoComplete="current-password"

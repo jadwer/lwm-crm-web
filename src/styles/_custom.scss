@@ -37,6 +37,16 @@ h1,
 
 .container-fluid {
 
+    .sesion {
+        a {
+            color: #8AC905;
+            text-decoration: none;
+            &:hover {
+                color: #0094FF;
+            }
+        }
+    }
+
     &.valor {
         padding: 6em 0;
         background-image: url("/../images/labor-wasser-mexico-hero-8.webp");
@@ -148,6 +158,15 @@ h1,
     }
 
     &.login {
+
+        a {
+            color: #8AC905;
+            text-decoration: none;
+            &:hover {
+                color: #0094FF;
+            }
+        }
+
         .bg-login {
             height: 100vh;
             background-image: url("/../images/labor-wasser-mexico-hero-6.webp");
@@ -344,11 +363,12 @@ h1,
         }
 
         .table-product {
-            box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.30);
-            -webkit-box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.30);
-            -moz-box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.30);
-            min-height: 45vh;
-            border-radius: 16px;
+            box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.30);
+            -webkit-box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.30);
+            -moz-box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.30);
+            border-radius: 12px;
+            padding: 2em;
+            margin-bottom: 3em;
 
             th {
                 &.tab-name {
@@ -365,6 +385,21 @@ h1,
 
                 &.tab-actions {
                     width: 15%;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #8AC905;
+                    &:hover {
+                        color: #0094FF;
+                    }
+                    
+                }
+            }
+            i {
+                color: #8AC905;
+                &:hover {
+                    color: #0094FF;
                 }
             }
         }
@@ -456,6 +491,23 @@ h1,
         }
     }
 
+}
+
+.offcanvas {
+    .offcanvas-header {
+        h3 {
+            &.offcanvas-title {
+                color: #0094FF;
+                padding-top: 2em;
+            }
+        }
+    }
+}
+
+.offcanvas-body {
+    .form-control {
+        margin-bottom: 1.25em;
+    }
 }
 
 ul {
@@ -554,6 +606,7 @@ ul {
 
         @media (min-width: 1400px) {
                 max-width: 100% !important;
+                padding: 0;
         }
 
         h1 {
@@ -680,7 +733,6 @@ ul {
 
 .sidebar {
     background-color: #012A94;
-    height: 100vh;
     max-width: 15%;
     padding: 1em;
 
@@ -742,7 +794,7 @@ hr {
 .btn-primary,
 .btn-secondary {
     border-radius: 0 !important;
-    font-size: 1.1em;
+    font-size: 1em;
     padding: .45em 2em;
     text-transform: uppercase;
 

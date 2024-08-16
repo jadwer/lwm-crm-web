@@ -20102,6 +20102,13 @@ h1,
   }
 }
 
+.container-fluid .sesion a, .container-sm .sesion a, .container-md .sesion a, .container-lg .sesion a, .container-xl .sesion a, .container-xxl .sesion a {
+  color: #8AC905;
+  text-decoration: none;
+}
+.container-fluid .sesion a:hover, .container-sm .sesion a:hover, .container-md .sesion a:hover, .container-lg .sesion a:hover, .container-xl .sesion a:hover, .container-xxl .sesion a:hover {
+  color: #0094FF;
+}
 .container-fluid.valor, .valor.container-sm, .valor.container-md, .valor.container-lg, .valor.container-xl, .valor.container-xxl {
   padding: 6em 0;
   background-image: url("/../images/labor-wasser-mexico-hero-8.webp");
@@ -20224,6 +20231,13 @@ h1,
   display: block;
   margin: 0 auto;
   width: 30%;
+}
+.container-fluid.login a, .login.container-sm a, .login.container-md a, .login.container-lg a, .login.container-xl a, .login.container-xxl a {
+  color: #8AC905;
+  text-decoration: none;
+}
+.container-fluid.login a:hover, .login.container-sm a:hover, .login.container-md a:hover, .login.container-lg a:hover, .login.container-xl a:hover, .login.container-xxl a:hover {
+  color: #0094FF;
 }
 .container-fluid.login .bg-login, .login.container-sm .bg-login, .login.container-md .bg-login, .login.container-lg .bg-login, .login.container-xl .bg-login, .login.container-xxl .bg-login {
   height: 100vh;
@@ -20402,11 +20416,12 @@ h1,
   padding: 0.15em 2em !important;
 }
 .container-fluid.container-product .table-product, .container-product.container-sm .table-product, .container-product.container-md .table-product, .container-product.container-lg .table-product, .container-product.container-xl .table-product, .container-product.container-xxl .table-product {
-  box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.3);
-  min-height: 45vh;
-  border-radius: 16px;
+  box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 2em;
+  margin-bottom: 3em;
 }
 .container-fluid.container-product .table-product th.tab-name, .container-product.container-sm .table-product th.tab-name, .container-product.container-md .table-product th.tab-name, .container-product.container-lg .table-product th.tab-name, .container-product.container-xl .table-product th.tab-name, .container-product.container-xxl .table-product th.tab-name {
   width: 40%;
@@ -20419,6 +20434,19 @@ h1,
 }
 .container-fluid.container-product .table-product th.tab-actions, .container-product.container-sm .table-product th.tab-actions, .container-product.container-md .table-product th.tab-actions, .container-product.container-lg .table-product th.tab-actions, .container-product.container-xl .table-product th.tab-actions, .container-product.container-xxl .table-product th.tab-actions {
   width: 15%;
+}
+.container-fluid.container-product .table-product th a, .container-product.container-sm .table-product th a, .container-product.container-md .table-product th a, .container-product.container-lg .table-product th a, .container-product.container-xl .table-product th a, .container-product.container-xxl .table-product th a {
+  text-decoration: none;
+  color: #8AC905;
+}
+.container-fluid.container-product .table-product th a:hover, .container-product.container-sm .table-product th a:hover, .container-product.container-md .table-product th a:hover, .container-product.container-lg .table-product th a:hover, .container-product.container-xl .table-product th a:hover, .container-product.container-xxl .table-product th a:hover {
+  color: #0094FF;
+}
+.container-fluid.container-product .table-product i, .container-product.container-sm .table-product i, .container-product.container-md .table-product i, .container-product.container-lg .table-product i, .container-product.container-xl .table-product i, .container-product.container-xxl .table-product i {
+  color: #8AC905;
+}
+.container-fluid.container-product .table-product i:hover, .container-product.container-sm .table-product i:hover, .container-product.container-md .table-product i:hover, .container-product.container-lg .table-product i:hover, .container-product.container-xl .table-product i:hover, .container-product.container-xxl .table-product i:hover {
+  color: #0094FF;
 }
 .container-fluid .text-muted, .container-sm .text-muted, .container-md .text-muted, .container-lg .text-muted, .container-xl .text-muted, .container-xxl .text-muted {
   padding: 15px 0 5px 0;
@@ -20487,6 +20515,15 @@ h1,
 }
 .container-fluid.products-page .products-list .btn-space, .products-page.container-sm .products-list .btn-space, .products-page.container-md .products-list .btn-space, .products-page.container-lg .products-list .btn-space, .products-page.container-xl .products-list .btn-space, .products-page.container-xxl .products-list .btn-space {
   margin: 3em 0 5em 0;
+}
+
+.offcanvas .offcanvas-header h3.offcanvas-title, .offcanvas .offcanvas-header .offcanvas-title.h3 {
+  color: #0094FF;
+  padding-top: 2em;
+}
+
+.offcanvas-body .form-control {
+  margin-bottom: 1.25em;
 }
 
 ul.pagination {
@@ -20572,6 +20609,7 @@ ul.pagination a.page-link:hover {
 @media (min-width: 1400px) {
   .container.products {
     max-width: 100% !important;
+    padding: 0;
   }
 }
 .container.products h1, .container.products .h1 {
@@ -20671,7 +20709,6 @@ ul.pagination a.page-link:hover {
 
 .sidebar {
   background-color: #012A94;
-  height: 100vh;
   max-width: 15%;
   padding: 1em;
 }
@@ -20730,7 +20767,7 @@ hr {
 .btn-primary,
 .btn-secondary {
   border-radius: 0 !important;
-  font-size: 1.1em;
+  font-size: 1em;
   padding: 0.45em 2em;
   text-transform: uppercase;
 }

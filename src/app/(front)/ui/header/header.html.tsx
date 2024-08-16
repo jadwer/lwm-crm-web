@@ -12,7 +12,7 @@ const HeaderTemplate = () => {
                 <img className="img-fluid logo" alt="" src="/../images/labor-wasser-mexico-logo2.webp" />
               </a>
             </div>
-            <div className='col-6 col-md-6 d-flex justify-content-end'>
+            <div className='col-6 col-md-6 d-flex justify-content-end align-items-center'>
               <LoginLinks />
               <button
                 type="button"
@@ -35,7 +35,7 @@ const HeaderTemplate = () => {
                 <img className="img-fluid logo" alt="" src="/../images/labor-wasser-mexico-logo2.webp" />
               </a>
             </div>
-            <div className='col-4 d-flex justify-content-end'>
+            <div className='col-4 d-flex justify-content-end align-items-center'>
               {/* <LoginLinks /> */}
               <button
                 type="button"

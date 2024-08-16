@@ -117,15 +117,15 @@ const ProductsTemplate = (props: any) => {
                       <td>{producto.brand_id.name}</td>
                       <td>
                         <Link href={`/dashboard/edit-product/${producto.id}`}>
-                          Editar
+                        <i className="bi bi-pencil-square"></i>
                         </Link>{" "}
-                        |{" "}
+                        {" "}
                         <a
                           href="#"
                           onClick={(e) => {
                             submitDelProduct(e, producto.id);
                           }}>
-                          Eliminar
+                          <i className="bi bi-trash"></i>
                         </a>
                       </td>
                     </tr>

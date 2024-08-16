@@ -44,9 +44,9 @@ const Contact = () => {
       id="navMenu"
       aria-labelledby="navMenuLabel">
       <div className="offcanvas-header">
-        <h5 className="offcanvas-title" id="navMenuLabel">
+        <h3 className="offcanvas-title" id="navMenuLabel">
           CONTACTO
-        </h5>
+        </h3>
         <button
           type="button"
           className="btn-close text-reset"

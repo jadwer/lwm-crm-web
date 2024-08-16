@@ -27,11 +27,11 @@ const ProductoPage = ({
   const { getCategories } = useCategories();
 
   useEffect(() => {
-    async function getCat () {
+    async function getCat() {
       await getCategories({ setCategories });
     }
     getCat();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -45,36 +45,36 @@ const ProductoPage = ({
     }
   }, [categories, category, categoryId]);
 
-  useEffect(()=>{
+  useEffect(() => {
     searchQueryBuilder();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchString, page, queryBrandsId]);
 
   const searchQueryBuilder = () => {
-//    let cat = (categoryId !== undefined) ? '?category='+categoryId : "";
-    let cat = '?category='+categoryId;
-    let pg = (page !== "") ? '&'+page : "";
-    let sstr = (searchString !== "") ? '&name='+searchString : "";
+    //    let cat = (categoryId !== undefined) ? '?category='+categoryId : "";
+    let cat = '?category=' + categoryId;
+    let pg = (page !== "") ? '&' + page : "";
+    let sstr = (searchString !== "") ? '&name=' + searchString : "";
     let qb = (queryBrands !== "") ? queryBrands : "";
-    let searchFS = cat+pg+sstr+qb;
+    let searchFS = cat + pg + sstr + qb;
     setSearchFilter(searchFS);
   }
 
   const catQuery = () => {
   }
 
-  const pageQuery = (page : string) => {
-    if(page.includes('?')){
+  const pageQuery = (page: string) => {
+    if (page.includes('?')) {
       page = page.replace('?', '');
       setPage(page);
-    }    
+    }
   }
 
-  const brandsQuery = (updatedSelectedBrands:[]) => {
+  const brandsQuery = (updatedSelectedBrands: []) => {
     let qbrands = "";
-    updatedSelectedBrands.forEach((id)=>{
-      if(id !== -1){
-        qbrands += "&brand[]="+id;
+    updatedSelectedBrands.forEach((id) => {
+      if (id !== -1) {
+        qbrands += "&brand[]=" + id;
       }
       return qbrands;
     })
@@ -97,16 +97,14 @@ const ProductoPage = ({
             }}></SideBrands>
 
           <div className="col-12 col-md-10">
-          <div className="row mb-4">
-            <div className="col-md-1">Buscar:
+            <div className="form-group d-flex mb-4">
+              <label className="col-12 col-sm-1 col-form-label">Buscar</label>
+              <div className="col-12 col-sm-8">
+                <input type="text" id="searchProduct" className="col-md-10 form-control" placeholder="Introduzca el nombre del producto" value={searchString} onChange={(e) => { searchQuery(e.target.value) }} />
+              </div>
             </div>
-              <input type="text" id="searchProduct" className="col-md-10" placeholder="Introduzca el nombre del producto" value={searchString} onChange={(e) => {searchQuery(e.target.value)}}/>
+            <FilteredSearch data={{ searchFilter }} functions={{ pageQuery }} />
           </div>
-
-            <FilteredSearch data={{ searchFilter }} functions = {{pageQuery}} />
-
-          </div>
-
           <EstimateBanner />
         </div>
       </div>

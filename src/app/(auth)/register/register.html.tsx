@@ -20,7 +20,7 @@ const RegisterTemplate = (props : any) => (
                     id="name"
                     type="text"
                     value={props.data.name}
-                    className="block mt-1 w-full"
+                    className="block mt-1 w-full form-control"
                     onChange={event => props.functions.setName(event.target.value)}
                     required
                     autoFocus
@@ -36,7 +36,7 @@ const RegisterTemplate = (props : any) => (
                     id="email"
                     type="email"
                     value={props.data.email}
-                    className="block mt-1 w-full"
+                    className="block mt-1 w-full form-control"
                     onChange={event => props.functions.setEmail(event.target.value)}
                     required
                 />
@@ -51,7 +51,7 @@ const RegisterTemplate = (props : any) => (
                     id="password"
                     type="password"
                     value={props.data.password}
-                    className="block mt-1 w-full"
+                    className="block mt-1 w-full form-control"
                     onChange={event => props.functions.setPassword(event.target.value)}
                     required
                     autoComplete="new-password"
@@ -69,7 +69,7 @@ const RegisterTemplate = (props : any) => (
                     id="passwordConfirmation"
                     type="password"
                     value={props.data.passwordConfirmation}
-                    className="block mt-1 w-full"
+                    className="block mt-1 w-full form-control"
                     onChange={event =>
                         props.functions.setPasswordConfirmation(event.target.value)
                     }
