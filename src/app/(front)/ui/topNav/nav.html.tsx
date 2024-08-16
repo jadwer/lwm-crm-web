@@ -35,7 +35,7 @@ const TopNav = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="nosotros">Nosotros</a>
+              <a className="nav-link active" aria-current="page" href="/nosotros">Nosotros</a>
             </li>
           </ul>
         </div>
