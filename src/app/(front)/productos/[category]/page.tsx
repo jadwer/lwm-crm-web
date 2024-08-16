@@ -55,7 +55,7 @@ const ProductoPage = ({
     let cat = (categoryId !== undefined) ? '&category='+categoryId : "";
     let sstr = (searchString !== "") ? '&name='+searchString : "";
     let qb = (queryBrands !== "") ? queryBrands : "";
-    let searchFS = cat+pg+sstr+qb;
+    let searchFS = pg+cat+sstr+qb;
     setSearchFilter(searchFS);
   }
 
