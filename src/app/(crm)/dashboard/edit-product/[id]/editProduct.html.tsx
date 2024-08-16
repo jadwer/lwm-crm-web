@@ -125,7 +125,7 @@ const EditProductTemplate = (props: { producto: Product }) => {
                     setSku(e.target.value);
                   }}></input>
               </div>
-              <div className="col-6">
+              <div className="col-md-6">
                 <label className="form-label">
                   Marca del producto
                   <SelectBrands
@@ -134,7 +134,7 @@ const EditProductTemplate = (props: { producto: Product }) => {
                   />
                 </label>
               </div>
-              <div className="col-6">
+              <div className="col-md-6">
                 <label className="form-label">
                   Unidad de medida del producto
                   <SelectUnits
@@ -143,7 +143,7 @@ const EditProductTemplate = (props: { producto: Product }) => {
                   />
                 </label>
               </div>
-              <div className="col-6">
+              <div className="col-md-6">
                 <label className="form-label">
                   Categoría del producto
                   <SelectCategories

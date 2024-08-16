@@ -30,7 +30,7 @@ const ProductoTemplate = (props: any) => {
           </div>
           <div className="col col-md-6 text-detail">
             <div className="row align-items-center">
-              <div className="col">
+              <div className="col-12 pruduct-box">
                 <p>
                   <span className="labels">
                     Marca: {producto.brand_id.name} | Categoría:{" "}
@@ -42,18 +42,21 @@ const ProductoTemplate = (props: any) => {
                 <p>ID: {producto.sku}</p>
                 <p>Categoría: {producto.category_id.name}</p>
                 <p>Unidad de medida: {producto.unit_id.type}</p>
-                <div className="d-grid gap-2">
+                <div className="col-12 col-md-8">
                   <a
                     href={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
                     download={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
                     target="_blank">
-                    <button type="button" className="btn btn-secondary mt-1">
+                    <button type="button" className="btn btn-secondary my-2">
                       <span>DESCARGAR FICHA TÉCNICA</span>
                     </button>
                   </a>
-                  <button
+                  
+                </div>
+                <div className="col-12 col-md-8">
+                <button
                     type="button"
-                    className="btn btn-primary mt-1"
+                    className="btn btn-primary my-2"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#estimate">
                     <span>¡SOLICITA TU COTIZACIÓN AHORA!</span>

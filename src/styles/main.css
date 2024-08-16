@@ -20415,6 +20415,13 @@ h1,
 .container-fluid.container-product .back-header-2 .btn-primary, .container-product.container-sm .back-header-2 .btn-primary, .container-product.container-md .back-header-2 .btn-primary, .container-product.container-lg .back-header-2 .btn-primary, .container-product.container-xl .back-header-2 .btn-primary, .container-product.container-xxl .back-header-2 .btn-primary {
   padding: 0.15em 2em !important;
 }
+.container-fluid.container-product .form-control, .container-product.container-sm .form-control, .container-product.container-md .form-control, .container-product.container-lg .form-control, .container-product.container-xl .form-control, .container-product.container-xxl .form-control {
+  margin-bottom: 1em;
+}
+.container-fluid.container-product .form-label, .container-product.container-sm .form-label, .container-product.container-md .form-label, .container-product.container-lg .form-label, .container-product.container-xl .form-label, .container-product.container-xxl .form-label {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
 .container-fluid.container-product .table-product, .container-product.container-sm .table-product, .container-product.container-md .table-product, .container-product.container-lg .table-product, .container-product.container-xl .table-product, .container-product.container-xxl .table-product {
   box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.3);
@@ -20444,6 +20451,7 @@ h1,
 }
 .container-fluid.container-product .table-product i, .container-product.container-sm .table-product i, .container-product.container-md .table-product i, .container-product.container-lg .table-product i, .container-product.container-xl .table-product i, .container-product.container-xxl .table-product i {
   color: #8AC905;
+  font-size: 1.1em;
 }
 .container-fluid.container-product .table-product i:hover, .container-product.container-sm .table-product i:hover, .container-product.container-md .table-product i:hover, .container-product.container-lg .table-product i:hover, .container-product.container-xl .table-product i:hover, .container-product.container-xxl .table-product i:hover {
   color: #0094FF;
@@ -20515,6 +20523,10 @@ h1,
 }
 .container-fluid.products-page .products-list .btn-space, .products-page.container-sm .products-list .btn-space, .products-page.container-md .products-list .btn-space, .products-page.container-lg .products-list .btn-space, .products-page.container-xl .products-list .btn-space, .products-page.container-xxl .products-list .btn-space {
   margin: 3em 0 5em 0;
+}
+
+button#button-addon2 {
+  height: 39px !important;
 }
 
 .offcanvas .offcanvas-header h3.offcanvas-title, .offcanvas .offcanvas-header .offcanvas-title.h3 {
@@ -20695,6 +20707,9 @@ ul.pagination a.page-link:hover {
   color: #012A94 !important;
   font-weight: 600;
 }
+.container.product-detail .pruduct-box .btn-primary {
+  width: 100%;
+}
 .container.product-more-info {
   margin: 3em auto;
 }
@@ -20711,6 +20726,7 @@ ul.pagination a.page-link:hover {
   background-color: #012A94;
   max-width: 15%;
   padding: 1em;
+  min-height: 100vh;
 }
 .sidebar a {
   color: white;

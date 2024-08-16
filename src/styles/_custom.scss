@@ -361,7 +361,13 @@ h1,
                 padding: 0.15em 2em !important;
             }
         }
-
+        .form-control {
+            margin-bottom: 1em;
+        }
+        .form-label {
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
         .table-product {
             box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.30);
             -webkit-box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.30);
@@ -398,6 +404,7 @@ h1,
             }
             i {
                 color: #8AC905;
+                font-size: 1.1em;
                 &:hover {
                     color: #0094FF;
                 }
@@ -491,6 +498,10 @@ h1,
         }
     }
 
+}
+
+button#button-addon2 {
+    height: 39px !important;
 }
 
 .offcanvas {
@@ -714,6 +725,11 @@ ul {
                 font-weight: 600;
             }
         }
+        .pruduct-box {
+            .btn-primary {
+                width: 100%;
+            }
+        }
     }
 
     &.product-more-info {
@@ -735,6 +751,7 @@ ul {
     background-color: #012A94;
     max-width: 15%;
     padding: 1em;
+    min-height: 100vh;
 
     a {
         color: white;
