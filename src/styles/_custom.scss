@@ -123,6 +123,15 @@ a {
                 width: 30%;
             }
         }
+
+        form {
+            &#homeSearch {
+                display: flex;
+                @media (max-width: 575.98px) {
+                    width: 100%;
+                }
+            }
+        }
     }
 
     &.about-2 {
@@ -217,9 +226,10 @@ a {
             height: 80vh;
         }
 
-        .row {
+        /* .row {
             height: 100vh;
-        }
+
+        } */
 
         .hero-left {
             background-color: rgba(0, 148, 255, 0.8);
