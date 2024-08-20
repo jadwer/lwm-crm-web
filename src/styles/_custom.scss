@@ -35,6 +35,10 @@ h1,
     }
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .container-fluid {
 
     .sesion {
@@ -80,8 +84,16 @@ h1,
             background-color: #8AC905;
             border: none;
             border-radius: 0;
-            width: 55px;
-            height: 55px;
+            width: 45px;
+            height: 45px;
+            margin: 10px auto;
+            color: #ffffff;
+            @media (max-width: 575.98px) {
+                display: block;
+            }
+            .bi::before {
+                font-weight: bold !important;
+            }
         }
 
         li {
@@ -99,6 +111,16 @@ h1,
                         text-align: center;
                     }
                 }
+            }
+        }
+        .input-group > .form-control {
+            @media (max-width: 575.98px) {
+                width: 70%;
+            }
+        }
+        .btn-primary {
+            @media (max-width: 575.98px) {
+                width: 30%;
             }
         }
     }
@@ -314,7 +336,7 @@ h1,
         }
 
         .logo-footer {
-            width: 75%;
+            width: 50%;
 
             @media (max-width: 575.98px) {
                 width: 75%;
@@ -351,6 +373,12 @@ h1,
                 a:hover {
                     color: #012A94;
                 }
+            }
+        }
+        .login-contact {
+            @media (max-width: 575.98px) {
+                text-align: center;
+                padding-bottom: 1.25em;
             }
         }
     }
@@ -620,8 +648,15 @@ ul {
         }
 
         @media (min-width: 1400px) {
+                max-width: 85% !important;
+                padding: 0;
+        }
+
+        &.filtered {
+            @media (min-width: 1400px) {
                 max-width: 100% !important;
                 padding: 0;
+        }
         }
 
         h1 {
@@ -767,6 +802,10 @@ ul {
     a:hover {
         color: #8AC905;
     }
+}
+
+ul {
+    padding-left: 0;
 }
 
 .sidebar-products {

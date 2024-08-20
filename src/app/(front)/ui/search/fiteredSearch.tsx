@@ -23,8 +23,8 @@ const FilteredSearch = (props: any ) => {
     const metaData = productos
     return (
       <>
-      <div className="container products">
-        <div className="row products-list">
+      <div className="container products filtered">
+        <div className="row products-list ">
           {productos.data.map((producto: Product) => {
             return (
                 <div className="col-12" key={producto.id}>

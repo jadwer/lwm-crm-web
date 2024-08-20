@@ -38,12 +38,12 @@ const Footer = () => {
           </div>
           <div className='col-12 col-md-3 login-contact'>
             <h4>Contacto</h4>
-            <div className="d-flex"><i className="bi bi-telephone-fill"></i><a href="tel:5575751661">55 7575 1661</a></div>
-            <div className="d-flex"><i className="bi bi-telephone-fill"></i><a href="tel:5575751662">55 7575 1662</a></div>
-            <div className="d-flex"><i className="bi bi-telephone-fill"></i><a href="tel:5571602454">55 7160 2454</a></div>
-            <div className="d-flex"><i className="bi bi-whatsapp"></i><a href="https://wa.link/4e5cqt">56 1040 0441</a></div>
-            <div className="d-flex"><i className="bi bi-envelope"></i><a href="mailto:ventas@laborwasserdemexico.com">ventas@laborwasserdemexico.com</a></div>
-            <div className="d-flex"><i className="bi bi-geo-alt"></i><a href="#">CDMX y Área metropolitana</a></div>
+            <div className="d-block d-md-flex mb-2"><i className="bi bi-telephone-fill"></i><a href="tel:5575751661">55 7575 1661</a></div>
+            <div className="d-block d-md-flex mb-2"><i className="bi bi-telephone-fill"></i><a href="tel:5575751662">55 7575 1662</a></div>
+            <div className="d-block d-md-flex mb-2"><i className="bi bi-telephone-fill"></i><a href="tel:5571602454">55 7160 2454</a></div>
+            <div className="d-block d-md-flex mb-2"><i className="bi bi-whatsapp"></i><a href="https://wa.link/4e5cqt">56 1040 0441</a></div>
+            <div className="d-block d-md-flex mb-2"><i className="bi bi-envelope"></i><a href="mailto:ventas@laborwasserdemexico.com">ventas@laborwasserdemexico.com</a></div>
+            <div className="d-block d-md-flex mb-2"><i className="bi bi-geo-alt"></i><a href="#">CDMX y Área metropolitana</a></div>
 
           </div>
         </div>

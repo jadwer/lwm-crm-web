@@ -66,7 +66,7 @@ const HomePage = () => (
             marcas para la parte analítica y de proceso para la industria y la
             investigación, especialistas en químicos y tratamientos en aguas.
           </p>
-          <div className="col d-flex mt-4">
+          <div className="col d-block d-md-flex mt-4">
             <a href="/nosotros">
               <button type="button" className="btn btn-secondary mx-0">
                 Más sobre nosotros
