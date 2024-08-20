@@ -43,8 +43,10 @@ const TopNav = () => {
         </div>
         <div className="col-12 col-md-4 d-flex">
           <div className="input-group my-1">
+            <form id="homeSearch" method="post" action="/productos/todos">
             <input type="text" id="searchProduct" className="col-md-10 form-control" placeholder="Introduzca el nombre del producto" /* value={searchString} onChange={(e) => { searchQuery(e.target.value) }}  */ />
-            <button className="btn btn-primary" type="button" id="button-addon1">Buscar</button>
+            <button className="btn btn-primary" type="submit" id="button-addon1">Buscar</button>
+            </form>
           </div>
         </div>
       </div>
