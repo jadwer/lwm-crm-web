@@ -97,7 +97,7 @@ const ProductoPage = ({
             }}></SideBrands>
 
           <div className="col-12 col-md-10">
-            <div className="form-group d-flex mb-4">
+            <div className="form-group d-md-flex mb-4">
               <label className="col-12 col-sm-1 col-form-label">Buscar</label>
               <div className="col-12 col-sm-8">
                 <input type="text" id="searchProduct" className="col-md-10 form-control" placeholder="Introduzca el nombre del producto" value={searchString} onChange={(e) => { searchQuery(e.target.value) }} />

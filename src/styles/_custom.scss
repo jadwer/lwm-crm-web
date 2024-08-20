@@ -432,11 +432,15 @@ h1,
         background-attachment: fixed;
 
         @media (max-width: 575.98px) {
-            height: 30vh;
+            height: auto;
         }
 
         h1 {
             color: white;
+            @media (max-width: 575.98px) {
+                font-size: 1.25em !important;
+                font-weight: 600;
+            }
         }
         .row {
             height: 40vh;
@@ -743,6 +747,9 @@ ul {
 
         p {
             text-align: justify;
+            @media (max-width: 575.98px) {
+                text-align: left;
+            }
         }
     }
 }
