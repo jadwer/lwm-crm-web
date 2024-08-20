@@ -6,26 +6,11 @@ const HomePage = () => (
     <div className="container-fluid hero-1 mx-auto">
       <div className="row align-items-center">
         <div className="col-12 col-md-6 hero-left">
-          <h1 className="animate__animated animate__zoomInLeft animate__delay-500ms">MEJORAMOS EL MUNDO DE TU LABORATORIO</h1>
-          <h5 className="highlight-hero text-center text-md-start animate__animated animate__fadeInLeft animate__delay-750ms">
-            Encuentra los mejores productos, marcas reconocidas y la mejor
-            atención para tu laboratorio
-          </h5>
-          <div className="col d-md-flex mt-4">
-            <button
-              type="button"
-              className="btn btn-primary"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#navMenu">
-              ¡Cotiza ahora!
-            </button>
-            <a href="/productos">
-              <button
-                type="button"
-                className="btn btn-secondary mt-4 mt-md-0 mx-md-4">
-                Ver productos
-              </button>
-            </a>
+          <h1>MEJORAMOS EL MUNDO DE TU LABORATORIO</h1>
+          <h5 className="highlight-hero">Encuentra los mejores productos, marcas reconocidas y la mejor atención para tu laboratorio</h5>
+          <div className="col d-flex mt-4">
+            <button type="button" className="btn btn-primary">¡Cotiza ahora!</button>
+            <button type="button" className="btn btn-secondary mx-4">Ver productos</button>
           </div>
         </div>
         <div className="col-12 col-md-6 hero-right"></div>
