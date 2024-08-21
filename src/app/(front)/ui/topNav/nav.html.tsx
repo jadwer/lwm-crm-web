@@ -1,5 +1,3 @@
-import React from "react";
-
 const TopNav = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -43,8 +41,8 @@ const TopNav = () => {
         </div>
         <div className="col-12 col-md-4 d-flex">
           <div className="input-group my-1">
-            <form id="homeSearch" method="post" action="/productos/todos">
-            <input type="text" id="searchProduct" className="col-md-10 form-control" placeholder="Introduzca el nombre del producto" /* value={searchString} onChange={(e) => { searchQuery(e.target.value) }}  */ />
+            <form id="homeSeach" action="/productos/todos" method="get">
+            <input type="text" id="searchNavProduct" className="col-md-10 form-control" placeholder="Introduzca el nombre del producto" name="homeSearch"  />
             <button className="btn btn-primary" type="submit" id="button-addon1">Buscar</button>
             </form>
           </div>

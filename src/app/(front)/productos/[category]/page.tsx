@@ -7,10 +7,16 @@ import SideBrands from "./sideBrands";
 import { useCategories } from "@/hooks/categories";
 
 const ProductoPage = ({
+  searchParams,
   params,
 }: {
+  searchParams: {
+    homeSearch: string
+  };
   params: { category: string };
 }) => {
+
+  console.log(searchParams.homeSearch)
 
   const { category } = params;
 
@@ -19,7 +25,7 @@ const ProductoPage = ({
   const [categoryId, setCategoryId] = useState<number>();
   const [categories, setCategories] = useState<Categories>({} as Categories);
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const [searchString, setSearchString] = useState<string>("");
+  const [searchString, setSearchString] = useState<string>(searchParams.homeSearch? searchParams.homeSearch : "");
   const [queryBrands, setQueryBrands] = useState<string>("");
 
   const [page, setPage] = useState<string>("");
