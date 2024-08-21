@@ -25,7 +25,7 @@ const ProductoPage = ({
   const [categoryId, setCategoryId] = useState<number>();
   const [categories, setCategories] = useState<Categories>({} as Categories);
   const [searchFilter, setSearchFilter] = useState<string>("");
-  const [searchString, setSearchString] = useState<string>(searchParams.homeSearch? searchParams.homeSearch : "");
+  const [searchString, setSearchString] = useState<string>("");
   const [queryBrands, setQueryBrands] = useState<string>("");
 
   const [page, setPage] = useState<string>("");
@@ -45,9 +45,11 @@ const ProductoPage = ({
       categories.data.map((cat) => {
         if (cat.slug == category) {
           setCategoryId(cat.id);
-          setSearchFilter(`?category=${categoryId}`);
         }
       });
+    }
+    if(searchParams.homeSearch !== undefined){
+      searchQuery(searchParams.homeSearch);
     }
   }, [categories, category, categoryId]);
 
