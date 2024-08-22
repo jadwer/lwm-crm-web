@@ -36,7 +36,15 @@ const ProductoPage = ({
     async function getCat() {
       await getCategories({ setCategories });
     }
+    if(searchParams.homeSearch !== undefined){
+      console.log(searchParams.homeSearch)
+      setTimeout(() => {
+        searchQuery(searchParams.homeSearch);
+      }, 1500);
     getCat();
+
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -47,9 +55,6 @@ const ProductoPage = ({
           setCategoryId(cat.id);
         }
       });
-    }
-    if(searchParams.homeSearch !== undefined){
-      searchQuery(searchParams.homeSearch);
     }
   }, [categories, category, categoryId]);
 

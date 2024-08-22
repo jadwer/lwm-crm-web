@@ -20,6 +20,8 @@ const FilteredSearch = (props: any ) => {
   if (Object.keys(productos).length === 0) {
     return <>Cargando...</>;
   } else {
+    console.log(searchFilter);
+    console.log(productos.data);
     const metaData = productos
     return (
       <>
