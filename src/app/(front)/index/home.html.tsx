@@ -238,6 +238,15 @@ const HomePage = () => (
         <div className="col">
           <div className="card">
             <Image
+              src="/../images/logos/meyer-labor-wasser.webp"
+              className="card-img-top"
+              alt="Labor Wasser México"
+            />
+          </div>
+        </div>
+        <div className="col">
+          <div className="card">
+            <Image
               src="/../images/logos/merck-labor-wasser.webp"
               className="card-img-top"
               alt="Labor Wasser México"
