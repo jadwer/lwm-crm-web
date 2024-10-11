@@ -76,7 +76,7 @@ const ProductoTemplate = (props: any) => {
         </div>
       </div>
 
-      <Estimate producto = {{name}}></Estimate>
+      <Estimate producto = {producto}></Estimate>
     </main>
   );
 };

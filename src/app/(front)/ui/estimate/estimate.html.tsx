@@ -36,6 +36,8 @@ const Estimate = (props: any) => {
 
   };
 
+  if(Object.keys(prod).length !== 0){
+
   return (
     <nav
       className="offcanvas offcanvas-end"
@@ -110,7 +112,7 @@ const Estimate = (props: any) => {
               id="product"
               type="text"
               className="form-control"
-              value={producto}
+              value={`${prod.sku} | ${prod.name}`}
               required
               disabled></input>
 
@@ -159,6 +161,7 @@ const Estimate = (props: any) => {
       </div>
     </nav>
   );
+}
 };
 
 export default Estimate;
