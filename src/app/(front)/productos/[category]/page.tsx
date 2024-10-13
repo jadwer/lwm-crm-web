@@ -16,7 +16,7 @@ const ProductoPage = ({
   params: { category: string };
 }) => {
 
-  console.log(searchParams.homeSearch)
+//  console.log(searchParams.homeSearch)
 
   const { category } = params;
 
@@ -33,15 +33,12 @@ const ProductoPage = ({
   const { getCategories } = useCategories();
 
   useEffect(() => {
-    async function getCat() {
-      await getCategories({ setCategories });
-    }
+    getCategories({ setCategories });
     if(searchParams.homeSearch !== undefined){
-      console.log(searchParams.homeSearch)
+//      console.log(searchParams.homeSearch)
       setTimeout(() => {
         searchQuery(searchParams.homeSearch);
       }, 1500);
-    getCat();
 
     }
 
@@ -49,9 +46,11 @@ const ProductoPage = ({
   }, []);
 
   useEffect(() => {
+    console.log(categories)
     if (Object.keys(categories).length !== 0) {
       categories.data.map((cat) => {
         if (cat.slug == category) {
+          console.log(cat.slug);
           setCategoryId(cat.id);
         }
       });

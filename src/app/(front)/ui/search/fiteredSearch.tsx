@@ -21,7 +21,7 @@ const FilteredSearch = (props: any ) => {
     return <>Cargando...</>;
   } else {
     console.log(searchFilter);
-    console.log(productos.data);
+//    console.log(productos.data);
     const metaData = productos
     return (
       <>

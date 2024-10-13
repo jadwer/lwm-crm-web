@@ -8,7 +8,7 @@ export const useCategories = () => {
 //    await csrf();
     axios
       .get(`/api/categories`)
-      .then((res) => setCategories(res.data))
+      .then((res) => {setCategories(res.data)})
       .catch((error) => {
         console.log(error);
         //if (error.response.status !== 409) throw error;
