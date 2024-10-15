@@ -23,6 +23,26 @@ export const useForms = () => {
         })
     }
 
+    const quotationForm = async ({setErrors, setStatus}, props) => {
+        await csrf();
+        
+        console.log("from forms.js")
+        
+        setErrors([])
+        
+        axios
+        .post('/quotation_form', props)
+        .then(response => {
+            setStatus(response.data.status);
+            console.log(response.data)
+        })
+        .catch(error => {
+            if (error.response.status !== 422) throw error
+            
+            setErrors(error.response.data.errors)
+        })
+    }
+
     const contactFormDirect = async ({setErrors, setStatus}, props) => {
         
         console.log("from forms.js")
@@ -44,6 +64,7 @@ export const useForms = () => {
 
     return {
         contactForm,
+        quotationForm,
         contactFormDirect,
     }
 }

@@ -17,7 +17,7 @@ const Estimate = (props: any) => {
   const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState([]);
 
-  const { contactForm } = useForms();
+  const { quotationForm } = useForms();
 
   const submitContact = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -32,7 +32,7 @@ const Estimate = (props: any) => {
       privacidad: privacidad,
     };
 
-    contactForm({ setErrors, setStatus }, dataForm);
+    quotationForm({ setErrors, setStatus }, dataForm);
 
   };
 
