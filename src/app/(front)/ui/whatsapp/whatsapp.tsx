@@ -5,7 +5,7 @@ const WhatsappWidget = () => {
   return (
     <div>
       <a
-        href="https://wa.me/5215610400441?text=Me%20gustaría%20saber%20el%20precio%20del%20coche"
+        href="https://wa.me/5215610400441?text=¡Hola!%20¿Cómo%20%20podemos%20ayudarte%3F"
         className="whatsapp"
         target="_blank">
         {" "}
