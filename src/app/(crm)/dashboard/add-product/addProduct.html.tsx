@@ -3,7 +3,7 @@ import Link from "next/link";
 import SelectCategories from "@/app/(crm)/ui/dropdownItems/selectCategories";
 import SelectBrands from "../../ui/dropdownItems/selectBrands";
 import SelectUnits from "../../ui/dropdownItems/selectUnits";
-import { MouseEvent, useState } from "react";
+import { MouseEvent, SetStateAction, useState } from "react";
 import Image from "next/image";
 import { useProducts } from "@/hooks/products";
 import { Product } from "@/lib/interfaces";
@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 
 const AddProductTemplate = (props: { producto: Product }) => {
   const producto = props.producto == null ? ({} as Product) : props.producto;
-console.log("Producto: "+producto.name);
+  console.log("Producto: " + producto.name);
   const { setProduct } = useProducts();
   const [selectedImage, setSelectedImage] = useState<string>();
   const [nombre, setNombre] = useState<string>("");
@@ -25,7 +25,7 @@ console.log("Producto: "+producto.name);
   const [datasheet, setDatasheet] = useState<File>();
   const [errors, setErrors] = useState<any[]>([]);
   const [status, setStatus] = useState<string>();
-  const router = useRouter()
+  const router = useRouter();
 
   const submitNewProduct = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -47,9 +47,16 @@ console.log("Producto: "+producto.name);
 
     await setProduct({ setErrors, setStatus }, dataForm);
     setTimeout(() => {
-      router.push('/dashboard/products');
+      router.push("/dashboard/products");
     }, 5000);
   };
+
+  const handleSkuValidation = (value: SetStateAction<string>) => {
+    value = value.toString().replace(" ", "-");
+    setSku(value);
+    console.log(sku);
+  }
+
   const handleSubmit = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => {
@@ -113,7 +120,7 @@ console.log("Producto: "+producto.name);
                   placeholder="sku"
                   value={sku}
                   onChange={(e) => {
-                    setSku(e.target.value);
+                    handleSkuValidation(e.target.value)
                   }}></input>
               </div>
               <div className="col-6">
