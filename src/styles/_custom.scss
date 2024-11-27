@@ -41,16 +41,27 @@ a {
 
 .container-fluid {
 
-    .sesion {
-        a {
-            color: #8AC905;
-            text-decoration: none;
-            &:hover {
-                color: #0094FF;
-            }
+&.offers {
+    h1 {
+        color: #012A94;
+        font-size: 3em;
+        margin-top: 1em;
+    }
+    .card-offer {
+        padding: 2em;
+        &.blue-1 {
+            background-color: #0094FF;
+            color: #ffffff;
+        }
+        &.blue-2 {
+            background-color: #012A94;
+            color: #ffffff;
+        }
+        .img-fluid {
+            width: 65%;
         }
     }
-
+}
     &.valor {
         padding: 6em 0;
         background-image: url("/../images/labor-wasser-mexico-hero-8.webp");
@@ -77,62 +88,6 @@ a {
         }
     }
 
-    &.toggle-head {
-        justify-content: center;
-
-        .navbar-toggler {
-            background-color: #8AC905;
-            border: none;
-            border-radius: 0;
-            width: 45px;
-            height: 45px;
-            margin: 10px auto;
-            color: #ffffff;
-            @media (max-width: 575.98px) {
-                display: block;
-            }
-            .bi::before {
-                font-weight: bold !important;
-            }
-        }
-
-        li {
-            &.nav-item {
-                text-align: center;
-                font-size: 1rem;
-                text-transform: uppercase;
-            }
-
-            ul {
-                &.dropdown-menu {
-                    &.show {
-                        border: none;
-                        font-size: 1rem;
-                        text-align: center;
-                    }
-                }
-            }
-        }
-        .input-group > .form-control {
-            @media (max-width: 575.98px) {
-                width: 70%;
-            }
-        }
-        .btn-primary {
-            @media (max-width: 575.98px) {
-                width: 30%;
-            }
-        }
-
-        form {
-            &#homeSearch {
-                display: flex;
-                @media (max-width: 575.98px) {
-                    width: 100%;
-                }
-            }
-        }
-    }
 
     &.about-2 {
         background-color: #012A94;
@@ -193,6 +148,7 @@ a {
         a {
             color: #8AC905;
             text-decoration: none;
+
             &:hover {
                 color: #0094FF;
             }
@@ -236,6 +192,7 @@ a {
             height: 100vh;
             padding: 5%;
             align-content: center;
+
             @media (max-width: 575.98px) {
                 height: 80vh;
                 align-items: center !important;
@@ -314,6 +271,7 @@ a {
             background-repeat: no-repeat;
             background-size: cover;
             color: white;
+
             @media (max-width: 575.98px) {
                 height: auto !important;
                 padding: 5em 1em;
@@ -330,15 +288,18 @@ a {
             i {
                 color: #8AC905;
                 font-size: 2em;
+
                 &.bi-whatsapp::before {
                     vertical-align: 0;
                 }
             }
+
             a {
                 color: #000000;
                 text-decoration: none;
                 padding-left: 1em;
                 padding-bottom: .5em;
+
                 &:hover {
                     color: #012A94;
                 }
@@ -385,6 +346,7 @@ a {
                 }
             }
         }
+
         .login-contact {
             @media (max-width: 575.98px) {
                 text-align: center;
@@ -399,13 +361,16 @@ a {
                 padding: 0.15em 2em !important;
             }
         }
+
         .form-control {
             margin-bottom: 1em;
         }
+
         .form-label {
             margin-bottom: 0.5rem;
             width: 100%;
         }
+
         .table-product {
             box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.30);
             -webkit-box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.30);
@@ -434,15 +399,18 @@ a {
                 a {
                     text-decoration: none;
                     color: #8AC905;
+
                     &:hover {
                         color: #0094FF;
                     }
-                    
+
                 }
             }
+
             i {
                 color: #8AC905;
                 font-size: 1.1em;
+
                 &:hover {
                     color: #0094FF;
                 }
@@ -451,11 +419,11 @@ a {
     }
 
     .text-muted {
-        
-            padding: 15px 0 5px 0;
-            background-color: #012A94;
-            color: white !important;
-            font-size: .9em;
+
+        padding: 15px 0 5px 0;
+        background-color: #012A94;
+        color: white !important;
+        font-size: .9em;
 
         a {
             color: white !important;
@@ -475,11 +443,13 @@ a {
 
         h1 {
             color: white;
+
             @media (max-width: 575.98px) {
                 font-size: 1.25em !important;
                 font-weight: 600;
             }
         }
+
         .row {
             height: 40vh;
         }
@@ -487,7 +457,7 @@ a {
 
     &.products-page {
         margin-top: 3em;
-        
+
 
         .form-check {
             margin-bottom: 1em;
@@ -566,11 +536,13 @@ button#button-addon2 {
 ul {
     &.pagination {
         margin: 3em auto;
+
         .page-item {
-            &.active > .page-link {
+            &.active>.page-link {
                 background-color: #012A94;
             }
         }
+
         a {
             &.page-link {
                 &:hover {
@@ -586,8 +558,10 @@ ul {
     display: flex;
     margin-top: 12px;
     color: #8AC905;
+
     a {
         color: #8AC905;
+
         &:hover {
             color: #0094FF;
         }
@@ -597,15 +571,18 @@ ul {
 .login-contact {
     i {
         color: #8AC905;
+
         &.bi-whatsapp::before {
             vertical-align: 0;
         }
     }
+
     a {
         color: #000000;
         text-decoration: none;
         padding-left: 1em;
         padding-bottom: .5em;
+
         &:hover {
             color: #012A94;
         }
@@ -617,6 +594,38 @@ ul {
 }
 
 .container {
+
+    .navbar-nav {
+        a {
+            &.nav-link {
+                &:hover {
+                    color: #0094FF;
+                }
+            }
+        }
+    }
+
+    .sesion {
+        a {
+            color: #8AC905;
+            text-decoration: none !important;
+            padding-left: 20px;
+
+            &:hover {
+                color: #0094FF;
+            }
+        }
+    }
+
+    form {
+        width: 80%;
+        display: flex;
+
+        .form-control {
+            margin-right: .5em;
+        }
+    }
+
 
     &.mision {
         padding: 6em 0;
@@ -658,15 +667,15 @@ ul {
         }
 
         @media (min-width: 1400px) {
-                max-width: 85% !important;
-                padding: 0;
+            max-width: 85% !important;
+            padding: 0;
         }
 
         &.filtered {
             @media (min-width: 1400px) {
                 max-width: 100% !important;
                 padding: 0;
-        }
+            }
         }
 
         h1 {
@@ -715,6 +724,7 @@ ul {
 
     &.clients {
         margin-bottom: 3em;
+
         h1 {
             color: #012A94;
             font-size: 3em;
@@ -774,6 +784,7 @@ ul {
                 font-weight: 600;
             }
         }
+
         .pruduct-box {
             .btn-primary {
                 width: 100%;
@@ -792,6 +803,7 @@ ul {
 
         p {
             text-align: justify;
+
             @media (max-width: 575.98px) {
                 text-align: left;
             }
@@ -820,6 +832,7 @@ ul {
 
 .sidebar-products {
     padding-left: 4em;
+
     @media (max-width: 575.98px) {
         padding-left: 1em;
     }
@@ -828,7 +841,7 @@ ul {
 
 img {
     &.logo {
-        width: 40%;
+        width: 60%;
 
         @media (max-width: 991.98px) {
             width: 70%;
@@ -906,7 +919,7 @@ hr {
         text-transform: uppercase;
         line-height: 0;
         font-weight: 600;
-        margin-left: 20px;
+        margin-left: 25px;
         color: #8AC905;
         font-size: .9rem;
         background-color: #ffffff;
@@ -916,7 +929,8 @@ hr {
 
     img {
         &.contact-head {
-            width: 3em;
+            width: 2.5em;
+
             @media (max-width: 575.98px) {
                 width: 2em;
             }
@@ -925,23 +939,23 @@ hr {
 }
 
 .whatsapp {
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:40px;
-    right:40px;
-    background-color:#25d366;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:30px;
-    z-index:100;
-  }
-  
-  .whatsapp-icon {
-    margin-top:13px;
-  }
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 100;
+}
 
-  .bi-whatsapp::before {
+.whatsapp-icon {
+    margin-top: 13px;
+}
+
+.bi-whatsapp::before {
     vertical-align: -9px;
 }

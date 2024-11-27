@@ -6,12 +6,12 @@ import { useAuth } from "@/hooks/auth";
 const LoginLinks = () => {
   return(        <>
     <div className="sesion">
-      <Link href="/login">Login</Link>
+      <Link href="/login">LOGIN</Link>
     </div>
-    <span>&nbsp;|&nbsp;</span>
+{/*     <span>&nbsp;|&nbsp;</span>
     <div className="sesion">
       <Link href="/register">Registrarse</Link>
-    </div>
+    </div> */}
   </>
 );
  // const { user } = useAuth({ middleware: "guest" });

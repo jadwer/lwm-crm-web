@@ -1,4 +1,4 @@
-import { Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";<div className="container py-3"></div>
 import Recommended from "../ui/widgets/recomended";
 
 const HomePage = () => (
@@ -15,6 +15,45 @@ const HomePage = () => (
         </div>
         <div className="col-12 col-md-6 hero-right"></div>
       </div>
+    </div>
+    <div className="container-fluid offers">
+      <div className="row">
+        <div className="col text-center">
+          <h1>OFERTAS DEL MES</h1>
+          <hr className="separator"></hr>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-12 col-md-4 text-center card-offer blue-1 d-block mx-auto">
+        <img src="/../images/labor-wasser-guantes-nitrilo.webp" className="img-fluid" alt="Labor Wasser México" />
+          <p>Guantes de nitrilo azul sin polvo Supreno, tallas chica, mediana y grande. Paquete c/100 piezas marca MICROFLEX</p>
+          <p>Modelo: SU-690</p>
+          <h4>$15USD+IVA</h4>
+          <a className="btn btn-primary mt-3" href="https://wa.link/a9t3qb" role="button" target="_blank">
+              Pídelo ahora
+            </a>
+        </div>
+        <div className="col-12 col-md-4 text-center card-offer blue-2">
+        <img src="/../images/labor-wasser-mexico-viales-digestion-dqo.webp" className="img-fluid" alt="Labor Wasser México" />
+          <p>Viales de digestión para demanda química de oxígeno (DQO), rango alto (20 -1500 mg/L), paquete de 150 HACH</p>
+          <p>Modelo: 2125915</p>
+          <h4>$532.7USD+IVA</h4>
+          <a className="btn btn-primary mt-3" href="https://wa.link/a9t3qb" role="button" target="_blank">
+              Pídelo ahora
+            </a>
+        </div>
+        <div className="col-12 col-md-4 text-center card-offer blue-1">
+        <img src="/../images/labor-wasser-kit-frascos-tampon.webp" className="img-fluid" alt="Labor Wasser México" />
+          <p>KIT Frascos de tampón de pH 4.01, 7, 10.01 (475 ml) Orion trazabilidad conforme a la NIST</p>
+ 
+          <p>Incluye modelos: 910104, 910107, 910110</p>
+          <h4>$75USD+IVA</h4>
+          <a className="btn btn-primary mt-3" href="https://wa.link/a9t3qb" role="button" target="_blank">
+              Pídelo ahora
+            </a>
+        </div>
+      </div>
+      <div className="row"></div>
     </div>
     <div className="container numbers text-center d-none">
       <div className="row">
@@ -72,7 +111,7 @@ const HomePage = () => (
             Ponte en contacto con nosotros y uno de nuestros representantes se
             pondrán en contacto contigo.
           </h6>
-
+          
           <button
             type="button"
             className="btn btn-primary"
