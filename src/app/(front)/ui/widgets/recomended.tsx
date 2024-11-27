@@ -41,7 +41,7 @@ const Recommended = () => {
             );
           })}
           <div className="col-12 text-center btn-space">
-            <a className="btn btn-primary" href="productos/todos" role="button">
+            <a className="btn btn-primary" href="productos" role="button">
               Ver todos los productos
             </a>
           </div>
