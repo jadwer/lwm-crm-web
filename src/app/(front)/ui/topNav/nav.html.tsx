@@ -1,8 +1,8 @@
 const TopNav = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid toggle-head">
-        <div className="col-12 col-md-8">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary border-top">
+      <div className="container toggle-head">
+        <div className="col-12">
           <button
             className="navbar-toggler"
             type="button"
@@ -14,7 +14,15 @@ const TopNav = () => {
             <i className="bi bi-list"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="/productos/todos">
+                  Todos los productos
+                </a>
+              </li>
               <li className="nav-item">
                 <a
                   className="nav-link active"
@@ -55,6 +63,14 @@ const TopNav = () => {
                   Proceso
                 </a>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="/nosotros">
+                    Nosotros
+                </a>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -82,18 +98,11 @@ const TopNav = () => {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/nosotros">
-                  Nosotros
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>
-        <div className="col-12 col-md-4 d-flex">
+        {/* <div className="col-12 col-md-4 d-flex">
           <div className="input-group my-1">
             <form id="homeSearch" method="get" action="/productos/todos">
               <input
@@ -111,7 +120,7 @@ const TopNav = () => {
               </button>
             </form>
           </div>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

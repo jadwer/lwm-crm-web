@@ -99,6 +99,15 @@ const ProductoPage = ({
 
   return (
     <main>
+      <div className="container-fluid hero-sections mx-auto">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col">
+              {/* <h1>{producto.name}</h1> */}
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container-fluid products-page">
         <div className="row">
           <SideBrands
