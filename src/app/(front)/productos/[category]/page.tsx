@@ -23,6 +23,7 @@ const ProductoPage = ({
   const [brands, setBrands] = useState<Brands>({} as Brands);
   const [queryBrandsId, setQueryBrandsId] = useState<number[]>([]);
   const [categoryId, setCategoryId] = useState<number>();
+  const [categoryName, setCategoryName] = useState<string>("Todos los productos");
   const [categories, setCategories] = useState<Categories>({} as Categories);
   const [searchFilter, setSearchFilter] = useState<string>("");
   const [searchString, setSearchString] = useState<string>("");
@@ -52,6 +53,7 @@ const ProductoPage = ({
         if (cat.slug == category) {
           console.log(cat.slug);
           setCategoryId(cat.id);
+          setCategoryName(cat.name);
         }
       });
     }
@@ -103,7 +105,7 @@ const ProductoPage = ({
         <div className="container">
           <div className="row align-items-center">
             <div className="col">
-              {/* <h1>{producto.name}</h1> */}
+              { <h1>{ categoryName }</h1> }
             </div>
           </div>
         </div>
