@@ -37,7 +37,7 @@ const FilteredSearch = (props: any ) => {
                     </span>
                   </p>
                   <h6>{producto.name}</h6>
-                  <h6>Precio: {producto.price?producto.price:0.00}</h6>
+                  <h6>Precio: {producto.price ? producto.price.toFixed(2) : "0.00"}</h6>
                   <a href={`/producto/${producto.id}`} target="_blank">VER DETALLE</a>
                   <hr></hr>
                 </div>
