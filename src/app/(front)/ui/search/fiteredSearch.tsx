@@ -20,7 +20,7 @@ const FilteredSearch = (props: any ) => {
   if (Object.keys(productos).length === 0) {
     return <>Cargando...</>;
   } else {
-    console.log(searchFilter);
+//    console.log(searchFilter);
 //    console.log(productos.data);
     const metaData = productos
     return (
@@ -37,7 +37,8 @@ const FilteredSearch = (props: any ) => {
                     </span>
                   </p>
                   <h6>{producto.name}</h6>
-                  <a href={`/producto/${producto.id}`}>VER DETALLE</a>
+                  <h6>Precio: {producto.price ? producto.price.toFixed(2) : "0.00"}</h6>
+                  <a href={`/producto/${producto.id}`} target="_blank">VER DETALLE</a>
                   <hr></hr>
                 </div>
             );

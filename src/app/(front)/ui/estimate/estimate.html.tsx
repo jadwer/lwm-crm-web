@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useForms } from "@/hooks/forms";
 import { Button } from "react-bootstrap";
+import { redirect } from "next/navigation";
 
 const Estimate = (props: any) => {
 
@@ -151,11 +152,7 @@ const Estimate = (props: any) => {
               ENVIAR
             </Button>
           </form>
-          {status != null ? (
-            <div className="send-form">
-              Tu mensaje se ha enviado. Nos comunicaremos contigo a la brevedad.
-            </div>
-          ) : null}
+          {status != null ?  redirect(`/mensaje`) : null}
           <br></br>
         </div>
       </div>
