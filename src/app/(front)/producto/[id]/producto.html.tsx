@@ -3,7 +3,32 @@ import Estimate from "../../ui/estimate/estimate.html";
 const ProductoTemplate = (props: any) => {
   const producto = props.data.producto;
   const name = producto.name;
+  const showDl = producto.datasheet_path? ( producto.datasheet_path !== ".pdf")? true : false : false;
 
+  const download = () => {
+    if(showDl){
+
+      return(
+        <a
+        href={
+          process.env.NEXT_PUBLIC_BACKEND_URL +
+          `/storage/datasheets/${producto.datasheet_path}`
+        }
+        download={
+          process.env.NEXT_PUBLIC_BACKEND_URL +
+          `/storage/datasheets/${producto.datasheet_path}`
+        }
+        target="_blank">
+        <button
+          type="button"
+          className="btn btn-secondary my-2">
+          <span>DESCARGAR FICHA TÉCNICA</span>
+        </button>
+      </a>
+  
+      );
+    }  }
+console.log(producto)
   return (
     <main>
       <div className="container-fluid hero-sections mx-auto">
@@ -38,23 +63,16 @@ const ProductoTemplate = (props: any) => {
                   </span>
                 </p>
                 <h5>{producto.name}</h5>
+                <p>Precio: ${producto.price ? parseFloat(producto.price).toFixed(2) : "0.00"}</p>
                 <p>{producto.description}</p>
                 <p>ID: {producto.sku}</p>
                 <p>Categoría: {producto.category_id.name}</p>
                 <p>Unidad de medida: {producto.unit_id.type}</p>
                 <div className="col-12 col-md-8">
-                  <a
-                    href={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
-                    download={process.env.NEXT_PUBLIC_BACKEND_URL +`/storage/datasheets/${producto.datasheet_path}`}
-                    target="_blank">
-                    <button type="button" className="btn btn-secondary my-2">
-                      <span>DESCARGAR FICHA TÉCNICA</span>
-                    </button>
-                  </a>
-                  
+                  { download() }
                 </div>
                 <div className="col-12 col-md-8">
-                <button
+                  <button
                     type="button"
                     className="btn btn-primary my-2"
                     data-bs-toggle="offcanvas"
@@ -76,7 +94,7 @@ const ProductoTemplate = (props: any) => {
         </div>
       </div>
 
-      <Estimate producto = {producto}></Estimate>
+      <Estimate producto={producto}></Estimate>
     </main>
   );
 };

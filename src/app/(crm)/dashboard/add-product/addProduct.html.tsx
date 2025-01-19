@@ -3,7 +3,7 @@ import Link from "next/link";
 import SelectCategories from "@/app/(crm)/ui/dropdownItems/selectCategories";
 import SelectBrands from "../../ui/dropdownItems/selectBrands";
 import SelectUnits from "../../ui/dropdownItems/selectUnits";
-import { MouseEvent, SetStateAction, useState } from "react";
+import { Dispatch, MouseEvent, SetStateAction, useState } from "react";
 import Image from "next/image";
 import { useProducts } from "@/hooks/products";
 import { Product } from "@/lib/interfaces";
@@ -16,6 +16,8 @@ const AddProductTemplate = (props: { producto: Product }) => {
   const [selectedImage, setSelectedImage] = useState<string>();
   const [nombre, setNombre] = useState<string>("");
   const [sku, setSku] = useState<string>("");
+  const [cost, setCost] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
   const [descripcion, setDescripcion] = useState<string>("");
   const [descripcionTecnica, setDescripcionTecnica] = useState<string>("");
   const [categoria, setCategoria] = useState<number>();
@@ -26,6 +28,7 @@ const AddProductTemplate = (props: { producto: Product }) => {
   const [errors, setErrors] = useState<any[]>([]);
   const [status, setStatus] = useState<string>();
   const router = useRouter();
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   const submitNewProduct = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -36,6 +39,8 @@ const AddProductTemplate = (props: { producto: Product }) => {
       sku: sku,
       description: descripcion,
       full_description: descripcionTecnica,
+      cost: cost,
+      price: price,
       img_path: image_path?.name,
       datasheet_path: datasheet?.name,
       unit_id: unidad,
@@ -57,12 +62,33 @@ const AddProductTemplate = (props: { producto: Product }) => {
     console.log(sku);
   }
 
+  const handleDecimalValidation = (isBlured: boolean, number: string, stateSetter : Dispatch<SetStateAction<string>>) => {
+    let newNumber = number
+    const validatedDecimals = number.split('.')
+    if(validatedDecimals[0] !== "" && validatedDecimals[1] === undefined){
+      validatedDecimals[1] = "00"
+      newNumber = validatedDecimals[0] + "." + validatedDecimals[1]
+    }
+    if(validatedDecimals[0] !== "" && validatedDecimals[1].length === 1){
+      validatedDecimals[1] = validatedDecimals[1]+"0"
+      newNumber = validatedDecimals[0] + "." + validatedDecimals[1]
+    }
+    if(validatedDecimals[0] !== "" && validatedDecimals[1].length >= 3){
+      validatedDecimals[1] = validatedDecimals[1].substring(0,2)
+      newNumber = validatedDecimals[0] + "." + validatedDecimals[1]
+    }
+    
+    stateSetter(newNumber)
+    setIsFocused(false)
+  }
+
   const handleSubmit = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => {
     submitNewProduct(e);
   };
 
+  console.log(isFocused)
   return (
     <main>
       <div className="container-fluid back-header">
@@ -164,6 +190,39 @@ const AddProductTemplate = (props: { producto: Product }) => {
                     setDescripcion(e.target.value);
                   }}></input>
               </div>
+
+              <div className="col-md-6">
+                <label className="form-label">Costo del producto</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cost"
+                  placeholder="Costo"
+                  value={cost}
+                  onChange={(e) => {
+                    setCost(e.target.value)
+                  }
+                }
+                onBlur={() => handleDecimalValidation(true, cost, setCost)}
+                  ></input>
+              </div>
+              <div className="col-6">
+                <label className="form-label">
+                  Precio
+                  <input
+                  type="text"
+                  className="form-control"
+                  id="price"
+                  placeholder="Precio de venta"
+                  value={price}
+                  onChange={(e) => {
+                    setPrice(e.target.value)
+                  }}
+                  onBlur={() => handleDecimalValidation(true, price, setPrice)}                  
+                  ></input>
+                </label>
+              </div>
+
               <div className="col-md-12">
                 <label className="form-label">Datasheet:&nbsp;</label>
                 <input

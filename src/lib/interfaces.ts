@@ -20,6 +20,8 @@ export interface Products {
     sku: string
     description: string
     full_description: string
+    price: number
+    cost: number
     img_path: string
     datasheet_path: string
     unit_id: Unit
