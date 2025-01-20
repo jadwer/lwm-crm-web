@@ -20657,14 +20657,37 @@ ul.pagination a.page-link:hover {
     padding: 0;
   }
 }
+.container.products.filtered .card-products {
+  width: 30%;
+  margin: 1em;
+  border-radius: 10px;
+  padding: 8px;
+  border: none;
+  box-shadow: 0 4px 12px 1px rgba(0, 0, 0, 0.36);
+  -webkit-box-shadow: 0 4px 12px 1px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 0 4px 12px 1px rgba(0, 0, 0, 0.36);
+}
+@media (max-width: 575.98px) {
+  .container.products.filtered .card-products {
+    width: 92%;
+  }
+}
+.container.products.filtered .card-products .product-card-inner {
+  padding: 15px;
+}
 .container.products h1, .container.products .h1 {
   color: #012A94;
   font-size: 3em;
   margin-top: 1em;
 }
+.container.products h5, .container.products .h5 {
+  font-weight: 600;
+  color: #012A94;
+}
 .container.products h6, .container.products .h6 {
   font-weight: 600;
   color: #012A94;
+  text-transform: uppercase;
 }
 .container.products .products-list p {
   margin-bottom: 0.35rem;

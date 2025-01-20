@@ -14,7 +14,7 @@ const MensajeTemplate = () => (
     <div className="container my-4">
       <div className="row">
       <br />
-      <p className="text-justify">¡Tu mensaje de cotización ha sido enviado! En breve nos pondremos en contacto contigo. Aun así, recuerda que puedes contactarnos desde WhatsApp al <a href="https://wa.link/4e5cqt">56 1040 0441</a> </p>
+      <h3 className="text-justify">¡Tu mensaje de cotización ha sido enviado! En breve nos pondremos en contacto contigo. Aun así, recuerda que puedes contactarnos desde WhatsApp al <a href="https://wa.link/4e5cqt">56 1040 0441</a> </h3>
       <br></br>
             <Link
               href="/productos/todos"

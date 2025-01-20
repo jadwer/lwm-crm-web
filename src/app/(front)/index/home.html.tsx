@@ -35,7 +35,7 @@ const HomePage = () => (
         </div>
         <div className="col-12 col-md-4 text-center card-offer blue-2">
         <img src="/../images/labor-wasser-mexico-viales-digestion-dqo.webp" className="img-fluid" alt="Labor Wasser México" />
-          <p>Viales de digestión para demanda química de oxígeno (DQO), rango alto (20 -1500 mg/L), paquete de 150 HACH</p>
+        <p>Viales de digestión para demanda química de oxígeno (DQO), rango alto (20 -1500 mg/L), paquete de 150 HACH</p>
           <p>Modelo: 2125915</p>
           <h4>$532.7USD+IVA</h4>
           <a className="btn btn-primary mt-3" href="https://wa.link/a9t3qb" role="button" target="_blank">

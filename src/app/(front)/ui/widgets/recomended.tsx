@@ -23,10 +23,13 @@ const Recommended = () => {
             <hr className="separator"></hr>
           </div>
         </div>
-        <div className="row products-list">
+        <div className="container products filtered">
+        <div className="row ">
           {productos.data.map((producto: Product) => {
             return (
-                <div className="col-12" key={producto.id}>
+                <div className="col-12 col-md-4 card-products" key={producto.id}>
+                  <img src="/../images/labor-wasser-mexico-product-detail-2.webp" className="img-fluid" alt="Labor Wasser México" />
+                  <div className="product-card-inner">
                   <p>
                     <span className="labels">
                       Marca: {producto.brand_id.name} | Categoría: {producto.category_id.name}
@@ -35,8 +38,9 @@ const Recommended = () => {
                   <h6>
                     {producto.name}
                   </h6>
+                  <h5>${producto.price ? producto.price.toFixed(2) : "0.00"}</h5>
                   <a href={`producto/${producto.id}`}>VER DETALLE</a>
-                  <hr></hr>
+                  </div>
                 </div>
             );
           })}
@@ -45,6 +49,7 @@ const Recommended = () => {
               Ver todos los productos
             </a>
           </div>
+        </div>
         </div>
       </div>
     );
