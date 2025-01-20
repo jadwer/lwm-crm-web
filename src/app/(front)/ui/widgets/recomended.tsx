@@ -28,7 +28,11 @@ const Recommended = () => {
           {productos.data.map((producto: Product) => {
             return (
                 <div className="col-12 col-md-4 card-products" key={producto.id}>
-                  <img src="/../images/labor-wasser-mexico-product-detail-2.webp" className="img-fluid" alt="Labor Wasser México" />
+                  <img src={
+                process.env.NEXT_PUBLIC_BACKEND_URL +
+                "/storage/products/" +
+                producto.img_path
+              } className="img-fluid" alt="Labor Wasser México" />
                   <div className="product-card-inner">
                   <p>
                     <span className="labels">
@@ -45,7 +49,7 @@ const Recommended = () => {
             );
           })}
           <div className="col-12 text-center btn-space">
-            <a className="btn btn-primary" href="productos" role="button">
+            <a className="btn btn-primary" href="productos/todos" role="button">
               Ver todos los productos
             </a>
           </div>

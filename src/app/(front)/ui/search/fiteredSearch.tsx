@@ -30,7 +30,11 @@ const FilteredSearch = (props: any) => {
             {productos.data.map((producto: Product) => {
               return (
                 <div className="col-12 col-md-4 card-products" key={producto.id}>
-                  <img src="/../images/labor-wasser-mexico-product-detail-2.webp" className="img-fluid" alt="Labor Wasser México" />
+                  <img src={
+                process.env.NEXT_PUBLIC_BACKEND_URL +
+                "/storage/products/" +
+                producto.img_path
+              } className="img-fluid" alt="Labor Wasser México" />
 
                   <div className="product-card-inner">
                     <p>
