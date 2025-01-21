@@ -20530,7 +20530,8 @@ a {
 .container-fluid.products-page .products-list a:hover, .products-page.container-sm .products-list a:hover, .products-page.container-md .products-list a:hover, .products-page.container-lg .products-list a:hover, .products-page.container-xl .products-list a:hover, .products-page.container-xxl .products-list a:hover {
   color: #0094FF;
 }
-.container-fluid.products-page .products-list .btn-space, .products-page.container-sm .products-list .btn-space, .products-page.container-md .products-list .btn-space, .products-page.container-lg .products-list .btn-space, .products-page.container-xl .products-list .btn-space, .products-page.container-xxl .products-list .btn-space {
+
+.btn-space {
   margin: 3em 0 5em 0;
 }
 
@@ -20590,6 +20591,22 @@ ul.pagination a.page-link:hover {
   height: 100vh;
 }
 
+.container.success {
+  margin: 5% auto;
+}
+.container.success .btn-secondary {
+  width: auto;
+  text-align: center;
+}
+.container.success img {
+  width: 35%;
+  margin-bottom: 45px;
+}
+@media (max-width: 575.98px) {
+  .container.success img {
+    width: 90%;
+  }
+}
 .container .navbar-nav a.nav-link:hover {
   color: #0094FF;
 }

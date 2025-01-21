@@ -504,12 +504,13 @@ a {
                 color: #0094FF;
             }
 
-            .btn-space {
-                margin: 3em 0 5em 0;
-            }
         }
     }
 
+}
+
+.btn-space {
+    margin: 3em 0 5em 0;
 }
 
 button#button-addon2 {
@@ -594,6 +595,21 @@ ul {
 }
 
 .container {
+
+    &.success {
+        margin: 5% auto;
+        .btn-secondary {
+            width: auto;
+            text-align: center;
+        }
+        img {
+            width: 35%;
+            margin-bottom: 45px;
+            @media (max-width: 575.98px) {
+                width: 90%;
+            }
+        }
+    }
 
     .navbar-nav {
         a {
