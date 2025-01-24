@@ -15,8 +15,8 @@ const EditProductTemplate = (props: { producto: Product }) => {
   const [selectedImage, setSelectedImage] = useState<string>();
   const [nombre, setNombre] = useState<string>(producto.name);
   const [sku, setSku] = useState<string>(producto.sku);
-  const [cost, setCost] = useState<string>(producto.cost.toString());
-  const [price, setPrice] = useState<string>(producto.price.toString());
+  const [cost, setCost] = useState<string>(producto.cost ? producto.cost.toString() : "");
+  const [price, setPrice] = useState<string>(producto.price ? producto.price.toString() : "");
   const [descripcion, setDescripcion] = useState<string>(producto.description? producto.description : "");
   const [descripcionTecnica, setDescripcionTecnica] = useState<string>(producto.full_description? producto.full_description : "");
   const [categoria, setCategoria] = useState<number>(producto.category_id.id);

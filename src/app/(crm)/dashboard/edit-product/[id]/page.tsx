@@ -22,7 +22,7 @@ const EditProductPage = ({ params }: { params: { id: number } }) => {
   } else {
     return (
       <Suspense>
-        return <EditProductTemplate producto={producto} />;
+        <EditProductTemplate producto={producto} />;
       </Suspense>
     );
   }

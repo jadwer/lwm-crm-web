@@ -24,6 +24,13 @@ const CatalogosTemplate = () => (
         </div>
         <div className="col text-center">
           <div className="card mx-auto d-block">
+          <img src="/../images/logos/cobetter-labor-wasser.webp" className="card-img-top"
+              alt="Labor Wasser México" />
+            <a href="/../catalogs/cobetter-labor-wasser.pdf" download="cobbeter-labor-wasser.pdf" target="_blank">CONSULTAR</a>
+          </div>
+        </div>
+        <div className="col text-center">
+          <div className="card mx-auto d-block">
           <img src="/../images/logos/eisco-labor-wasser.webp" className="card-img-top"
               alt="Labor Wasser México" />
             <a href="/../catalogs/eisco-cat-labor-wasser.pdf" download="eisco-cat-labor-wasser.pdf" target="_blank">CONSULTAR</a>
