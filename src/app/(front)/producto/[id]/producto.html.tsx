@@ -36,17 +36,23 @@ const ProductoTemplate = (props: any) => {
     }
   };
 
+  let USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
   const price = () => {
     if (showPrice) {
       return (
         <p>
-          Precio: $
-          {producto.price ? parseFloat(producto.price).toFixed(2) : "0.00"}
+          Precio: 
+          {producto.price ? USDollar.format(parseFloat(producto.price)) : "0.00"}
+          {producto.iva ? " IVA incluído" : " + IVA"}
         </p>
       );
     }
   };
-  //  console.log(producto);
+    console.log(producto);
   return (
     <main>
       <div className="container-fluid hero-sections mx-auto">

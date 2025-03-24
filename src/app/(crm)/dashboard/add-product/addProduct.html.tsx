@@ -29,6 +29,7 @@ const AddProductTemplate = (props: { producto: Product }) => {
   const [status, setStatus] = useState<string>();
   const router = useRouter();
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [iva, setIva] = useState<String>("0");
 
   const submitNewProduct = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -48,9 +49,11 @@ const AddProductTemplate = (props: { producto: Product }) => {
       brand_id: marca,
       selectedImage: image_path,
       datasheet: datasheet,
+      iva: iva,
     };
 
     await setProduct({ setErrors, setStatus }, dataForm);
+    console.log(dataForm);
     setTimeout(() => {
       router.push("/dashboard/products");
     }, 5000);
@@ -60,27 +63,31 @@ const AddProductTemplate = (props: { producto: Product }) => {
     value = value.toString().replace(" ", "-");
     setSku(value);
     console.log(sku);
-  }
+  };
 
-  const handleDecimalValidation = (isBlured: boolean, number: string, stateSetter : Dispatch<SetStateAction<string>>) => {
-    let newNumber = number
-    const validatedDecimals = number.split('.')
-    if(validatedDecimals[0] !== "" && validatedDecimals[1] === undefined){
-      validatedDecimals[1] = "00"
-      newNumber = validatedDecimals[0] + "." + validatedDecimals[1]
+  const handleDecimalValidation = (
+    isBlured: boolean,
+    number: string,
+    stateSetter: Dispatch<SetStateAction<string>>
+  ) => {
+    let newNumber = number;
+    const validatedDecimals = number.split(".");
+    if (validatedDecimals[0] !== "" && validatedDecimals[1] === undefined) {
+      validatedDecimals[1] = "00";
+      newNumber = validatedDecimals[0] + "." + validatedDecimals[1];
     }
-    if(validatedDecimals[0] !== "" && validatedDecimals[1].length === 1){
-      validatedDecimals[1] = validatedDecimals[1]+"0"
-      newNumber = validatedDecimals[0] + "." + validatedDecimals[1]
+    if (validatedDecimals[0] !== "" && validatedDecimals[1].length === 1) {
+      validatedDecimals[1] = validatedDecimals[1] + "0";
+      newNumber = validatedDecimals[0] + "." + validatedDecimals[1];
     }
-    if(validatedDecimals[0] !== "" && validatedDecimals[1].length >= 3){
-      validatedDecimals[1] = validatedDecimals[1].substring(0,2)
-      newNumber = validatedDecimals[0] + "." + validatedDecimals[1]
+    if (validatedDecimals[0] !== "" && validatedDecimals[1].length >= 3) {
+      validatedDecimals[1] = validatedDecimals[1].substring(0, 2);
+      newNumber = validatedDecimals[0] + "." + validatedDecimals[1];
     }
-    
-    stateSetter(newNumber)
-    setIsFocused(false)
-  }
+
+    stateSetter(newNumber);
+    setIsFocused(false);
+  };
 
   const handleSubmit = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
@@ -88,7 +95,6 @@ const AddProductTemplate = (props: { producto: Product }) => {
     submitNewProduct(e);
   };
 
-  console.log(isFocused)
   return (
     <main>
       <div className="container-fluid back-header">
@@ -146,7 +152,7 @@ const AddProductTemplate = (props: { producto: Product }) => {
                   placeholder="sku"
                   value={sku}
                   onChange={(e) => {
-                    handleSkuValidation(e.target.value)
+                    handleSkuValidation(e.target.value);
                   }}></input>
               </div>
               <div className="col-6">
@@ -160,7 +166,7 @@ const AddProductTemplate = (props: { producto: Product }) => {
               </div>
               <div className="col-6">
                 <label className="form-label">
-                  Unidad de medida del producto
+                  Unidad de medida
                   <SelectUnits
                     stateData={{ unidad, setUnidad }}
                     label="Seleccione un medida"
@@ -197,29 +203,43 @@ const AddProductTemplate = (props: { producto: Product }) => {
                   type="text"
                   className="form-control"
                   id="cost"
-                  placeholder="Costo"
+                  placeholder="Ej: 500.50"
                   value={cost}
                   onChange={(e) => {
-                    setCost(e.target.value)
-                  }
-                }
-                onBlur={() => handleDecimalValidation(true, cost, setCost)}
-                  ></input>
+                    setCost(e.target.value);
+                  }}
+                  onBlur={() =>
+                    handleDecimalValidation(true, cost, setCost)
+                  }></input>
               </div>
               <div className="col-6">
                 <label className="form-label">
                   Precio
                   <input
-                  type="text"
-                  className="form-control"
-                  id="price"
-                  placeholder="Precio de venta"
-                  value={price}
-                  onChange={(e) => {
-                    setPrice(e.target.value)
-                  }}
-                  onBlur={() => handleDecimalValidation(true, price, setPrice)}                  
-                  ></input>
+                    type="text"
+                    className="form-control"
+                    id="price"
+                    placeholder="Ej: 1200.00"
+                    value={price}
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                    onBlur={() =>
+                      handleDecimalValidation(true, price, setPrice)
+                    }></input>
+                </label>
+              </div>
+
+              <div className="col-md-6">
+                <input
+                  id="iva"
+                  type="checkbox"
+                  className="form-check-input"
+                  value="iva"
+                  checked={iva == "1" ? true : false}
+                  onChange={(e) => setIva(e.target.checked ? "1" :"0")}></input>
+                <label htmlFor="iva" className="form-check-label">
+                  &nbsp;Incluye IVA
                 </label>
               </div>
 

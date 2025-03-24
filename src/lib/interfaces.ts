@@ -22,6 +22,7 @@ export interface Products {
     full_description: string
     price: number
     cost: number
+    iva: string
     img_path: string
     datasheet_path: string
     unit_id: Unit
