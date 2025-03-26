@@ -36,9 +36,9 @@ const ProductoTemplate = (props: any) => {
     }
   };
 
-  let USDollar = new Intl.NumberFormat('en-US', {
+  let CurrencyFormat = new Intl.NumberFormat('es-MX', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'MXN',
 });
 
   const price = () => {
@@ -46,8 +46,9 @@ const ProductoTemplate = (props: any) => {
       return (
         <p>
           Precio: 
-          {producto.price ? USDollar.format(parseFloat(producto.price)) : "0.00"}
-          {producto.iva ? " IVA incluído" : " + IVA"}
+          <strong>{producto.price ? " MXN " + CurrencyFormat.format(parseFloat(producto.price)) : "0.00"}</strong>
+          {producto.price && producto.iva ? " IVA incluído " : " + IVA "}
+          
         </p>
       );
     }
