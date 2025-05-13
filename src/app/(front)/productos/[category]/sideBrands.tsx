@@ -1,4 +1,4 @@
-import { useBrands } from "@/hooks/brands";
+import { useBrands } from "@/hooks/erp/useBrands";
 import { Brand, Brands } from "@/lib/interfaces";
 import { useEffect } from "react";
 
@@ -9,13 +9,18 @@ const SideBrands = (props : any) => {
     const setQueryBrandsId = props.functions.setQueryBrandsId;
     const brandsQuery = props.functions.brandsQuery;
     
-    const { getBrands } = useBrands();
-    useEffect(() => {
-      getBrands({setBrands});
-      
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    
+const { getBrands } = useBrands();
+
+useEffect(() => {
+  const fetchBrands = async () => {
+    const data = await getBrands();
+    setBrands({ data }); // Asegúrate de envolverlo como el tipo esperado: Brands
+  };
+
+  fetchBrands();
+}, []);
+
+
     useEffect(() => {
       if (Object.keys(brands).length !== 0) {
         setQueryBrandsId(Array(brands.data.length).fill(-1));
