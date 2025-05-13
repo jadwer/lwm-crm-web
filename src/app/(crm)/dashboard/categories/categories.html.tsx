@@ -1,21 +1,35 @@
-import Link from "next/link";
-import AddUpdateCategory from "./addUpdateCats";
-import { useCategories } from "@/hooks/categories";
-import { useState } from "react";
+'use client'
+
+import Link from 'next/link'
+import AddUpdateCategory from './addUpdateCats'
+import { useCategories } from '@/hooks/erp/useCategories'
+import { useState } from 'react'
+import { Category } from '@/lib/interfaces'
+import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
 
 const CategoriesTemplate = (props: any) => {
-  const categorias = props.data.categorias.data;
-  const setStatus = props.data.setStatus;
-  const status = props.data.status
+  const categorias: Category[] = props.data.categorias.data
+  const [status, setStatus] = useState<string>('')
+  const [errors, setErrors] = useState<Record<string, string[]>>({})
+  const { remove } = useCategories()
 
-  const [errors, setErrors] = useState([]);
-
-  const {delCategory} = useCategories();
-
-  const submitDelCategory = (e: { preventDefault: () => void; }, cat_id : number) => {
-    e.preventDefault();
-    if(confirm("¿Estás seguro que quieres eliminar esta categoría? Esta acción no se puede deshacer.")){delCategory({setErrors, setStatus}, cat_id);}
+  const submitDelCategory = async (
+    e: React.MouseEvent<HTMLButtonElement>,
+    cat_id: number
+  ) => {
+    e.preventDefault()
+    if (
+      confirm('¿Estás seguro que quieres eliminar esta categoría? Esta acción no se puede deshacer.')
+    ) {
+      try {
+        await remove(cat_id)
+        setStatus('deleted')
+      } catch (error: any) {
+        handleApiErrors(error, setErrors, (st) => setStatus(st ?? 'error'))
+      }
+    }
   }
+
   return (
     <main>
       <div className="container-fluid back-header">
@@ -29,70 +43,76 @@ const CategoriesTemplate = (props: any) => {
               type="button"
               className="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#newCat">
+              data-bs-target="#newCat"
+            >
               Agregar
             </button>
           </div>
         </div>
       </div>
+
       <div className="container-fluid container-product">
         <div className="row">
           <div className="col-12 mt-2 table-product">
             <table className="table">
               <thead>
                 <tr>
-                  <th className="tab-category" scope="col">
-                    Nombre de la categoría
-                  </th>
-                  <th className="tab-name" scope="col">
-                    Descripción
-                  </th>
-                  <th className="tab-brand" scope="col">
-                    Slug
-                  </th>
-                  <th className="tab-actions" scope="col">
-                    Acciones
-                  </th>
+                  <th className="tab-category">Nombre</th>
+                  <th className="tab-name">Descripción</th>
+                  <th className="tab-brand">Slug</th>
+                  <th className="tab-actions">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                {categorias.map((categoria: any) => {
-                  return (
-                    <tr key={categoria.id}>
-                      <td scope="row">{categoria.name}</td>
-                      <td scope="row">{categoria.description}</td>
-                      <td scope="row">{categoria.slug}</td>
-                      <td>
-                        {" "}
-                        <button
-                          type="button"
-                          className="btn-action"
-                          data-bs-toggle="modal"
-                          data-bs-target={`#cat-${categoria.id}`}>
-                          Editar
-                        </button>
-                        |
-                        <button type="button" className="btn-action" onClick={(e) =>{submitDelCategory(e, categoria.id)}}>
-                          Eliminar
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {categorias.map((categoria) => (
+                  <tr key={categoria.id}>
+                    <td>{categoria.name}</td>
+                    <td>{categoria.description}</td>
+                    <td>{categoria.slug}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn-action"
+                        data-bs-toggle="modal"
+                        data-bs-target={`#cat-${categoria.id}`}
+                      >
+                        Editar
+                      </button>{' '}
+                      |{' '}
+                      <button
+                        type="button"
+                        className="btn-action"
+                        onClick={(e) => submitDelCategory(e, categoria.id)}
+                      >
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </div>
 
-      {categorias.map((categoria: any) => {
-          return (
-              <AddUpdateCategory data={categoria} cat_id={"cat-"+categoria.id} status={{setStatus, status}} key={categoria.id}></AddUpdateCategory>
-            )
-        })
-    };
-    <AddUpdateCategory data={null}  status={{setStatus, status}} cat_id={"newCat"}></AddUpdateCategory>
+      {categorias.map((categoria) => (
+        <AddUpdateCategory
+          key={categoria.id}
+          data={categoria}
+          cat_id={`cat-${categoria.id}`}
+          status={status}
+          setStatus={setStatus}
+        />
+      ))}
+
+      <AddUpdateCategory
+        data={null}
+        cat_id="newCat"
+        status={status}
+        setStatus={setStatus}
+      />
     </main>
-  );
-};
-export default CategoriesTemplate;
+  )
+}
+
+export default CategoriesTemplate

@@ -5,6 +5,7 @@ import { useCategories } from "@/hooks/categories";
 import { Category } from "@/lib/interfaces";
 
 import CategoriesTemplate from "./categories.html"
+import { get } from "http";
 
 const CategoriesPage = () => {
   const [categorias, setCategories] = useState<Category[]>([]);
@@ -14,7 +15,7 @@ const CategoriesPage = () => {
   useEffect(() => {
     getCategories( {setCategories} );
     setTimeout(()=>{setStatus("")}, 5000);
-  }, [status]);
+  }, [getCategories]);
 
   if(Object.keys(categorias).length === 0){
     return (

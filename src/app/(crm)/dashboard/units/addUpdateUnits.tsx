@@ -1,46 +1,53 @@
-import { useUnits } from "@/hooks/units";
-import { Unit } from "@/lib/interfaces";
-import { redirect } from "next/navigation";
-import { FormEvent, MouseEvent, useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
+'use client'
 
-const AddUpdateUnits = (
-  props:
-    | {
-        data: Unit | null;
-        unit_id: string;
-      }
-    | any
-) => {
-  const unit_id = props.unit_id;
-  const unit = props.data == null ? ({} as Unit) : props.data;
+import { useUnits } from '@/hooks/inventory/useUnits'
+import { Unit } from '@/lib/interfaces'
+import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
+import { MouseEvent, useState } from 'react'
 
-  const [nombre, setNombre] = useState(unit.name);
-  const [tipo, setTipo] = useState(unit.type);
-  const [code, setCode] = useState(unit.code);
-  const [errors, setErrors] = useState([]);
-  const setStatus = props.status.setStatus;
-  const status = props.status.status;
+const AddUpdateUnits = ({
+  data,
+  unit_id,
+  status,
+  setStatus,
+}: {
+  data: Unit | null
+  unit_id: string
+  status: string
+  setStatus: (value: string) => void
+}) => {
+  const unit = data ?? ({} as Unit)
 
-  const { setUnit } = useUnits();
+  const [nombre, setNombre] = useState(unit.name ?? '')
+  const [tipo, setTipo] = useState(unit.type ?? '')
+  const [code, setCode] = useState(unit.code ?? '')
+  const [errors, setErrors] = useState<Record<string, string[]>>({})
 
-  const submitNewUnit = async (event: { preventDefault: () => void }) => {
-    event.preventDefault();
+  const { create, update } = useUnits()
 
-    let dataForm = {
+  const handleSubmit = async (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
+    e.preventDefault()
+
+    const payload = {
       id: unit.id,
       name: nombre,
       type: tipo,
       code: code,
-    };
+    }
 
-    await setUnit({ setErrors, setStatus }, dataForm);
-  };
-  const handleSubmit = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => {
-    submitNewUnit(e);
-  };
+    try {
+      if (unit.id) {
+        await update(unit.id, payload)
+      } else {
+        await create(payload)
+      }
+      setStatus('success')
+    } catch (error: any) {
+      handleApiErrors(error, setErrors, (status) => setStatus(status ?? ''))
+    }
+  }
 
   return (
     <div
@@ -48,73 +55,69 @@ const AddUpdateUnits = (
       id={unit_id}
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      /*tabindex="-1" */ aria-labelledby={"Label-" + unit_id}
-      aria-hidden="true">
+      aria-labelledby={`Label-${unit_id}`}
+      aria-hidden="true"
+    >
       <div className="modal-dialog">
         <form>
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id={"Label-" + unit_id}>
-                Agregar / Editar
+              <h1 className="modal-title fs-5" id={`Label-${unit_id}`}>
+                Agregar / Editar Unidad de Medida
               </h1>
               <button
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"></button>
+                aria-label="Close"
+              />
             </div>
+
             <div className="modal-body">
               <div>
                 <label className="form-label">Nombre</label>
                 <input
-                  type="text"
                   className="form-control"
-                  id={"name-" + unit_id}
-                  placeholder="Nombre de la unidad de medida"
+                  placeholder="Nombre de la unidad"
                   value={nombre}
-                  onChange={(event) => {
-                    setNombre(event.target.value);
-                  }}></input>
-                <label className="form-label">Descripción</label>
+                  onChange={(e) => setNombre(e.target.value)}
+                />
+                {errors.name && <small className="text-danger">{errors.name[0]}</small>}
+
+                <label className="form-label mt-3">Descripción</label>
                 <input
-                  type="text"
                   className="form-control"
-                  id={"type-" + unit_id}
-                  placeholder="descripción de la medida"
+                  placeholder="Descripción"
                   value={tipo}
-                  onChange={(event) => {
-                    setTipo(event.target.value);
-                  }}></input>
-                <label className="form-label">Código</label>
+                  onChange={(e) => setTipo(e.target.value)}
+                />
+                {errors.type && <small className="text-danger">{errors.type[0]}</small>}
+
+                <label className="form-label mt-3">Código</label>
                 <input
-                  type="text"
                   className="form-control"
-                  id={"code-" + unit_id}
-                  placeholder="Código del tipo de unidad de medida"
+                  placeholder="Código de unidad"
                   value={code}
-                  onChange={(event) => {
-                    setCode(event.target.value);
-                  }}></input>
+                  onChange={(e) => setCode(e.target.value)}
+                />
+                {errors.code && <small className="text-danger">{errors.code[0]}</small>}
               </div>
             </div>
+
             <div className="modal-footer">
-              {status !== "" ? (
-                <div className="modal-message">
-                  Los cambios se han realizado. ¡Ya puedes cerrar esta ventana!
+              {status === 'success' && (
+                <div className="alert alert-success w-100 text-center mb-2 p-2">
+                  ¡Cambios guardados exitosamente!
                 </div>
-              ) : null}
+              )}
               <button
                 type="button"
                 className="btn btn-secondary"
-                data-bs-dismiss="modal">
+                data-bs-dismiss="modal"
+              >
                 Cerrar
               </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={(event) => {
-                  handleSubmit(event);
-                }}>
+              <button type="button" className="btn btn-primary" onClick={handleSubmit}>
                 Guardar
               </button>
             </div>
@@ -122,6 +125,7 @@ const AddUpdateUnits = (
         </form>
       </div>
     </div>
-  );
-};
-export default AddUpdateUnits;
+  )
+}
+
+export default AddUpdateUnits

@@ -1,46 +1,57 @@
-import { useBrands } from "@/hooks/brands";
-import { Brand } from "@/lib/interfaces";
-import { redirect } from "next/navigation";
-import { FormEvent, MouseEvent, useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
+'use client'
 
-const AddUpdateBrands = (
-  props:
-    | {
-        data: Brand | null;
-        brand_id: string;
-      }
-    | any
-) => {
-  const brand_id = props.brand_id;
-  const brand = props.data == null ? ({} as Brand) : props.data;
+import { useBrands } from '@/hooks/erp/useBrands'
+import { Brand } from '@/lib/interfaces'
+import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
+import { MouseEvent, useState } from 'react'
 
-  const [nombre, setNombre] = useState(brand.name);
-  const [descripcion, setDescripcion] = useState(brand.description);
-  const [slug, setSlug] = useState(brand.slug);
-  const [errors, setErrors] = useState([]);
-  const setStatus = props.status.setStatus;
-  const status = props.status.status;
+const AddUpdateBrands = ({
+  data,
+  brand_id,
+  status,
+  setStatus,
+}: {
+  data: Brand | null
+  brand_id: string
+  status: string
+  setStatus: (value: string) => void
+}) => {
+  const brand = data ?? ({} as Brand)
 
-  const { setBrand } = useBrands();
+  const [nombre, setNombre] = useState(brand.name ?? '')
+  const [descripcion, setDescripcion] = useState(brand.description ?? '')
+  const [slug, setSlug] = useState(brand.slug ?? '')
+  const [errors, setErrors] = useState<Record<string, string[]>>({})
 
-  const submitNewBrend = async (event: { preventDefault: () => void }) => {
-    event.preventDefault();
+  const { create, update } = useBrands()
 
-    let dataForm = {
+  const handleSubmit = async (
+    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) => {
+    e.preventDefault()
+
+    const payload = {
       id: brand.id,
       name: nombre,
       description: descripcion,
       slug: slug,
-    };
+    }
 
-    await setBrand({ setErrors, setStatus }, dataForm);
-  };
-  const handleSubmit = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => {
-    submitNewBrend(e);
-  };
+    try {
+      console.log(brand)
+      if (brand.id) {
+        await update(brand.id, payload)
+        console.log("actualizando")
+      } else {
+        await create(payload)
+        console.log("creando:")
+        console.log(payload)
+      }
+      setStatus('success')
+    } catch (error: any) {
+      handleApiErrors(error, setErrors, (status) => setStatus(status ?? ''))
+    }
+  }
 
   return (
     <div
@@ -48,73 +59,71 @@ const AddUpdateBrands = (
       id={brand_id}
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      /*tabindex="-1" */ aria-labelledby={"Label-" + brand_id}
-      aria-hidden="true">
+      aria-labelledby={`Label-${brand_id}`}
+      aria-hidden="true"
+    >
       <div className="modal-dialog">
         <form>
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id={"Label-" + brand_id}>
-                Agregar / Editar
+              <h1 className="modal-title fs-5" id={`Label-${brand_id}`}>
+                Agregar / Editar Marca
               </h1>
               <button
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"></button>
+                aria-label="Close"
+              />
             </div>
+
             <div className="modal-body">
               <div>
                 <label className="form-label">Marca</label>
                 <input
-                  type="text"
                   className="form-control"
-                  id={"name-" + brand_id}
-                  placeholder="Nombre de la empresa"
+                  placeholder="Nombre de la marca"
                   value={nombre}
-                  onChange={(event) => {
-                    setNombre(event.target.value);
-                  }}></input>
-                <label className="form-label">Descripción</label>
+                  onChange={(e) => setNombre(e.target.value)}
+                />
+                {errors.name && <small className="text-danger">{errors.name[0]}</small>}
+
+                <label className="form-label mt-3">Descripción</label>
                 <input
-                  type="text"
                   className="form-control"
-                  id={"type-" + brand_id}
-                  placeholder="Descripción de la empresa"
+                  placeholder="Descripción"
                   value={descripcion}
-                  onChange={(event) => {
-                    setDescripcion(event.target.value);
-                  }}></input>
-                <label className="form-label">Slug</label>
+                  onChange={(e) => setDescripcion(e.target.value)}
+                />
+                {errors.description && (
+                  <small className="text-danger">{errors.description[0]}</small>
+                )}
+
+                <label className="form-label mt-3">Slug</label>
                 <input
-                  type="text"
                   className="form-control"
-                  id={"slug-" + brand_id}
-                  placeholder="Nombre de la categoría"
+                  placeholder="Slug de la marca"
                   value={slug}
-                  onChange={(event) => {
-                    setSlug(event.target.value);
-                  }}></input>
+                  onChange={(e) => setSlug(e.target.value)}
+                />
+                {errors.slug && <small className="text-danger">{errors.slug[0]}</small>}
               </div>
             </div>
+
             <div className="modal-footer">
-              {status !== "" ? (
-                <div className="modal-message">
-                  Los cambios se han realizado. ¡Ya puedes cerrar esta ventana!
+              {status === 'success' && (
+                <div className="alert alert-success w-100 text-center mb-2 p-2">
+                  ¡Cambios guardados exitosamente!
                 </div>
-              ) : null}
+              )}
               <button
                 type="button"
                 className="btn btn-secondary"
-                data-bs-dismiss="modal">
+                data-bs-dismiss="modal"
+              >
                 Cerrar
               </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={(event) => {
-                  handleSubmit(event);
-                }}>
+              <button type="button" className="btn btn-primary" onClick={handleSubmit}>
                 Guardar
               </button>
             </div>
@@ -122,6 +131,7 @@ const AddUpdateBrands = (
         </form>
       </div>
     </div>
-  );
-};
-export default AddUpdateBrands;
+  )
+}
+
+export default AddUpdateBrands

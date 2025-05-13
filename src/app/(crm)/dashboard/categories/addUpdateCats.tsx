@@ -1,44 +1,51 @@
-import { useCategories } from "@/hooks/categories";
-import { Category } from "@/lib/interfaces";
-import { redirect } from "next/navigation";
-import { FormEvent, MouseEvent, useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
+'use client'
 
-const AddUpdateCategory = (
-  props:
-    | {
-        data: Category | null;
-        cat_id: string;
-      }
-    | any
-) => {
-  const cat_id = props.cat_id;
-  const category = props.data == null ? ({} as Category) : props.data;
+import { useCategories } from '@/hooks/erp/useCategories'
+import { Category } from '@/lib/interfaces'
+import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
+import { MouseEvent, useState } from 'react'
 
-  const [nombre, setNombre] = useState(category.name);
-  const [descripcion, setDescripcion] = useState(category.description);
-  const [slug, setSlug] = useState(category.slug);
-  const [errors, setErrors] = useState([]);
-  const setStatus = props.status.setStatus;
-  const status = props.status.status;
+const AddUpdateCategory = ({
+  data,
+  cat_id,
+  status,
+  setStatus,
+}: {
+  data: Category | null
+  cat_id: string
+  status: string
+  setStatus: (value: string) => void
+}) => {
+  const category = data ?? ({} as Category)
 
-  const { setCategory } = useCategories();
+  const [nombre, setNombre] = useState(category.name ?? '')
+  const [descripcion, setDescripcion] = useState(category.description ?? '')
+  const [slug, setSlug] = useState(category.slug ?? '')
+  const [errors, setErrors] = useState<Record<string, string[]>>({})
 
-  const submitNewCategory = async (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
+  const { create, update } = useCategories()
 
-    let dataForm = {
+  const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+
+    const payload = {
       id: category.id,
       name: nombre,
       description: descripcion,
       slug: slug,
-    };
+    }
 
-    await setCategory({ setErrors, setStatus }, dataForm);
-  };
-  const handleSubmit = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-    submitNewCategory(e);
-  };
+    try {
+      if (category.id) {
+        await update(category.id, payload)
+      } else {
+        await create(payload)
+      }
+      setStatus('success')
+    } catch (error: any) {
+      handleApiErrors(error, setErrors, (status) => setStatus(status ?? ''))
+    }
+  }
 
   return (
     <div
@@ -46,73 +53,69 @@ const AddUpdateCategory = (
       id={cat_id}
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      /*tabindex="-1" */ aria-labelledby={"Label-" + cat_id}
-      aria-hidden="true">
+      aria-labelledby={`Label-${cat_id}`}
+      aria-hidden="true"
+    >
       <div className="modal-dialog">
         <form>
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id={"Label-" + cat_id}>
-                Agregar / Editar
+              <h1 className="modal-title fs-5" id={`Label-${cat_id}`}>
+                Agregar / Editar Categoría
               </h1>
               <button
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
-                aria-label="Close"></button>
+                aria-label="Close"
+              />
             </div>
+
             <div className="modal-body">
-              <div>
-                <label className="form-label">Nombre</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id={"name-" + cat_id}
-                  placeholder="Nombre de la categoría"
-                  value={nombre}
-                  onChange={(event) => {
-                    setNombre(event.target.value);
-                  }}></input>
-                <label className="form-label">Descripción</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id={"descript-" + cat_id}
-                  placeholder="Nombre de la categoría"
-                  value={descripcion}
-                  onChange={(event) => {
-                    setDescripcion(event.target.value);
-                  }}></input>
-                <label className="form-label">Slug</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id={"slug-" + cat_id}
-                  placeholder="Nombre de la categoría"
-                  value={slug}
-                  onChange={(event) => {
-                    setSlug(event.target.value);
-                  }}></input>
-              </div>
+              <label className="form-label">Nombre</label>
+              <input
+                className="form-control"
+                placeholder="Nombre de la categoría"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+              />
+              {errors.name && <small className="text-danger">{errors.name[0]}</small>}
+
+              <label className="form-label mt-3">Descripción</label>
+              <input
+                className="form-control"
+                placeholder="Descripción de la categoría"
+                value={descripcion}
+                onChange={(e) => setDescripcion(e.target.value)}
+              />
+              {errors.description && (
+                <small className="text-danger">{errors.description[0]}</small>
+              )}
+
+              <label className="form-label mt-3">Slug</label>
+              <input
+                className="form-control"
+                placeholder="Slug de la categoría"
+                value={slug}
+                onChange={(e) => setSlug(e.target.value)}
+              />
+              {errors.slug && <small className="text-danger">{errors.slug[0]}</small>}
             </div>
+
             <div className="modal-footer">
-              {status !== "" ? (
-                <div className="modal-message">
-                  Los cambios se han realizado. ¡Ya puedes cerrar esta ventana!
+              {status === 'success' && (
+                <div className="alert alert-success w-100 text-center mb-2 p-2">
+                  ¡Cambios guardados exitosamente!
                 </div>
-              ) : null}
+              )}
               <button
                 type="button"
                 className="btn btn-secondary"
-                data-bs-dismiss="modal">
+                data-bs-dismiss="modal"
+              >
                 Cerrar
               </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={(event) => {
-                  handleSubmit(event);
-                }}>
+              <button type="button" className="btn btn-primary" onClick={handleSubmit}>
                 Guardar
               </button>
             </div>
@@ -120,6 +123,7 @@ const AddUpdateCategory = (
         </form>
       </div>
     </div>
-  );
-};
-export default AddUpdateCategory;
+  )
+}
+
+export default AddUpdateCategory

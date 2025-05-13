@@ -62,6 +62,7 @@ export interface Products {
     id: number
     name: string
     description: string
+    slug: string
   }
   
   export interface Link {

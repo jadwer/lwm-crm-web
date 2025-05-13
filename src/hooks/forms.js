@@ -1,4 +1,4 @@
-import axios from '@/lib/axios'
+import axios from '@/lib/axiosClient'
 
 export const useForms = () => {
     const csrf = () => axios.get('/sanctum/csrf-cookie')

@@ -1,27 +1,32 @@
+"use client";
+
 import AddUpdateBrands from "./addUpdateBrands";
-import { useBrands } from "@/hooks/brands";
+import { useBrands } from "@/hooks/erp/useBrands";
 import { useState } from "react";
+import { Brand } from "@/lib/interfaces";
 
 const BrandsTemplate = (props: any) => {
   const marcas = props.data.marcas.data;
   const setStatus = props.data.setStatus;
   const status = props.data.status;
 
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState<Record<string, string[]>>({});
 
-  const { delBrand } = useBrands();
+  const { remove } = useBrands();
 
-  const submitDelBrand = (
-    e: { preventDefault: () => void },
-    brand_id: number
-  ) => {
+  const submitDelBrand = (e: React.MouseEvent, brandId: number) => {
     e.preventDefault();
     if (
       confirm(
         "¿Estás seguro que quieres eliminar esta marca? Esta acción no se puede deshacer."
       )
     ) {
-      delBrand({ setErrors, setStatus }, brand_id);
+      remove(brandId)
+        .then(() => setStatus("success"))
+        .catch((error) => {
+          console.error(error);
+          setErrors({ general: ["No se pudo eliminar la marca."] });
+        });
     }
   };
 
@@ -44,75 +49,67 @@ const BrandsTemplate = (props: any) => {
           </div>
         </div>
       </div>
+
       <div className="container-fluid container-product">
         <div className="row">
           <div className="col-12 mt-2 table-product">
             <table className="table">
               <thead>
                 <tr>
-                  <th className="tab-brand" scope="col">
-                    Nombre de la marca
-                  </th>
-                  <th className="tab-name" scope="col">
-                    Descripción
-                  </th>
-                  <th className="tab-brand" scope="col">
-                    Slug
-                  </th>
-                  <th className="tab-actions" scope="col">
-                    Acciones
-                  </th>
+                  <th scope="col">Nombre de la marca</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Slug</th>
+                  <th scope="col">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                {marcas.map((marca: any) => {
-                  return (
-                    <tr key={marca.id}>
-                      <td scope="row">{marca.name}</td>
-                      <td scope="row">{marca.description}</td>
-                      <td scope="row">{marca.slug}</td>
-                      <td>
-                        {" "}
-                        <button
-                          type="button"
-                          className="btn-action"
-                          data-bs-toggle="modal"
-                          data-bs-target={`#brand-${marca.id}`}>
-                          Editar
-                        </button>
-                        |
-                        <button
-                          type="button"
-                          className="btn-action"
-                          onClick={(e) => {
-                            submitDelBrand(e, marca.id);
-                          }}>
-                          Eliminar
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {marcas.map((marca: Brand) => (
+                  <tr key={marca.id}>
+                    <th scope="row">{marca.name}</th>
+                    <td>{marca.description}</td>
+                    <td>{marca.slug}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn-action"
+                        data-bs-toggle="modal"
+                        data-bs-target={`#brand-${marca.id}`}>
+                        Editar
+                      </button>{" "}
+                      |
+                      <button
+                        type="button"
+                        className="btn-action"
+                        onClick={(e) => submitDelBrand(e, marca.id)}>
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      {marcas.map((marca: any) => {
-        return (
-          <AddUpdateBrands
-            data={marca}
-            brand_id={"brand-" + marca.id}
-            status={{ setStatus, status }}
-            key={marca.id}></AddUpdateBrands>
-        );
-      })}
-      ;
+
+      {marcas.map((marca: Brand) => (
+        <AddUpdateBrands
+          key={marca.id}
+          data={marca}
+          brand_id={`brand-${marca.id}`}
+          setStatus={setStatus}
+          status={status}
+        />
+      ))}
+
       <AddUpdateBrands
         data={null}
-        status={{ setStatus, status }}
-        brand_id={"newBrand"}></AddUpdateBrands>
+        brand_id="newBrand"
+        setStatus={setStatus}
+        status={status}
+      />
     </main>
   );
 };
+
 export default BrandsTemplate;

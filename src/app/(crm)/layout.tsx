@@ -1,5 +1,6 @@
 import Header from "./ui/header/header";
 import SideNav from "./ui/sideNav/nav.html";
+import AuthenticatedLayout from "@/components/AuthenticatedLayout";
 
 export default function RootLayout({
   children,
@@ -7,12 +8,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <div className="d-flex align-items-stretch">
-          <SideNav />
-          <div className="container">
+    <AuthenticatedLayout>
+      <div className="d-flex align-items-stretch">
+        <SideNav />
+        <div className="container">
           <Header />
           {children}
-          </div>
         </div>
+      </div>
+    </AuthenticatedLayout>
   );
 }

@@ -1,4 +1,4 @@
-import axios from "@/lib/axios";
+import axios from "@/lib/axiosClient";
 import { isUndefined } from "swr/_internal";
 
 export const useBrands = () => {

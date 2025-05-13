@@ -1,29 +1,36 @@
-import AddUpdateUnits from "./addUpdateUnits";
-import { useUnits } from "@/hooks/units";
-import { useState } from "react";
+'use client'
+
+import AddUpdateUnits from './addUpdateUnits'
+import { useUnits } from '@/hooks/inventory/useUnits'
+import { useState } from 'react'
+import { Unit } from '@/lib/interfaces'
+import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
 
 const UnitsTemplate = (props: any) => {
-  const unidades = props.data.unidades.data;
-  const setStatus = props.data.setStatus;
-  const status = props.data.status;
+const { unidades = [], status, setStatus } = props.data ?? {};
+const [errors, setErrors] = useState<Record<string, string[]>>({})
 
-  const [errors, setErrors] = useState([]);
+  const { remove } = useUnits()
 
-  const { delUnit } = useUnits();
-
-  const submitDelUnit = (
-    e: { preventDefault: () => void },
+  const submitDelUnit = async (
+    e: React.MouseEvent<HTMLButtonElement>,
     unit_id: number
   ) => {
-    e.preventDefault();
+    e.preventDefault()
     if (
       confirm(
-        "¿Estás seguro que quieres eliminar esta unidad de medida? Esta acción no se puede deshacer."
+        '¿Estás seguro que quieres eliminar esta unidad de medida? Esta acción no se puede deshacer.'
       )
     ) {
-      delUnit({ setErrors, setStatus }, unit_id);
+      try {
+        await remove(unit_id)
+        setStatus('deleted')
+      } catch (error: any) {
+        handleApiErrors(error, setErrors, (st) => setStatus(st ?? 'error'))
+      }
     }
-  };
+  }
+
   return (
     <main>
       <div className="container-fluid back-header">
@@ -37,81 +44,76 @@ const UnitsTemplate = (props: any) => {
               type="button"
               className="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#newUnit">
+              data-bs-target="#newUnit"
+            >
               Agregar
             </button>
           </div>
         </div>
       </div>
+
       <div className="container-fluid container-product">
         <div className="row">
           <div className="col-12 mt-2 table-product">
             <table className="table">
               <thead>
                 <tr>
-                  <th className="tab-category" scope="col">
-                    Nombre de la unidad de medida
-                  </th>
-                  <th className="tab-name" scope="col">
-                    Descripción
-                  </th>
-                  <th className="tab-brand" scope="col">
-                    Código de unidad de medida
-                  </th>
-                  <th className="tab-actions" scope="col">
-                    Acciones
-                  </th>
+                  <th className="tab-category">Nombre</th>
+                  <th className="tab-name">Descripción</th>
+                  <th className="tab-brand">Código</th>
+                  <th className="tab-actions">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                {unidades.map((unidad: any) => {
-                  return (
-                    <tr key={unidad.id}>
-                      <td scope="row">{unidad.name}</td>
-                      <td scope="row">{unidad.type}</td>
-                      <td scope="row">{unidad.code}</td>
-                      <td>
-                        {" "}
-                        <button
-                          type="button"
-                          className="btn-action"
-                          data-bs-toggle="modal"
-                          data-bs-target={`#unit-${unidad.id}`}>
-                          Editar
-                        </button>
-                        |
-                        <button
-                          type="button"
-                          className="btn-action"
-                          onClick={(e) => {
-                            submitDelUnit(e, unidad.id);
-                          }}>
-                          Eliminar
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {Array.isArray(unidades) && unidades.map((unidad: Unit) => (
+                  <tr key={unidad.id}>
+                    <td>{unidad.name}</td>
+                    <td>{unidad.type}</td>
+                    <td>{unidad.code}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn-action"
+                        data-bs-toggle="modal"
+                        data-bs-target={`#unit-${unidad.id}`}
+                      >
+                        Editar
+                      </button>{' '}
+                      |{' '}
+                      <button
+                        type="button"
+                        className="btn-action"
+                        onClick={(e) => submitDelUnit(e, unidad.id)}
+                      >
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </div>
-      {unidades.map((unidad: any) => {
-        return (
-          <AddUpdateUnits
-            data={unidad}
-            unit_id={"unit-" + unidad.id}
-            status={{ setStatus, status }}
-            key={unidad.id}></AddUpdateUnits>
-        );
-      })}
-      ;
+
+      {Array.isArray(unidades) && unidades.map((unidad: Unit) => (
+        <AddUpdateUnits
+          key={unidad.id}
+          data={unidad}
+          unit_id={`unit-${unidad.id}`}
+          status={status}
+          setStatus={setStatus}
+        />
+      ))}
+
       <AddUpdateUnits
         data={null}
-        status={{ setStatus, status }}
-        unit_id={"newUnit"}></AddUpdateUnits>
+        unit_id="newUnit"
+        status={status}
+        setStatus={setStatus}
+      />
     </main>
-  );
-};
-export default UnitsTemplate;
+  )
+}
+
+export default UnitsTemplate
