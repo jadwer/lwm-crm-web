@@ -8,7 +8,7 @@ export const useBrands = () => {
     //await csrf();
     axios
       .get(`/api/brands`)
-      .then((res) => setBrands(res.data))
+      .then((res) => setBrands(res.data.data))
       .catch((error) => {
         console.log(error);
       });

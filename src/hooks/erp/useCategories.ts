@@ -1,43 +1,42 @@
-import { handleApiErrors } from "@/hooks/utils/handleApiErrors";
-// Archivo: useCategory.ts
+// Archivo: useCategories.ts
 
-import useSWR from "swr";
-import axios from "@/lib/axiosClient";
+import useSWR from "swr"
+import axios from "@/lib/axiosClient"
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+const fetcher = (url: string) => axios.get(url).then((res) => res.data.data)
 
 export const useCategories = () => {
-  const { data, error, isLoading, mutate } = useSWR("/api/categorys", fetcher);
+  const { data, error, isLoading, mutate } = useSWR("/api/categories", fetcher)
 
   const get = async (id: number) => {
-    const res = await axios.get(`/api/categorys/${id}`);
-    return res.data;
-  };
+    const res = await axios.get(`/api/categories/${id}`)
+    return res.data.data
+  }
 
   const getCategories = async () => {
-    const res = await axios.get("/api/products");
-    return res.data;
-  };
+    const res = await axios.get("/api/categories")
+    return res.data.data
+  }
 
   const create = async (payload: any) => {
-    const res = await axios.post(`/api/categorys`, payload);
-    mutate();
-    return res.data;
-  };
+    const res = await axios.post(`/api/categories`, payload)
+    mutate()
+    return res.data
+  }
 
   const update = async (id: number, payload: any) => {
-    const res = await axios.put(`/api/categorys/${id}`, payload);
-    mutate();
-    return res.data;
-  };
+    const res = await axios.put(`/api/categories/${id}`, payload)
+    mutate()
+    return res.data
+  }
 
   const remove = async (id: number) => {
-    await axios.delete(`/api/categorys/${id}`);
-    mutate();
-  };
+    await axios.delete(`/api/categories/${id}`)
+    mutate()
+  }
 
   return {
-    [`categorys`]: data,
+    categories: data ?? [],
     isLoading,
     isError: error,
     get,
@@ -46,6 +45,5 @@ export const useCategories = () => {
     update,
     remove,
     mutate,
-  };
-};
-
+  }
+}

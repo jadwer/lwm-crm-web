@@ -1,10 +1,7 @@
-import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
-// Archivo: useBrand.ts
-
 import useSWR from 'swr'
 import axios from '@/lib/axiosClient'
 
-const fetcher = (url: string) => axios.get(url).then(res => res.data)
+const fetcher = (url: string) => axios.get(url).then(res => res.data.data)
 
 export const useBrands = () => {
   const {
@@ -16,18 +13,17 @@ export const useBrands = () => {
 
   const get = async (id: number) => {
     const res = await axios.get(`/api/brands/${id}`)
-    return res.data
+    return res.data.data
   }
 
   const getBrands = async () => {
-    const res = await axios.get("/api/products");
-    return res.data;
-  };
+    const res = await axios.get("/api/brands")
+    return res.data.data
+  }
 
   const create = async (payload: any) => {
     const res = await axios.post(`/api/brands`, payload)
     mutate()
-    console.log(res.data)
     return res.data
   }
 
@@ -43,7 +39,7 @@ export const useBrands = () => {
   }
 
   return {
-    [`brands`]: data,
+    brands: data ?? [],
     isLoading,
     isError: error,
     get,

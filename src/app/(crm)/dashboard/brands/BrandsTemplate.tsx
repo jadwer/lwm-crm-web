@@ -1,34 +1,37 @@
-"use client";
+// Archivo: src/app/(crm)/dashboard/brands/BrandsTemplate.tsx
 
-import AddUpdateBrands from "./addUpdateBrands";
-import { useBrands } from "@/hooks/erp/useBrands";
-import { useState } from "react";
-import { Brand } from "@/lib/interfaces";
+'use client'
 
-const BrandsTemplate = (props: any) => {
-  const marcas = props.data.marcas.data;
-  const setStatus = props.data.setStatus;
-  const status = props.data.status;
+import { Brand } from "@/lib/interfaces"
+import { useBrands } from "@/hooks/erp/useBrands"
+import AddUpdateBrands from "./AddUpdateBrands"
+import { useState } from "react"
 
-  const [errors, setErrors] = useState<Record<string, string[]>>({});
+interface BrandsTemplateProps {
+  data: {
+    marcas: Brand[]
+    status: string
+    setStatus: (status: string) => void
+  }
+}
 
-  const { remove } = useBrands();
+const BrandsTemplate = ({ data }: BrandsTemplateProps) => {
+  const { marcas, setStatus, status } = data
+  const { remove } = useBrands()
+  const [errors, setErrors] = useState<Record<string, string[]>>({})
 
-  const submitDelBrand = (e: React.MouseEvent, brandId: number) => {
-    e.preventDefault();
-    if (
-      confirm(
-        "¿Estás seguro que quieres eliminar esta marca? Esta acción no se puede deshacer."
-      )
-    ) {
-      remove(brandId)
-        .then(() => setStatus("success"))
-        .catch((error) => {
-          console.error(error);
-          setErrors({ general: ["No se pudo eliminar la marca."] });
-        });
+  const handleDelete = async (e: React.MouseEvent, id: number) => {
+    e.preventDefault()
+    if (confirm("¿Seguro que deseas eliminar esta marca?")) {
+      try {
+        await remove(id)
+        setStatus("success")
+      } catch (err) {
+        console.error(err)
+        setErrors({ general: ["Error al eliminar la marca."] })
+      }
     }
-  };
+  }
 
   return (
     <main>
@@ -43,7 +46,8 @@ const BrandsTemplate = (props: any) => {
               type="button"
               className="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#newBrand">
+              data-bs-target="#newBrand"
+            >
               Agregar
             </button>
           </div>
@@ -56,31 +60,31 @@ const BrandsTemplate = (props: any) => {
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">Nombre de la marca</th>
-                  <th scope="col">Descripción</th>
-                  <th scope="col">Slug</th>
-                  <th scope="col">Acciones</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Slug</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                {marcas.map((marca: Brand) => (
+                {marcas.map((marca) => (
                   <tr key={marca.id}>
-                    <th scope="row">{marca.name}</th>
+                    <td>{marca.name}</td>
                     <td>{marca.description}</td>
                     <td>{marca.slug}</td>
                     <td>
                       <button
-                        type="button"
                         className="btn-action"
                         data-bs-toggle="modal"
-                        data-bs-target={`#brand-${marca.id}`}>
+                        data-bs-target={`#brand-${marca.id}`}
+                      >
                         Editar
                       </button>{" "}
-                      |
+                      |{" "}
                       <button
-                        type="button"
                         className="btn-action"
-                        onClick={(e) => submitDelBrand(e, marca.id)}>
+                        onClick={(e) => handleDelete(e, marca.id)}
+                      >
                         Eliminar
                       </button>
                     </td>
@@ -92,7 +96,7 @@ const BrandsTemplate = (props: any) => {
         </div>
       </div>
 
-      {marcas.map((marca: Brand) => (
+      {marcas.map((marca) => (
         <AddUpdateBrands
           key={marca.id}
           data={marca}
@@ -109,7 +113,7 @@ const BrandsTemplate = (props: any) => {
         status={status}
       />
     </main>
-  );
-};
+  )
+}
 
-export default BrandsTemplate;
+export default BrandsTemplate

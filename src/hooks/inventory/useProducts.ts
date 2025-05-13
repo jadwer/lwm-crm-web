@@ -21,12 +21,12 @@ export const useProducts = () => {
 
 const getAllProducts = async () => {
   const res = await axios.get('/api/products')
-  return res.data
+  return res.data.data
 }
 
 const getFilteredProducts = async (searchFilter: string) => {
     const res = await axios.get(`/api/products${searchFilter}`)
-    return res.data
+    return res.data.data
   }
 
   const createProduct = async (producto: FormData) => {

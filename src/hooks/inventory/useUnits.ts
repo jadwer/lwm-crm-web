@@ -1,10 +1,9 @@
-import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
-// Archivo: useUnit.ts
+// Archivo: useUnits.ts
 
 import useSWR from 'swr'
 import axios from '@/lib/axiosClient'
 
-const fetcher = (url: string) => axios.get(url).then(res => res.data)
+const fetcher = (url: string) => axios.get(url).then(res => res.data.data)
 
 export const useUnits = () => {
   const {
@@ -14,13 +13,14 @@ export const useUnits = () => {
     mutate,
   } = useSWR('/api/units', fetcher)
 
-const getUnits = async () => {
-  const res = await axios.get('/api/units')
-  return res.data
-}
+  const getUnits = async () => {
+    const res = await axios.get('/api/units')
+    return res.data.data
+  }
+
   const get = async (id: number) => {
     const res = await axios.get(`/api/units/${id}`)
-    return res.data
+    return res.data.data
   }
 
   const create = async (payload: any) => {
@@ -41,7 +41,7 @@ const getUnits = async () => {
   }
 
   return {
-    [`units`]: data,
+    units: data ?? [],
     isLoading,
     isError: error,
     getUnits,

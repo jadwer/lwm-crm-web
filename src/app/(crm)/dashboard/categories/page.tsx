@@ -1,35 +1,7 @@
-'use client'
+// Archivo: src/app/(crm)/dashboard/categories/page.tsx
 
-import { Suspense, useEffect, useState } from "react";
-import { useCategories } from "@/hooks/categories";
-import { Category } from "@/lib/interfaces";
+import CategoriesClient from "./CategoriesClient"
 
-import CategoriesTemplate from "./categories.html"
-import { get } from "http";
-
-const CategoriesPage = () => {
-  const [categorias, setCategories] = useState<Category[]>([]);
-  const [status, setStatus] = useState("");
-  const { getCategories } = useCategories();
-  
-  useEffect(() => {
-    getCategories( {setCategories} );
-    setTimeout(()=>{setStatus("")}, 5000);
-  }, [getCategories]);
-
-  if(Object.keys(categorias).length === 0){
-    return (
-      <Suspense>
-        <h2>Loading...</h2>
-      </Suspense>
-    )
-  } else {
-    return (
-  <Suspense>
-    <CategoriesTemplate data={{categorias, status, setStatus}} />
-  </Suspense>
-  )
+export default function CategoriesPage() {
+  return <CategoriesClient />
 }
-}
-
-export default CategoriesPage

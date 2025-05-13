@@ -13,8 +13,8 @@ import { useProducts } from '@/hooks/inventory/useProducts'
 import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
 
 const ProductsTemplate = ({ data, functions }: any) => {
-  const productos: Product[] = data.productos.data
-  const metaData = data.productos
+  const productos: Product[] = data ? data.productos.data : []
+  const metaData = data ? data.productos : {} // Cambia esto según la estructura de tu respuesta
   const searchQueryBuilder = functions.searchQueryBuilder
 
   const [categoria, setCategoria] = useState<Category>({} as Category)

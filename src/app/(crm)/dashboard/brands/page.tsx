@@ -1,37 +1,7 @@
-'use client'
+// Archivo: src/app/(crm)/dashboard/brands/page.tsx
 
-import { Suspense, useEffect, useState } from "react"
-import BrandsTemplate from "./brands.html"
-import { useBrands } from "@/hooks/erp/useBrands"
-import { Brand } from "@/lib/interfaces"
+import BrandsClient from "./BrandsClient"
 
-const BrandsPage = () => {
-  const [marcas, setBrands] = useState<Brand[]>([])
-  const [status, setStatus] = useState("")
-  const { getBrands } = useBrands()
-
-  useEffect(() => {
-    getBrands().then(data => {
-      setBrands(data)
-    })
-    setTimeout(() => {
-      setStatus("")
-    }, 5000)
-  }, [getBrands])
-
-  if (marcas.length === 0) {
-    return (
-      <Suspense>
-        <h2>Loading...</h2>
-      </Suspense>
-    )
-  }
-
-  return (
-    <Suspense>
-      <BrandsTemplate data={{ marcas, status, setStatus }} />
-    </Suspense>
-  )
+export default function BrandsPage() {
+  return <BrandsClient />
 }
-
-export default BrandsPage
