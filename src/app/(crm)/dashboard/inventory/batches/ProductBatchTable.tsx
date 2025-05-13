@@ -7,35 +7,44 @@ import { ProductBatch } from '@/lib/interfaces'
 import ProductBatchForm from './ProductBatchForm'
 import { useProductBatches } from '@/hooks/inventory/useProductBatches'
 
-const ProductBatchTable = ({ batches }: { batches: ProductBatch[] }) => {
+const ProductBatchTable = ({
+  batches,
+  onSuccess,
+}: {
+  batches: ProductBatch[]
+  onSuccess: () => void
+}) => {
   const [editingBatch, setEditingBatch] = useState<ProductBatch | null>(null)
-  const { deleteProductBatch, getProductBatches } = useProductBatches()
+  const { deleteProductBatch } = useProductBatches()
 
   const closeEditor = () => setEditingBatch(null)
 
-  const handleDelete = async (batchId: number, productId: number) => {
+  const handleDelete = async (batchId: number) => {
     const confirm = window.confirm("¿Estás seguro de que quieres eliminar este lote?")
     if (!confirm) return
 
     try {
       await deleteProductBatch(batchId)
-      await getProductBatches(productId)
+      onSuccess() // ✅ recarga centralizada desde page.tsx
     } catch (error) {
       alert("No se pudo eliminar el lote.")
     }
   }
 
-  console.log(batches)
   return (
     <div>
       {editingBatch && (
         <div className="mb-6 border p-4 rounded-xl bg-gray-50">
           <ProductBatchForm
-            productId={editingBatch.product_id}
+            productId={
+              typeof editingBatch.product_id === 'object'
+                ? editingBatch.product_id.id
+                : editingBatch.product_id
+            }
             batch={editingBatch}
             onSuccess={() => {
               closeEditor()
-              getProductBatches(editingBatch.product_id)
+              onSuccess() // ✅ usar onSuccess en lugar de hook local
             }}
           />
         </div>
@@ -48,6 +57,7 @@ const ProductBatchTable = ({ batches }: { batches: ProductBatch[] }) => {
               <th className="px-6 py-3">ID</th>
               <th className="px-6 py-3">Cantidad</th>
               <th className="px-6 py-3">Fecha de entrada</th>
+              <th className="px-6 py-3">Fecha de caducidad</th>
               <th className="px-6 py-3">Almacén</th>
               <th className="px-6 py-3">Ubicación</th>
               <th className="px-6 py-3 text-center">Acciones</th>
@@ -59,6 +69,7 @@ const ProductBatchTable = ({ batches }: { batches: ProductBatch[] }) => {
                 <td className="px-6 py-3">{batch.id}</td>
                 <td className="px-6 py-3">{batch.quantity}</td>
                 <td className="px-6 py-3">{batch.entry_date ?? '—'}</td>
+                <td className="px-6 py-3">{batch.expiration_date ?? '—'}</td>
                 <td className="px-6 py-3">
                   {batch.warehouse
                     ? `${batch.warehouse.name} (${batch.warehouse.location ?? 'sin ubicación'})`
@@ -77,7 +88,13 @@ const ProductBatchTable = ({ batches }: { batches: ProductBatch[] }) => {
                     Editar
                   </button>
                   <button
-                    onClick={() => handleDelete(batch.id, batch.product_id)}
+                    onClick={() =>
+                      handleDelete(
+                        typeof batch.product_id === 'object'
+                          ? batch.product_id.id
+                          : batch.product_id
+                      )
+                    }
                     className="text-red-600 hover:underline"
                   >
                     Eliminar

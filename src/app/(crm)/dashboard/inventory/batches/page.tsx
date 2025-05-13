@@ -33,7 +33,7 @@ const ProductBatchPage = () => {
       <h1 className="text-2xl font-bold mb-4">Lotes del Producto #{productId}</h1>
       <ProductBatchForm productId={productId} onSuccess={handleSuccess} />
       <div className="mt-6">
-        <ProductBatchTable batches={batches} />
+<ProductBatchTable batches={batches} onSuccess={handleSuccess} />
       </div>
     </div>
   )
