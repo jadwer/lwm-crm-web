@@ -1,40 +1,44 @@
-"use client";
+"use client"
 
-import { useBrands } from "@/hooks/brands";
-import { Brands, Brand } from "@/lib/interfaces";
-import { useEffect, useState } from "react";
+import { useBrands } from "@/hooks/erp/useBrands"
+import { Brand } from "@/lib/interfaces"
+import { useEffect, useState } from "react"
 
 const SelectBrands = (props: any) => {
-  const label = props.label;
-  const { getBrands } = useBrands();
-  const [brands, setBrands] = useState<Brands>({} as Brands);
+  const label = props.label
+  const { getBrands } = useBrands()
+  const [brands, setBrands] = useState<Brand[]>([])
 
   useEffect(() => {
-    getBrands({ setBrands });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    getBrands().then((data) => {
+      if (Array.isArray(data)) setBrands(data)
+    })
+  }, [])
 
-  if (Object.keys(brands).length === 0) {
-    return <>Cargando...</>;
-  } else {
-    return (
-        <select
-          id="marca"
-          className="form-select"
-          value={props.stateData.marca}
-          onChange={(e) => {
-            props.stateData.setMarca(e.target.value);
-          }}>
-          <option defaultValue={""}>{label}</option>
-          {brands.data.map((marca: Brand) => {
-            return (
-              <option value={marca.id} key={marca.id}>
-                {marca.name}
-              </option>
-            );
-          })}
-        </select>
-    );
-  }
-};
-export default SelectBrands;
+  if (!Array.isArray(brands)) return <>Cargando...</>
+
+  return (
+    <select
+      id="marca"
+      className="form-select"
+      value={props.stateData.marca}
+      onChange={(e) => {
+        const value = e.target.value
+        props.stateData.setMarca(value)
+        if (props.stateData.setQueryBrandsId) {
+          props.stateData.setQueryBrandsId(value)
+        }
+      }}
+    >
+      <option value="">{label}</option>
+      <option value="">Todas las marcas</option>
+      {brands.map((marca) => (
+        <option value={marca.id} key={marca.id}>
+          {marca.name}
+        </option>
+      ))}
+    </select>
+  )
+}
+
+export default SelectBrands

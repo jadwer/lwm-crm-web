@@ -7,26 +7,18 @@ import { Product, ProductsPaginated } from '@/lib/interfaces'
 const fetcher = (url: string) => axios.get(url).then(res => res.data)
 
 export const useProducts = () => {
-  const {
-    data: products,
-    error,
-    isLoading,
-    mutate,
-  } = useSWR('/api/products', fetcher)
+  const { data, error, isLoading, mutate } = useSWR('/api/products', fetcher)
 
-  const getProduct = async (id: number) => {
+  const getProduct = async (id: number): Promise<Product> => {
     const res = await axios.get(`/api/products/${id}`)
-    return res.data
+    return res.data.data
   }
 
-const getAllProducts = async () => {
-  const res = await axios.get('/api/products')
-  return res.data.data
-}
-
-const getFilteredProducts = async (searchFilter: string) => {
+  const getFilteredProducts = async (searchFilter: string): Promise<ProductsPaginated> => {
+    console.log(`/api/products${searchFilter}`)
     const res = await axios.get(`/api/products${searchFilter}`)
-    return res.data.data
+    console.log(res.data)
+    return res.data
   }
 
   const createProduct = async (producto: FormData) => {
@@ -38,9 +30,7 @@ const getFilteredProducts = async (searchFilter: string) => {
   }
 
   const updateProduct = async (id: number, producto: FormData) => {
-    producto.append('_method', 'PATCH')
-    console.log(producto)
-    const res = await axios.post(`/api/products/${id}`, producto, {
+    const res = await axios.patch(`/api/products/${id}`, producto, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
     mutate()
@@ -52,25 +42,15 @@ const getFilteredProducts = async (searchFilter: string) => {
     mutate()
   }
 
-  const importCSV = async (csv: FormData) => {
-    const res = await axios.post('/api/CSVImport', csv, {
-      headers: { 'Content-Type': 'multipart/form-data' },
-    })
-    mutate()
-    return res.data
-  }
-
   return {
-    products,
+    products: data ?? [],
     isLoading,
     isError: error,
     mutate,
     getProduct,
-    getAllProducts,
     getFilteredProducts,
     createProduct,
     updateProduct,
     deleteProduct,
-    importCSV,
   }
 }

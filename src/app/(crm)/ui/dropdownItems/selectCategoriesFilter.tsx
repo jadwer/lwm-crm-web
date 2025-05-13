@@ -27,6 +27,7 @@ const SelectCategories = (props: any) => {
             console.log("value:" + e.target.value)
           }}>
           <option value={""} defaultValue={""}>{label}</option>
+          <option value="">Todas las marcas</option>
           {categories.data.map((categoria: Category) => {
             return (
               <option value={categoria.id} key={categoria.id}>

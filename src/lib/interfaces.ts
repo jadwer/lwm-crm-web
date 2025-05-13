@@ -29,7 +29,19 @@ export interface Products {
     category_id: Category
     brand_id: Brand
   }
-  
+
+  export interface ProductsPaginated {
+  data: Product[]
+  meta: {
+    current_page: number
+    last_page: number
+    total: number
+    per_page: number
+    from: number
+    to: number
+  }
+}
+
   export interface Units {
     status: string,
     data: Unit[]
