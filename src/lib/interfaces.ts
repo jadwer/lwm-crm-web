@@ -114,3 +114,13 @@ export interface ProductBatch {
     type: string
   }
 }
+// Interface: Warehouse
+export interface Warehouse {
+  id: number
+  name: string
+  location?: string | null
+  notes?: string | null
+  manager_id?: number | null // puedes quitarlo si aún no se usa
+  created_at?: string
+  updated_at?: string
+}

@@ -1,4 +1,4 @@
-// Archivo: useWarehouses.ts - Hook para obtener la lista de almacenes
+// Archivo: useWarehouses.ts - Hook para gestionar almacenes (listar, crear, editar, eliminar)
 
 import { useState, useEffect } from "react"
 import axiosClient from "@/lib/axiosClient"
@@ -21,9 +21,32 @@ export const useWarehouses = () => {
     }
   }
 
+  const createWarehouse = async (data: Partial<Warehouse>) => {
+    await axiosClient.post("/api/warehouses", data)
+    await getWarehouses()
+  }
+
+  const updateWarehouse = async (id: number, data: Partial<Warehouse>) => {
+    await axiosClient.put(`/api/warehouses/${id}`, data)
+    await getWarehouses()
+  }
+
+  const deleteWarehouse = async (id: number) => {
+    await axiosClient.delete(`/api/warehouses/${id}`)
+    await getWarehouses()
+  }
+
   useEffect(() => {
     getWarehouses()
   }, [])
 
-  return { warehouses, loading, error }
+  return {
+    warehouses,
+    loading,
+    error,
+    getWarehouses,
+    createWarehouse,
+    updateWarehouse,
+    deleteWarehouse,
+  }
 }
