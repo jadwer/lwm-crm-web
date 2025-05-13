@@ -59,6 +59,11 @@ const getFilteredProducts = async (searchFilter: string) => {
     mutate()
     return res.data
   }
+  // Obtiene productos paginados desde la API de Laravel
+  const getPaginatedProducts = async (page: number = 1) => {
+    const res = await axios.get(`/api/products?page=${page}`)
+    return res.data
+  }
 
   return {
     products,
@@ -72,5 +77,6 @@ const getFilteredProducts = async (searchFilter: string) => {
     updateProduct,
     deleteProduct,
     importCSV,
+    getPaginatedProducts,
   }
 }

@@ -83,3 +83,34 @@ export interface Products {
     active: boolean
   }
   
+  // Interface Stock
+export interface Stock {
+  id: number
+  product_id: number
+  quantity: number
+  warehouse_id?: number
+  warehouse_location_id?: number
+}
+
+export interface ProductBatch {
+  id: number
+  product_id: number
+  batch_number: string
+  quantity: number
+  entry_date: string | null
+  expiration_date?: string | null
+  warehouse_id: number
+  warehouse_location_id: number
+
+  // Relaciones opcionales (pueden venir con "included" en json:api)
+  warehouse?: {
+    id: number
+    name: string
+    location?: string
+  }
+  warehouse_location?: {
+    id: number
+    name: string
+    type: string
+  }
+}
