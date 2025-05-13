@@ -124,3 +124,16 @@ export interface Warehouse {
   created_at?: string
   updated_at?: string
 }
+
+export interface WarehouseLocation {
+  id: number
+  name: string
+  type?: string | null
+  warehouse_id: number
+  warehouse?: {
+    id: number
+    name: string
+  }
+  created_at?: string
+  updated_at?: string
+}
