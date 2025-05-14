@@ -102,7 +102,6 @@ export interface ProductBatch {
   warehouse_id: number
   warehouse_location_id: number
 
-  // Relaciones opcionales (pueden venir con "included" en json:api)
   warehouse?: {
     id: number
     name: string
@@ -114,13 +113,13 @@ export interface ProductBatch {
     type: string
   }
 }
-// Interface: Warehouse
+
 export interface Warehouse {
   id: number
   name: string
   location?: string | null
   notes?: string | null
-  manager_id?: number | null // puedes quitarlo si aún no se usa
+  manager_id?: number | null
   created_at?: string
   updated_at?: string
 }
@@ -158,4 +157,38 @@ export interface Customer {
   rfc: string;
   created_at?: string;
   updated_at?: string;
+}
+
+export interface PurchaseOrder {
+  id: number;
+  supplier_id: number;
+  order_date: string;
+  status: 'pending' | 'approved' | 'received' | 'cancelled';
+  total_amount: number | string;
+  notes?: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface PurchaseOrderItem {
+  id: number;
+  purchase_order_id: number;
+  product_id: number;
+  quantity: number;
+  unit_price: number | string;
+  subtotal: number | string;
+}
+
+export interface ProductMini {
+  id: number;
+  name: string;
+  sku: string;
+  unit_price?: number;
+  subtotal?: number;
+  quantity?: number;
+  img_path?: string;
+  datasheet_path?: string;
+  category_id?: number;
+  brand_id?: number;
+  unit_id?: number;
 }

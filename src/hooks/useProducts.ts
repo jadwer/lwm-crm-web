@@ -20,6 +20,7 @@ export const useProducts = () => {
 
   const getFilteredProducts = async (searchFilter: string) => {
     const res = await axios.get(`/api/products${searchFilter}`);
+    mutate()
     return res.data;
   };
 

@@ -17,8 +17,9 @@ export const useProducts = () => {
   const getFilteredProducts = async (searchFilter: string): Promise<ProductsPaginated> => {
     console.log(`/api/products${searchFilter}`)
     const res = await axios.get(`/api/products${searchFilter}`)
-    console.log(res.data)
-    return res.data
+    console.log(res.data.data)
+    mutate()
+    return res.data.data
   }
 
   const createProduct = async (producto: FormData) => {

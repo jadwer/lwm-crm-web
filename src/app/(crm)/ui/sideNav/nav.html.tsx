@@ -116,6 +116,33 @@ const SideNav = () => (
           </button>
           </li>
 
+        <li className="mb-1">
+          <button
+            className="btn btn-toggle collapsed"
+            style={{ color: "#fff" }}
+            data-bs-toggle="collapse"
+            data-bs-target="#purchases-collapse"
+            aria-expanded="false">
+            Compras
+          </button>
+          <div className="collapse" id="purchases-collapse">
+            <ul className="btn-toggle-nav list-unstyled small">
+              <li>
+                <a
+                  href="/dashboard/purchases">
+                  Compras
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/dashboard/warehouses/locations">
+                  Ubicaciones
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
       </ul>
 
     </div>
