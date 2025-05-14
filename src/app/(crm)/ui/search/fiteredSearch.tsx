@@ -1,7 +1,7 @@
 "use client"
 
 import Paginator from "@/app/(crm)/ui/paginator/paginator"
-import { useProducts } from "@/hooks/erp/useProducts"
+import { useProducts } from "@/hooks/useProducts"
 import { Product } from "@/lib/interfaces"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -40,8 +40,8 @@ useEffect(() => {
     }
   }
 
+  console.log("📦 Estado de productos:", productos)
   if (!Array.isArray(productos)) return <>Cargando...</>
-
   return (
     <>
       <div className="row">

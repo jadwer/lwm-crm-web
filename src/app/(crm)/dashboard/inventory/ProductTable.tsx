@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Product } from '@/lib/interfaces'
 
 const ProductTable = ({ productos }: { productos: Product[] }) => {
+  console.log("📦 Productos recibidos en ProductTable:", productos[0].category_id.name);
   return (
     <div className="overflow-x-auto border rounded-xl shadow-sm bg-white">
       <table className="min-w-full text-sm text-left text-gray-700">
@@ -23,9 +24,9 @@ const ProductTable = ({ productos }: { productos: Product[] }) => {
           {productos.map((producto) => (
             <tr key={producto.id} className="border-t hover:bg-gray-50">
               <td className="px-6 py-3">{producto.name}</td>
-              <td className="px-6 py-3">{producto.brand?.name || '-'}</td>
-              <td className="px-6 py-3">{producto.category?.name || '-'}</td>
-              <td className="px-6 py-3">{producto.unit?.name || '-'}</td>
+              <td className="px-6 py-3">{producto.brand_id?.name || '-'}</td>
+              <td className="px-6 py-3">{producto.category_id?.name || '-'}</td>
+              <td className="px-6 py-3">{producto.unit_id?.name || '-'}</td>
               <td className="px-6 py-3 font-semibold">{producto.stock ?? '0'}</td>
               <td className="px-6 py-3 text-center">
                 <Link

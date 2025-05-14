@@ -192,3 +192,38 @@ export interface ProductMini {
   brand_id?: number;
   unit_id?: number;
 }
+
+export interface SalesOrder {
+  id: number;
+  customer_id: number;
+  order_date: string;
+  status: 'pending' | 'approved' | 'cancelled' | 'completed';
+  total_amount: number;
+  notes: string;
+  created_at?: string;
+  updated_at?: string;
+  customer?: Customer;
+}
+
+export interface SalesOrderItem {
+  id: number;
+  sales_order_id: number;
+  product_id: number;
+  quantity: number;
+  unit_price: number;
+  subtotal: number;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface SalesOrderItemParams {
+  sales_order_id: number;
+  page?: number;
+}
+
+export interface SalesOrderItemsResponse {
+  data: SalesOrderItem[];
+  total: number;
+  current_page: number;
+  last_page: number;
+}
