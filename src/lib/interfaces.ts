@@ -149,3 +149,13 @@ export interface Supplier {
   updated_at?: string;
 }
 
+export interface Customer {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  rfc: string;
+  created_at?: string;
+  updated_at?: string;
+}

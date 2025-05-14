@@ -108,6 +108,14 @@ const SideNav = () => (
           </button>
           </li>
 
+        <li className="mb-1">
+          <button
+            className="btn btn-toggle collapsed"
+            style={{ color: "#fff" }} >
+            <a href="/dashboard/customers">Clientes</a>
+          </button>
+          </li>
+
       </ul>
 
     </div>
