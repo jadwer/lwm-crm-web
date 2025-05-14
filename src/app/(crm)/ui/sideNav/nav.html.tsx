@@ -100,6 +100,14 @@ const SideNav = () => (
         </li>
 
 
+        <li className="mb-1">
+          <button
+            className="btn btn-toggle collapsed"
+            style={{ color: "#fff" }} >
+            <a href="/dashboard/suppliers">Proveedores</a>
+          </button>
+          </li>
+
       </ul>
 
     </div>
