@@ -1,4 +1,5 @@
 import Estimate from "../../ui/estimate/estimate.html";
+import AddToCartButton from "@/components/AddToCartButton";
 
 const ProductoTemplate = (props: any) => {
   const producto = props.data.producto;
@@ -102,6 +103,7 @@ const ProductoTemplate = (props: any) => {
                     data-bs-target="#estimate">
                     <span>¡SOLICITA TU COTIZACIÓN AHORA!</span>
                   </button>
+                  <AddToCartButton product={producto} />
                 </div>
               </div>
             </div>

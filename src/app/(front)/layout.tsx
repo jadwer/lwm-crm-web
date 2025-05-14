@@ -3,6 +3,7 @@ import Footer from "./ui/footer/footer.html";
 import Contact from "./ui/contact/contact.html";
 import TopNav from "./ui/topNav/nav.html";
 import Estimate from "./ui/estimate/estimate.html";
+import { CartProvider } from "@/context/CartContext";
 
 
 export default function RootLayout({
@@ -16,7 +17,7 @@ export default function RootLayout({
       <TopNav />
       <Contact />
       <Estimate />
-        {children}
+      <CartProvider>{children}</CartProvider>
       <Footer />
     </>
   );

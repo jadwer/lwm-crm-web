@@ -1,5 +1,6 @@
 import LoginLinks from '@/app/(auth)/components/LoginLinks';
 import WhatsappWidget from "../whatsapp/whatsapp"
+import FloatingCartIcon from "@/components/FloatingCartIcon";
 
 const HeaderTemplate = () => {
   return (
@@ -65,6 +66,7 @@ const HeaderTemplate = () => {
           </div>
         </div>
       </header>
+        <FloatingCartIcon />
       <WhatsappWidget></WhatsappWidget>
     </>
 

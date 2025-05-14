@@ -25,8 +25,6 @@ const FilteredSearch = (props: any) => {
 
   const metaData = productos;
 
-  console.log("🔍 searchFilter actual:", searchFilter);
-  console.log("🧩 Productos recibidos para mostrar:", productos.data);
 
   return (
     <>
