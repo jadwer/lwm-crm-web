@@ -25,17 +25,27 @@ export default function PurchasePage() {
   const [editing, setEditing] = useState<PurchaseOrder | null>(null);
   const [showForm, setShowForm] = useState(false);
 
-  const handleSubmit = async (data: Partial<PurchaseOrder>, items: ProductMini[]) => {
-    if (editing) {
-      await update(editing.id, data);
-    } else {
-      await create(data);
-    }
-    setShowForm(false);
-    setEditing(null);
-  };
+const handleSubmit = async (data: Partial<PurchaseOrder>, items: ProductMini[]) => {
+  if (editing) {
+    await update(editing.id, data); // futuro: actualizar ítems también
+  } else {
+    const payload = {
+      ...data,
+      items: items.map((item) => ({
+        product_id: item.id,
+        quantity: item.quantity ?? 0,
+        unit_price: item.unit_price ?? 0,
+        subtotal: (item.unit_price ?? 0) * (item.quantity ?? 0),
+      })),
+    };
 
-  const handleEdit = (po: PurchaseOrder) => {
+    await create(payload);
+  }
+
+  setShowForm(false);
+  setEditing(null);
+};
+const handleEdit = (po: PurchaseOrder) => {
     setEditing(po);
     setShowForm(true);
   };

@@ -2,7 +2,7 @@
 
 import useSWR from 'swr';
 import axios from '@/lib/axiosClient';
-import { PurchaseOrder } from '@/lib/interfaces';
+import { PurchaseOrder, PurchaseOrderItem } from '@/lib/interfaces';
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data.data);
 
@@ -19,8 +19,19 @@ export function usePurchases() {
     return res.data;
   };
 
-  const create = async (payload: Partial<PurchaseOrder>) => {
-    const res = await axios.post('/api/purchase-orders', payload);
+  const create = async (
+    payload: Partial<PurchaseOrder> & { items: PurchaseOrderItem[] }
+  ) => {
+    const total_amount = payload.items?.reduce(
+      (sum, item) => sum + ((item.unit_price ?? 0) * (item.quantity ?? 0)),
+      0
+    );
+
+    const res = await axios.post('/api/purchase-orders', {
+      ...payload,
+      total_amount,
+    });
+
     mutate();
     return res.data;
   };

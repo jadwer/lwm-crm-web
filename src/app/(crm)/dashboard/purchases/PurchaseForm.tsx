@@ -86,31 +86,50 @@ export default function PurchaseForm({ onSubmit, onCancel, suppliers, initialDat
     }
   };
 
-  const handleAddProduct = () => {
-    if (!productResult || quantity <= 0) return;
+const handleAddProduct = () => {
+  if (!productResult || quantity <= 0) return;
 
-    const existing = items.find(p => p.id === productResult.id);
-    if (existing) {
-      setItems(prev =>
-        prev.map(p =>
-          p.id === productResult.id
-            ? {
-                ...p,
-                quantity: (p.quantity || 0) + quantity,
-                subtotal: ((p.quantity || 0) + quantity) * (p.unit_price || 0),
-              }
-            : p
-        )
-      );
-    } else {
-      const subtotal = (productResult.unit_price || 0) * quantity;
-      setItems(prev => [...prev, { ...productResult, quantity, subtotal }]);
-    }
+  const unit_price = productResult.price ?? 0;
+  const subtotal = unit_price * quantity;
 
-    setProductResult(null);
-    setSkuSearch('');
-    setQuantity(1);
-  };
+  const existing = items.find(p => p.id === productResult.id);
+
+  if (existing) {
+    setItems(prev =>
+      prev.map(p =>
+        p.id === productResult.id
+          ? {
+              ...p,
+              quantity: (p.quantity || 0) + quantity,
+              unit_price, // 🛠️ aseguramos el precio
+              subtotal: ((p.quantity || 0) + quantity) * unit_price,
+            }
+          : p
+      )
+    );
+  } else {
+    setItems(prev => [
+      ...prev,
+      {
+        id: productResult.id,
+        name: productResult.name,
+        sku: productResult.sku,
+        quantity,
+        unit_price,
+        subtotal,
+        img_path: productResult.img_path,
+        datasheet_path: productResult.datasheet_path,
+        category_id: productResult.category_id,
+        brand_id: productResult.brand_id,
+        unit_id: productResult.unit_id,
+      },
+    ]);
+  }
+
+  setProductResult(null);
+  setSkuSearch('');
+  setQuantity(1);
+};
 
   const handleDelete = (id: number) => {
     setItems(prev => prev.filter(p => p.id !== id));
@@ -122,126 +141,158 @@ export default function PurchaseForm({ onSubmit, onCancel, suppliers, initialDat
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md space-y-6">
-      <h2 className="text-2xl font-bold">Nueva Orden de Compra</h2>
+<form
+  onSubmit={handleSubmit}
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2rem',
+    padding: '1rem',
+    background: '#fff',
+    borderRadius: '0.5rem',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    maxWidth: '900px',
+    margin: '0 auto'
+  }}
+>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <h3>Nueva Orden de Compra</h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium mb-1">Proveedor</label>
-          <select
-            name="supplier_id"
-            value={form.supplier_id}
-            onChange={handleChange}
-            className="w-full border p-2 rounded"
-          >
-            <option value={0}>Selecciona un proveedor</option>
-            {suppliers.map(s => (
-              <option key={s.id} value={s.id}>{s.name}</option>
-            ))}
-          </select>
-        </div>
+    <label>
+      Proveedor:
+      <select
+        name="supplier_id"
+        value={form.supplier_id}
+        onChange={handleChange}
+        style={{ width: '100%', padding: '0.5rem', borderRadius: '4px' }}
+      >
+        <option value={0}>Selecciona un proveedor</option>
+        {suppliers.map((s) => (
+          <option key={s.id} value={s.id}>{s.name}</option>
+        ))}
+      </select>
+    </label>
 
-        <div>
-          <label className="block text-sm font-medium mb-1">Fecha</label>
-          <input
-            type="date"
-            name="order_date"
-            value={form.order_date}
-            onChange={handleChange}
-            className="w-full border p-2 rounded"
-          />
-        </div>
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-1">Notas</label>
-        <textarea
-          name="notes"
-          value={form.notes}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-      </div>
-
-      <hr className="my-6" />
-
-      <h3 className="text-lg font-semibold">Agregar Productos</h3>
-
-      <div className="flex flex-col md:flex-row md:items-end gap-4">
-        <div className="flex-1">
-          <label className="block text-sm font-medium mb-1">Buscar por SKU</label>
-          <input
-            type="text"
-            placeholder="Ej. SKU12345"
-            value={skuSearch}
-            onChange={e => setSkuSearch(e.target.value)}
-            className="w-full border p-2 rounded"
-          />
-        </div>
-
-        <div>
-          <button type="button" onClick={handleSearch} className="bg-blue-500 text-white px-4 py-2 rounded w-full">
-            Buscar
-          </button>
-        </div>
-
-{productResult && (
-  <>
-    <div className="flex items-center gap-4 md:col-span-2 bg-gray-50 p-4 rounded border border-green-200">
-      {productResult.img_path && (
-        <img
-          src={productResult.img_path}
-          alt={productResult.name}
-          className="w-16 h-16 object-cover rounded border"
-        />
-      )}
-      <div>
-        <p className="text-sm text-green-700 font-medium">
-          Producto encontrado: <strong>{productResult.name}</strong>
-        </p>
-        <p className="text-xs text-gray-500">SKU: {productResult.sku}</p>
-      </div>
-    </div>
-
-    <div className="flex-1">
-      <label className="block text-sm font-medium mb-1">Cantidad</label>
+    <label>
+      Fecha:
       <input
-        type="number"
-        min={1}
-        value={quantity}
-        onChange={e => setQuantity(parseInt(e.target.value))}
-        className="w-full border p-2 rounded"
+        type="date"
+        name="order_date"
+        value={form.order_date}
+        onChange={handleChange}
+        style={{ width: '100%', padding: '0.5rem', borderRadius: '4px' }}
       />
-    </div>
+    </label>
 
-    <div>
-      <label className="block invisible text-sm font-medium mb-1">Agregar</label>
+    <label>
+      Notas:
+      <textarea
+        name="notes"
+        value={form.notes}
+        onChange={handleChange}
+        rows={2}
+        style={{ width: '100%', padding: '0.5rem', borderRadius: '4px' }}
+      />
+    </label>
+  </div>
+
+  <div>
+    <h4>Agregar Productos</h4>
+
+    <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+      <input
+        type="text"
+        value={skuSearch}
+        onChange={(e) => setSkuSearch(e.target.value)}
+        placeholder="Buscar por SKU"
+        style={{ flex: 1, padding: '0.5rem', borderRadius: '4px' }}
+      />
       <button
         type="button"
-        onClick={handleAddProduct}
-        className="bg-green-500 text-white px-4 py-2 rounded w-full"
+        onClick={handleSearch}
+        style={{ padding: '0.5rem 1rem', background: '#ccc', border: 'none', borderRadius: '4px' }}
       >
-        Agregar
+        Buscar
       </button>
     </div>
-  </>
-)}      </div>
 
-      {error && <p className="text-red-600">{error}</p>}
+    {productResult && (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          gap: '1rem',
+          background: '#f9f9f9',
+          padding: '1rem',
+          borderRadius: '8px',
+          boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
+          marginBottom: '1rem'
+        }}
+      >
+        {productResult.img_path && (
+          <img
+            src={productResult.img_path}
+            alt={productResult.name}
+            width={64}
+            height={64}
+            style={{ objectFit: 'contain', borderRadius: '4px' }}
+          />
+        )}
+        <div style={{ flex: 1 }}>
+          <strong>{productResult.name}</strong><br />
+          <small className="text-muted">SKU: {productResult.sku}</small>
 
-      <PurchaseProductTable items={items} onDelete={handleDelete} />
-
-      <div className="flex justify-between items-center border-t pt-4">
-        <strong>Total: ${form.total_amount?.toFixed(2)}</strong>
-        <div className="space-x-2">
-          <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
-            Guardar
-          </button>
-          <button type="button" onClick={onCancel} className="text-gray-600 hover:underline">
-            Cancelar
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem' }}>
+            <label style={{ margin: 0 }}>Cantidad:</label>
+            <input
+              type="number"
+              min={1}
+              value={quantity}
+              onChange={(e) => setQuantity(parseInt(e.target.value))}
+              style={{ width: '5rem', padding: '0.3rem' }}
+            />
+            <button
+              type="button"
+              onClick={handleAddProduct}
+              style={{
+                padding: '0.5rem 1rem',
+                background: '#28a745',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+              }}
+            >
+              Agregar
+            </button>
+          </div>
         </div>
       </div>
-    </form>
-  );
+    )}
+  </div>
+
+  <div>
+    <PurchaseProductTable items={items} onDelete={handleDelete} />
+  </div>
+
+<div style={{
+  display: 'flex',
+  justifyContent: 'flex-end',
+  marginTop: '1rem',
+  fontSize: '1.2rem',
+  fontWeight: 'bold'
+}}>
+  Total: ${form.total_amount?.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })}
+</div>
+
+  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+    <button type="submit" style={{ background: '#28a745', color: 'white', padding: '0.5rem 1.5rem', border: 'none', borderRadius: '4px' }}>
+      Guardar Orden
+    </button>
+    <button type="button" onClick={onCancel} style={{ padding: '0.5rem 1.5rem', border: '1px solid #ccc', borderRadius: '4px' }}>
+      Cancelar
+    </button>
+  </div>
+</form>
+
+);
 }
