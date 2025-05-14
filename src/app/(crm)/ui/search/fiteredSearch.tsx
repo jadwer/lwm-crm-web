@@ -66,7 +66,7 @@ useEffect(() => {
                   <td>{producto.category_id?.name}</td>
                   <td>{producto.brand_id?.name}</td>
                   <td>
-                    <Link href={`/dashboard/edit-product/${producto.id}`}>
+                    <Link href={`/dashboard/products/edit/${producto.id}`}>
                       <i className="bi bi-pencil-square"></i>
                     </Link>{" "}
                     |{" "}

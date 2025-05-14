@@ -77,7 +77,7 @@ const ProductoPage = ({
             <Link href={"/dashboard/import-list"} className="btn btn-primary ms-2">
               Importar lista
             </Link>
-            <Link href={"/dashboard/add-product"} className="btn btn-primary ms-2">
+            <Link href={"/dashboard/products/add/"} className="btn btn-primary ms-2">
               Agregar producto
             </Link>
           </div>

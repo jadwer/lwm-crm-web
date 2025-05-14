@@ -1,48 +1,68 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import FilteredSearch from "@/app/(crm)/ui/search/fiteredSearch"
+import { Category, Brand } from "@/lib/interfaces"
+import { Suspense, useEffect, useState } from "react"
+import { useCategories } from "@/hooks/categories"
+import Link from "next/link"
+import SelectCategories from "../ui/dropdownItems/selectCategoriesFilter"
+import SelectBrands from "../ui/dropdownItems/selectBrandsFilter"
 
-import SelectCategories from '@/app/(crm)/ui/dropdownItems/selectCategories'
-import SelectBrands from '@/app/(crm)/ui/dropdownItems/selectBrands'
-import Paginator from '@/app/(crm)/ui/paginator/paginator'
+const ProductoPage = ({
+  searchParams,
+  params,
+}: {
+  searchParams: {
+    homeSearch: string
+  }
+  params: { category: string }
+}) => {
+  const { category } = params
 
-import { Brand, Category, Product } from '@/lib/interfaces'
-import { useProducts } from '@/hooks/inventory/useProducts'
-import { handleApiErrors } from '@/hooks/utils/handleApiErrors'
-
-const ProductsTemplate = ({ data, functions }: any) => {
-  const productos: Product[] = data ? data.productos.data : []
-  const metaData = data ? data.productos : {} // Cambia esto según la estructura de tu respuesta
-  const searchQueryBuilder = functions.searchQueryBuilder
-
+  const [queryBrandsId, setQueryBrandsId] = useState<string[]>([])
+  const [categoryId, setCategoryId] = useState<string>("")
+  const [searchFilter, setSearchFilter] = useState<string>("")
+  const [searchString, setSearchString] = useState<string>("")
   const [categoria, setCategoria] = useState<Category>({} as Category)
   const [marca, setMarca] = useState<Brand>({} as Brand)
-  const [errors, setErrors] = useState<Record<string, string[]>>({})
-  const [status, setStatus] = useState<string>()
+  const [page, setPage] = useState<string>("")
 
-  const router = useRouter()
-  const { deleteProduct } = useProducts()
+  const { getCategories } = useCategories()
 
-  const handleDeleteProduct = async (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    productId: number
-  ) => {
-    e.preventDefault()
-
-    const confirmDelete = confirm(
-      '¿Estás seguro que quieres eliminar este producto? Esta acción no se puede deshacer.'
-    )
-
-    if (!confirmDelete) return
-
-    try {
-      await deleteProduct(productId)
-      router.refresh()
-    } catch (error: any) {
-      handleApiErrors(error, setErrors, (status) => setStatus(status ?? undefined))
+  useEffect(() => {
+    getCategories({ setCategories: () => {} }) // omitimos set porque ya no usamos categorías aquí
+    if (searchParams.homeSearch !== undefined) {
+      setTimeout(() => {
+        searchQuery(searchParams.homeSearch)
+      }, 1500)
     }
+  }, [])
+
+  useEffect(() => {
+    buildSearchQuery()
+  }, [searchString, page, queryBrandsId, categoryId])
+
+  const buildSearchQuery = () => {
+    const params = new URLSearchParams()
+    params.set("page", page || "1")
+    if (categoryId) params.set("category", categoryId)
+    if (searchString) params.set("name", searchString)
+    if (queryBrandsId.length > 0) {
+      queryBrandsId.forEach((id) => params.append("brand[]", id))
+    }
+    setSearchFilter("?" + params.toString())
+  }
+
+  const pageQuery = (newPage: string) => {
+    if (newPage.includes("?page=")) {
+      newPage = newPage.replace("?page=", "")
+    }
+    setPage(newPage)
+  }
+
+  const searchQuery = (searchStr: string) => {
+    setPage("")
+    setSearchString(searchStr)
   }
 
   return (
@@ -54,10 +74,10 @@ const ProductsTemplate = ({ data, functions }: any) => {
             <h4>Todos los productos</h4>
           </div>
           <div className="col-12 col-md-6 d-flex justify-content-end">
-            <Link href="/dashboard/import-list" className="btn btn-primary ms-2">
+            <Link href={"/dashboard/import-list"} className="btn btn-primary ms-2">
               Importar lista
             </Link>
-            <Link href="/dashboard/add-product" className="btn btn-primary ms-2">
+            <Link href={"/dashboard/products/add/"} className="btn btn-primary ms-2">
               Agregar producto
             </Link>
           </div>
@@ -66,74 +86,38 @@ const ProductsTemplate = ({ data, functions }: any) => {
 
       <div className="container-fluid container-product">
         <div className="row back-header-2">
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <SelectCategories
-              stateData={{ categoria, setCategoria }}
+              stateData={{ categoria, setCategoria, setCategoryId }}
               label="Filtro por categoría"
             />
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <SelectBrands
-              stateData={{ marca, setMarca }}
+              stateData={{ marca, setMarca, setQueryBrandsId }}
               label="Filtro por marca"
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <div className="input-group mb-3">
               <input
                 type="text"
-                className="form-control"
-                placeholder="Buscar producto"
-                aria-label="Buscar"
-                aria-describedby="button-addon2"
+                id="searchProduct"
+                className="col-md-10 form-control"
+                placeholder="Introduzca el nombre del producto"
+                value={searchString}
+                onChange={(e) => {
+                  searchQuery(e.target.value)
+                }}
               />
-              <button className="btn btn-primary" type="button" id="button-addon2">
-                Buscar
-              </button>
             </div>
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-12 mt-2 table-product">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Categoría</th>
-                  <th>Marca</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {productos.map((producto) => (
-                  <tr key={producto.id}>
-                    <td>
-                      <Link href={`/producto/${producto.id}`} target="_blank" rel="noopener noreferrer">
-                        {producto.name}
-                      </Link>
-                    </td>
-                    <td>{producto.category_id?.name}</td>
-                    <td>{producto.brand_id?.name}</td>
-                    <td>
-                      <Link href={`/dashboard/edit-product/${producto.id}`} className="me-2">
-                        <i className="bi bi-pencil-square" />
-                      </Link>
-                      <a href="#" onClick={(e) => handleDeleteProduct(e, producto.id)}>
-                        <i className="bi bi-trash" />
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            <Paginator data={{ metaData }} functions={{ searchQueryBuilder }} />
-          </div>
-        </div>
+        <FilteredSearch data={{ searchFilter }} functions={{ pageQuery, setPage }} />
       </div>
     </main>
   )
 }
 
-export default ProductsTemplate
+export default ProductoPage
